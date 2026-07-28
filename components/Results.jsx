@@ -44,7 +44,7 @@ export default function Results() {
   }, []);
 
   if (loading) {
-    return <section id="results" className="py-24 px-5 bg-surface-container-low min-h-[500px]"></section>;
+    return <section id="results" className="py-24 px-5 bg-white min-h-[500px]"></section>;
   }
 
   // Fallback to static text if no data exists
@@ -56,17 +56,17 @@ export default function Results() {
   const highlightValue = parseInt(featured?.metrics?.value?.replace(/[^0-9]/g, '') || "412", 10) || 412;
 
   return (
-    <section id="results" className="py-24 px-5 bg-surface-container-low">
+    <section id="results" className="py-24 px-5 bg-white">
       <Reveal variant="zoom" className="max-w-md md:max-w-3xl mx-auto">
-        <div className="bg-surface-container-lowest rounded-3xl shadow-card overflow-hidden border border-outline-variant">
+        <div className="bg-white rounded-3xl shadow-card overflow-hidden border border-lightgray">
           <div className="relative h-64 md:h-80">
             <Image
               alt="Modern dental implant surgical suite"
               fill
               className="object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZSb1lgXDwN1fllq1wsxlo4DOwQzake34AmX-HfS1vCdGlPZbv6sOB3Jdcc_BwGtHvWSpQ3_TFDOgXX-h0M3Vm-hqJcGJ3wMWaaCP2AqlxFZEh07Zwua_974SvxqJWs8Bs947aECYUD8dS8GmwNCnbgwJWFlj-gyFbBfe0OBcqwt2hO97Tgk2kzxivCFY60_-0KlMYfexqtWuFgTtPGVSSRgw78vEKbVivJCXJ18olM3D0cJar8qLmVw" />
+              src="/results.png" />
             
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/90 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-6 right-6">
               <span className="font-mono text-[10px] text-white/80 uppercase">
                 Featured Case Study
@@ -78,22 +78,22 @@ export default function Results() {
           <div className="p-8 md:p-10">
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center">
-                <p className="text-[34px] md:text-[44px] font-display font-extrabold text-primary leading-none">
+                <p className="text-[34px] md:text-[44px] font-display font-extrabold text-graphite leading-none">
                   <Counter target={highlightValue} />
                 </p>
-                <p className="font-mono text-[10px] text-outline uppercase mt-2">{highlightLabel}</p>
+                <p className="font-mono text-[10px] text-cloud uppercase mt-2">{highlightLabel}</p>
               </div>
               <div className="text-center hidden sm:block">
-                <p className="text-[34px] md:text-[44px] font-display font-extrabold text-primary leading-none">
+                <p className="text-[34px] md:text-[44px] font-display font-extrabold text-graphite leading-none">
                   <Counter target={158} />
                 </p>
-                <p className="font-mono text-[10px] text-outline uppercase mt-2">Consultations</p>
+                <p className="font-mono text-[10px] text-cloud uppercase mt-2">Consultations</p>
               </div>
               <div className="text-center hidden sm:block">
-                <p className="text-[34px] md:text-[44px] font-display font-extrabold text-primary leading-none">
+                <p className="text-[34px] md:text-[44px] font-display font-extrabold text-graphite leading-none">
                   <Counter target={48920} currency />
                 </p>
-                <p className="font-mono text-[10px] text-outline uppercase mt-2">Monthly production</p>
+                <p className="font-mono text-[10px] text-cloud uppercase mt-2">Monthly production</p>
               </div>
             </div>
 
@@ -109,23 +109,23 @@ export default function Results() {
                 className="pulse-path"
                 data-drawn={lineVisible}
                 d="M0 48 L60 44 L100 50 L140 30 L190 34 L230 14 L280 18 L330 6 L400 4"
-                stroke="#78C626"
+                stroke="#ced1cd"
                 strokeWidth={2.5}
                 strokeLinecap="round"
                 strokeLinejoin="round" />
               
             </svg>
 
-            <blockquote className="border-l-4 border-lime pl-5 italic text-on-surface-variant text-[15px] leading-relaxed mb-8">
+            <blockquote className="border-l-4 border-lightgray pl-5 italic text-cloud text-[15px] leading-relaxed mb-8">
               &ldquo;{quote}&rdquo;
-              <footer className="not-italic font-semibold text-on-surface mt-2">
+              <footer className="not-italic font-semibold text-graphite mt-2">
                 — {authorName}, {clinicName}
               </footer>
             </blockquote>
 
             <a
               href="/contact"
-              className="btn-primary bg-primary hover:bg-primary-deep text-white font-bold py-4 px-8 rounded-full block text-center w-full">
+              className="btn-primary bg-graphite hover:bg-black text-white font-bold py-4 px-8 rounded-full block text-center w-full">
               
               What are your goals?
             </a>
@@ -135,13 +135,13 @@ export default function Results() {
 
       <Reveal
         delay={600}
-        className="max-w-md md:max-w-3xl mx-auto mt-8 flex justify-between px-2 text-[11px] font-mono font-bold text-primary uppercase tracking-wider text-center">
+        className="max-w-md md:max-w-3xl mx-auto mt-8 flex justify-between px-2 text-[11px] font-mono font-bold text-graphite uppercase tracking-wider text-center">
         
-        <a className="w-1/2 p-3 hover:bg-surface-container-lowest rounded-lg transition-colors" href="/results">
+        <a className="w-1/2 p-3 hover:bg-[#f7f7f7] rounded-lg transition-colors" href="/results">
           Acquisition practices
         </a>
         <a
-          className="w-1/2 p-3 hover:bg-surface-container-lowest rounded-lg transition-colors border-l border-outline-variant"
+          className="w-1/2 p-3 hover:bg-[#f7f7f7] rounded-lg transition-colors border-l border-lightgray"
           href="/results">
           
           Startup practices

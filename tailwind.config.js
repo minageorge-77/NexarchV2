@@ -8,32 +8,19 @@ const config = {
   theme: {
     extend: {
       colors: {
-        ink: "#08160F",
-        primary: "#0B733D",
-        "primary-deep": "#04301E",
-        "primary-container": "#0F5C31",
-        "on-primary": "#FFFFFF",
-        "on-primary-variant": "#BEE8CE",
-        surface: "#F6F9F4",
-        "surface-warm": "#FBFCF8",
-        "surface-container": "#E9F0E3",
-        "surface-container-low": "#EFF5EA",
-        "surface-container-lowest": "#FFFFFF",
-        "on-surface": "#101E16",
-        "on-surface-variant": "#4A5B4E",
-        outline: "#8B9A8F",
-        "outline-variant": "#D6E2CE",
-        lime: "#78C626",
-        "lime-dark": "#5FA31C"
+        graphite: "#14171a",
+        cloud: "#8a9299",
+        lightgray: "#ced1cd",
+        white: "#ffffff"
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ['"Hanken Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"]
+        sans: ['"Archivo"', "sans-serif"],
+        display: ['"Archivo Expanded"', "sans-serif"],
+        mono: ['"Archivo"', "sans-serif"]
       },
       boxShadow: {
-        lift: "0 20px 40px -18px rgba(4,48,30,0.35)",
-        card: "0 8px 30px -12px rgba(8,22,15,0.15)"
+        lift: "0 20px 40px -18px rgba(20, 23, 26, 0.15)",
+        card: "0 8px 30px -12px rgba(20, 23, 26, 0.08)"
       },
       transitionDelay: {
         "100": "100ms", "150": "150ms", "200": "200ms", "300": "300ms",

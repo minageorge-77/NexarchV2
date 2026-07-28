@@ -18,7 +18,7 @@ export default function ScrollProgress() {
   return (
     <div className="fixed top-0 left-0 w-full h-[3px] z-[60] bg-transparent" aria-hidden="true">
       <div
-        className="h-full bg-gradient-to-r from-lime to-primary-container origin-left"
+        className="h-full bg-graphite origin-left"
         style={{ transform: `scaleX(${scale})` }} />
       
     </div>);

@@ -24,6 +24,10 @@ const ServiceSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    imageUrl: {
+      type: String,
+      default: "",
+    },
     features: {
       type: [String],
       default: [],

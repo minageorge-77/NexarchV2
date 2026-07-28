@@ -12,7 +12,6 @@ import CTABanner from "@/components/CTABanner";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import ChatFab from "@/components/ChatFab";
 
 export const metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
@@ -39,7 +38,6 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
-      <ChatFab />
-    </>);
-
+    </>
+  );
 }

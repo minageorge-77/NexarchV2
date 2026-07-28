@@ -44,14 +44,14 @@ const features = [
 
 export default function Platform() {
   return (
-    <section id="platform" className="py-24 px-5 bg-surface-warm">
+    <section id="platform" className="py-24 px-5 bg-white">
       <div className="max-w-md md:max-w-5xl mx-auto">
         <Reveal className="text-center mb-14">
-          <span className="font-mono text-[11px] uppercase text-lime-dark">The Platform</span>
-          <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-primary mt-3 leading-tight">
+          <span className="font-mono text-[11px] uppercase text-cloud">The Platform</span>
+          <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mt-3 leading-tight">
             One platform, every stage of implant acquisition
           </h2>
-          <p className="text-on-surface-variant mt-4 max-w-lg mx-auto">
+          <p className="text-cloud mt-4 max-w-lg mx-auto">
             Most agencies hand you a report. NexArch hands you a growth platform — a high-converting website, a
             patient CRM, and a live analytics dashboard, running as one connected system.
           </p>
@@ -60,17 +60,17 @@ export default function Platform() {
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((f, i) =>
           <Reveal key={f.title} delay={100 * (i + 1)}>
-              <div className="lift-card bg-surface-container-lowest p-7 rounded-2xl shadow-card border border-outline-variant h-full">
+              <div className="lift-card bg-white p-7 rounded-2xl shadow-card border border-lightgray h-full">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="icon-wrap w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-primary">
+                  <div className="icon-wrap w-12 h-12 bg-white border border-lightgray rounded-full flex items-center justify-center text-graphite">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       {f.icon}
                     </svg>
                   </div>
-                  <span className="font-mono text-[10px] text-outline uppercase">{f.tag}</span>
+                  <span className="font-mono text-[10px] text-cloud uppercase">{f.tag}</span>
                 </div>
-                <h3 className="text-xl font-display font-bold text-on-surface mb-2">{f.title}</h3>
-                <p className="text-on-surface-variant text-[15px] leading-relaxed">{f.body}</p>
+                <h3 className="text-xl font-display font-bold text-graphite mb-2">{f.title}</h3>
+                <p className="text-cloud text-[15px] leading-relaxed">{f.body}</p>
               </div>
             </Reveal>
           )}

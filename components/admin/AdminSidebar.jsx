@@ -29,11 +29,11 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-primary-deep text-white flex flex-col h-screen lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-graphite text-white flex flex-col h-screen lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         
         <div className="h-16 flex items-center px-6 border-b border-white/10 shrink-0">
           <Link href="/admin" className="text-xl font-display font-extrabold tracking-wider uppercase flex items-center gap-2">
-            <span className="text-lime-dark">Nex</span>Arch
+            <span className="text-white">Nex</span>Arch
           </Link>
         </div>
 
@@ -46,7 +46,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
                 isActive ?
-                "bg-lime/20 text-lime" :
+                "bg-white/10 text-white" :
                 "text-white/70 hover:bg-white/5 hover:text-white"}`
                 }
                 onClick={() => setIsOpen(false)} // close on mobile

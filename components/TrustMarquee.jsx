@@ -11,8 +11,8 @@ export default function TrustMarquee() {
   const doubled = [...practices, ...practices];
 
   return (
-    <section className="bg-primary-deep py-6 overflow-hidden border-t border-white/10" aria-label="Trusted practices">
-      <p className="text-center font-mono text-[10px] uppercase text-on-primary-variant mb-4">
+    <section className="bg-graphite py-6 overflow-hidden border-t border-white/10" aria-label="Trusted practices">
+      <p className="text-center font-mono text-[10px] uppercase text-cloud mb-4">
         Trusted by implant practices in 14 states
       </p>
       <div className="marquee-wrap w-full overflow-hidden">

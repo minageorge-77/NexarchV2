@@ -2,7 +2,6 @@
 import { siteConfig } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ChatFab from "@/components/ChatFab";
 import Testimonials from "@/components/Testimonials";
 import TrustMarquee from "@/components/TrustMarquee";
 import FinalCTA from "@/components/FinalCTA";
@@ -41,13 +40,15 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main id="top" className="bg-surface-warm pt-24">
+      <main id="top" className="bg-white pt-24">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[400px] bg-primary-deep flex items-center pt-20 pb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay"></div>
+        <section className="relative w-full min-h-[450px] bg-graphite flex items-center pt-20 pb-16 overflow-hidden bg-[url('/nexarch%20bg.png')] bg-cover bg-center bg-fixed">
+          {/* Dark Overlay over the fixed background image */}
+          <div className="absolute inset-0 bg-graphite/80 z-0"></div>
+          <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
           <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
             <Reveal variant="up">
-              <span className="font-mono text-[11px] text-lime uppercase mb-4 block tracking-wider">
+              <span className="font-mono text-[11px] text-cloud uppercase mb-4 block tracking-wider">
                 Our Mission
               </span>
               <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
@@ -63,26 +64,26 @@ export default function AboutPage() {
         {/* Story Section */}
         <section className="py-24 px-6 max-w-4xl mx-auto text-center">
           <Reveal variant="up">
-            <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-primary mb-6 leading-tight">
+            <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mb-6 leading-tight">
               The Engine Behind Clinical Growth
             </h2>
-            <p className="text-on-surface-variant text-lg leading-relaxed mb-6">
+            <p className="text-cloud text-lg leading-relaxed mb-6">
               Most dental practices possess incredible clinical skills but lack the infrastructure to predictably attract $20k+ implant cases. They rely on disjointed agencies, fragmented software, and intuition rather than hard data.
             </p>
-            <p className="text-on-surface-variant text-lg leading-relaxed">
+            <p className="text-cloud text-lg leading-relaxed">
               NexArch was founded to solve this. We combine elite patient marketing with a powerful backend platform—giving practice owners a single system that handles everything from the first ad click to the scheduled consultation. We don't just generate leads; we engineer growth.
             </p>
           </Reveal>
         </section>
 
         {/* Values Section */}
-        <section className="py-20 px-6 bg-surface-container-lowest border-y border-outline-variant">
+        <section className="py-20 px-6 bg-white border-y border-lightgray">
           <div className="max-w-6xl mx-auto">
             <Reveal variant="up" className="text-center mb-16">
-              <span className="font-mono text-[11px] text-primary uppercase mb-4 block tracking-wider">
+              <span className="font-mono text-[11px] text-graphite uppercase mb-4 block tracking-wider">
                 Our Principles
               </span>
-              <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-primary leading-tight">
+              <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite leading-tight">
                 How We Operate
               </h2>
             </Reveal>
@@ -91,15 +92,15 @@ export default function AboutPage() {
               {values.map((value, idx) =>
               <Reveal key={value.title} variant="up" delay={100 * (idx + 1)}>
                   <div className="text-center p-6">
-                    <div className="w-16 h-16 mx-auto bg-surface-warm rounded-full flex items-center justify-center text-primary mb-6">
+                    <div className="w-16 h-16 mx-auto bg-[#f7f7f7] rounded-full flex items-center justify-center text-graphite mb-6">
                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {value.icon}
                       </svg>
                     </div>
-                    <h3 className="text-xl font-display font-bold text-on-surface mb-3">
+                    <h3 className="text-xl font-display font-bold text-graphite mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-on-surface-variant text-base leading-relaxed">
+                    <p className="text-cloud text-base leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -114,7 +115,6 @@ export default function AboutPage() {
         <FinalCTA />
       </main>
       <Footer />
-      <ChatFab />
     </>);
 
 }

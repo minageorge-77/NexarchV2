@@ -14,16 +14,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-primary-deep border-t border-white/10 text-on-primary-variant">
+    <footer className="bg-graphite border-t border-white/10 text-cloud">
       <div className="max-w-md md:max-w-5xl mx-auto px-5 md:px-10 pt-16 pb-8">
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="bg-white rounded-lg p-1.5 shadow-sm flex items-center justify-center">
-                <Image src="/logo.png" alt={`${siteConfig.name} logo`} width={28} height={28} className="h-7 w-7 object-contain" />
+              <span className="flex items-center justify-center">
+                <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={28} height={28} className="h-7 w-auto object-contain" />
               </span>
-              <span className="font-display font-extrabold text-lg text-white">
-                NEX<span className="text-lime">ARCH</span>
+              <span className="font-display font-extrabold text-lg text-white tracking-tight">
+                Nexarch
               </span>
             </div>
             <p className="text-[14px] mt-4 leading-relaxed max-w-xs">
@@ -38,7 +38,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Social link"
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-lime hover:text-lime transition-colors">
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-white hover:text-white transition-colors">
                 
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="12" cy="12" r="9" strokeWidth={2} />
@@ -61,10 +61,9 @@ export default function Footer() {
           <div>
             <h4 className="font-mono text-[11px] uppercase text-white mb-4">Company</h4>
             <ul className="space-y-3 text-[14px]">
-              <li><a className="hover:text-white transition-colors" href="#">About</a></li>
-              <li><a className="hover:text-white transition-colors" href="#">Careers</a></li>
-              <li><a className="hover:text-white transition-colors" href="#">Case studies</a></li>
-              <li><a className="hover:text-white transition-colors" href="#contact">Contact</a></li>
+              <li><a className="hover:text-white transition-colors" href="/about">About</a></li>
+              <li><a className="hover:text-white transition-colors" href="/results">Case studies</a></li>
+              <li><a className="hover:text-white transition-colors" href="/contact">Contact</a></li>
             </ul>
           </div>
 
@@ -78,19 +77,19 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="you@practice.com"
-                className="min-w-0 flex-1 bg-white/10 border border-white/20 rounded-full px-4 py-2.5 text-[14px] text-white placeholder-white/50 focus:outline-none focus:border-lime" />
+                className="min-w-0 flex-1 bg-white/10 border border-white/20 rounded-full px-4 py-2.5 text-[14px] text-white placeholder-white/50 focus:outline-none focus:border-lightgray" />
               
               <button
                 type="submit"
                 aria-label="Subscribe"
-                className="bg-lime hover:bg-lime-dark text-white w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors">
+                className="bg-white hover:bg-lightgray text-graphite w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors">
                 
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
                 </svg>
               </button>
             </form>
-            <p className="text-[12px] text-lime mt-2 h-4">{message}</p>
+            <p className="text-[12px] text-white mt-2 h-4">{message}</p>
           </div>
         </div>
 
@@ -101,9 +100,15 @@ export default function Footer() {
             <span className="opacity-30">·</span>
             <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">{siteConfig.email}</a>
           </div>
-          <div className="flex gap-5">
-            <a className="hover:text-white transition-colors" href="#">Privacy</a>
-            <a className="hover:text-white transition-colors" href="#">Terms</a>
+          <div>
+            Designed by{" "}
+            <a
+              href="https://www.linkedin.com/in/mina-george-08b563320/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:underline transition-colors font-medium">
+              Mina George
+            </a>
           </div>
         </div>
       </div>

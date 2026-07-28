@@ -3,28 +3,7 @@ import Providers from "@/components/Providers";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 
-// Self-hosted fonts via @fontsource — the actual .woff2 files ship inside the
-// npm package itself, so `npm install` (registry only) is the only network
-// dependency. This avoids next/font/google's build-time fetch to
-// fonts.gstatic.com / fonts.googleapis.com, which fails on networks that
-// block Google's font CDN (corporate proxies, firewalled CI, air-gapped
-// containers). Only the weights actually used in the UI are imported to
-// keep the bundle lean.
-import "@fontsource/hanken-grotesk/400.css";
-import "@fontsource/hanken-grotesk/500.css";
-import "@fontsource/hanken-grotesk/600.css";
-import "@fontsource/hanken-grotesk/700.css";
-import "@fontsource/hanken-grotesk/800.css";
-import "@fontsource/hanken-grotesk/900.css";
-import "@fontsource/plus-jakarta-sans/400.css";
-import "@fontsource/plus-jakarta-sans/500.css";
-import "@fontsource/plus-jakarta-sans/600.css";
-import "@fontsource/plus-jakarta-sans/700.css";
-import "@fontsource/plus-jakarta-sans/800.css";
-import "@fontsource/jetbrains-mono/400.css";
-import "@fontsource/jetbrains-mono/500.css";
-import "@fontsource/jetbrains-mono/600.css";
-import "@fontsource/jetbrains-mono/700.css";
+
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -74,9 +53,9 @@ export const metadata = {
     images: [siteConfig.ogImage]
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png"
+    icon: "/nexarchLogo.png",
+    shortcut: "/nexarchLogo.png",
+    apple: "/nexarchLogo.png"
   },
   manifest: "/site.webmanifest"
 };
@@ -94,7 +73,7 @@ export default function RootLayout({ children }) {
     name: siteConfig.legalName,
     alternateName: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    logo: `${siteConfig.url}/nexarchLogo.png`,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
@@ -120,6 +99,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@400;700;800;900&family=Archivo:wght@100..900&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

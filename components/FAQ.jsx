@@ -39,12 +39,12 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 px-5 bg-surface-container-low">
+    <section id="faq" className="py-24 px-5 bg-[#f7f7f7]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="max-w-md md:max-w-2xl mx-auto">
         <Reveal className="text-center mb-12">
-          <span className="font-mono text-[11px] uppercase text-lime-dark">Questions</span>
-          <h2 className="text-[28px] md:text-[36px] font-display font-extrabold text-primary mt-3 leading-tight">
+          <span className="font-mono text-[11px] uppercase text-cloud">Questions</span>
+          <h2 className="text-[28px] md:text-[36px] font-display font-extrabold text-graphite mt-3 leading-tight">
             Before you book the call
           </h2>
         </Reveal>
@@ -54,15 +54,15 @@ export default function FAQ() {
             const isOpen = openIndex === i;
             return (
               <Reveal key={faq.q} delay={100 * (i + 1)}>
-                <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden">
+                <div className="bg-white rounded-2xl border border-lightgray overflow-hidden">
                   <button
                     className="w-full flex items-center justify-between p-5 text-left"
                     aria-expanded={isOpen}
                     onClick={() => setOpenIndex(isOpen ? null : i)}>
                     
-                    <span className="font-display font-bold text-on-surface">{faq.q}</span>
+                    <span className="font-display font-bold text-graphite">{faq.q}</span>
                     <svg
-                      className="faq-chevron w-5 h-5 text-primary shrink-0 ml-4"
+                      className="faq-chevron w-5 h-5 text-graphite shrink-0 ml-4"
                       data-open={isOpen}
                       fill="none"
                       stroke="currentColor"
@@ -73,7 +73,7 @@ export default function FAQ() {
                     </svg>
                   </button>
                   <div className="faq-panel px-5" style={{ maxHeight: isOpen ? "300px" : 0 }}>
-                    <p className="text-on-surface-variant text-[15px] pb-5 leading-relaxed">{faq.a}</p>
+                    <p className="text-cloud text-[15px] pb-5 leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               </Reveal>);

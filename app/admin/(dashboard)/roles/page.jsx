@@ -83,9 +83,9 @@ export default function RolesManagementPage() {
     header: "Role Name",
     accessor: (row) =>
     <div className="flex items-center gap-2">
-          <p className="font-bold text-on-surface">{row.name}</p>
+          <p className="font-bold text-graphite">{row.name}</p>
           {row.isSystem &&
-      <span className="inline-block px-1.5 py-0.5 rounded text-[10px] uppercase font-bold bg-primary/10 text-primary border border-primary/20">
+      <span className="inline-block px-1.5 py-0.5 rounded text-[10px] uppercase font-bold bg-[#f7f7f7] text-graphite border border-lightgray">
               System
             </span>
       }
@@ -95,7 +95,7 @@ export default function RolesManagementPage() {
   {
     header: "Description",
     accessor: (row) =>
-    <span className="text-on-surface-variant text-sm">
+    <span className="text-cloud text-sm">
           {row.description}
         </span>
 
@@ -103,7 +103,7 @@ export default function RolesManagementPage() {
   {
     header: "Permissions",
     accessor: (row) =>
-    <span className="text-on-surface-variant text-sm">
+    <span className="text-cloud text-sm">
           {row.permissions?.length || 0} assigned
         </span>
 
@@ -112,7 +112,7 @@ export default function RolesManagementPage() {
     header: "Actions",
     accessor: (row) =>
     <div className="flex items-center gap-3">
-          <button onClick={() => handleEdit(row)} className="text-on-surface hover:text-lime transition-colors">Edit</button>
+          <button onClick={() => handleEdit(row)} className="text-graphite hover:text-black transition-colors">Edit</button>
           {!row.isSystem &&
       <button
         onClick={() => handleDelete(row.id || row._id)}
@@ -140,7 +140,7 @@ export default function RolesManagementPage() {
         
         {isLoading ?
         <div className="flex justify-center p-12">
-            <svg className="animate-spin h-8 w-8 text-lime" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="animate-spin h-8 w-8 text-graphite" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>

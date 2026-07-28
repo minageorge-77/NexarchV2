@@ -53,7 +53,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[640px] md:min-h-[720px] bg-primary-deep overflow-hidden flex items-center">
+    <section className="relative w-full min-h-[640px] md:min-h-[720px] bg-graphite overflow-hidden flex items-center">
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -68,7 +68,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-          "linear-gradient(180deg, rgba(4,48,30,0.55) 0%, rgba(4,48,30,0.74) 55%, rgba(4,48,30,0.95) 100%)"
+          "linear-gradient(180deg, rgba(20,23,26,0.55) 0%, rgba(20,23,26,0.74) 55%, rgba(20,23,26,0.95) 100%)"
         }} />
       
 
@@ -90,18 +90,18 @@ export default function Hero() {
           strokeLinecap="round"
           strokeLinejoin="round" />
         
-        <circle ref={dotRef} className="pulse-dot" data-shown={dotShown} cx="690" cy="14" r="6" fill="#78C626" />
+        <circle ref={dotRef} className="pulse-dot" data-shown={dotShown} cx="690" cy="14" r="6" fill="#ffffff" />
         <defs>
           <linearGradient id="pulseGrad" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#BEE8CE" />
-            <stop offset="0.55" stopColor="#4C9A4E" />
-            <stop offset="1" stopColor="#78C626" />
+            <stop offset="0" stopColor="#ced1cd" />
+            <stop offset="0.55" stopColor="#8a9299" />
+            <stop offset="1" stopColor="#ffffff" />
           </linearGradient>
         </defs>
       </svg>
 
       <div className="relative z-10 w-full max-w-[1100px] mx-auto flex flex-col items-center text-center px-6 pt-16">
-        <span className="reveal reveal-up delay-100 font-mono text-[11px] text-on-primary-variant uppercase mb-5" data-visible="true">
+        <span className="reveal reveal-up delay-100 font-mono text-[11px] text-cloud uppercase mb-5" data-visible="true">
           Technology-Enabled Dental Growth Platform
         </span>
         <div className="min-h-[110px] md:min-h-[150px] flex items-end justify-center mb-3 w-full">
@@ -116,7 +116,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md">
           <a
             href="#contact"
-            className="btn-primary bg-lime hover:bg-lime-dark text-white font-bold py-4 px-7 rounded-full text-center w-full sm:w-auto">
+            className="btn-primary bg-white hover:bg-lightgray text-graphite font-bold py-4 px-7 rounded-full text-center w-full sm:w-auto">
             
             Book a Consultation
           </a>
@@ -130,7 +130,7 @@ export default function Hero() {
 
         <a
           href="#platform"
-          className="animate-cueBounce mt-14 flex flex-col items-center gap-2 text-on-primary-variant">
+          className="animate-cueBounce mt-14 flex flex-col items-center gap-2 text-cloud">
           
           <span className="font-mono text-[10px] uppercase">Scroll to see the numbers</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

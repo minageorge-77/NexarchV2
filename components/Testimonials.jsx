@@ -20,8 +20,7 @@ export default function Testimonials() {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
-        const res = await fetch(`${baseURL}/testimonials`);
+        const res = await fetch(`/api/testimonials`);
         if (res.ok) {
           const data = await res.json();
           // Filter out those without content
@@ -45,7 +44,7 @@ export default function Testimonials() {
   };
 
   if (loading) {
-    return <section className="py-24 bg-surface-warm min-h-[400px]"></section>;
+    return <section className="py-24 bg-[#f7f7f7] min-h-[400px]"></section>;
   }
 
   if (testimonials.length === 0) {
@@ -53,12 +52,12 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-24 bg-surface-warm overflow-hidden" aria-label="Testimonials">
+    <section className="py-24 bg-[#f7f7f7] overflow-hidden" aria-label="Testimonials">
       <div className="max-w-md md:max-w-3xl mx-auto px-5">
         <Reveal className="flex items-end justify-between mb-8">
           <div>
-            <span className="font-mono text-[11px] uppercase text-lime-dark">In their words</span>
-            <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-primary mt-2 leading-tight">
+            <span className="font-mono text-[11px] uppercase text-cloud">In their words</span>
+            <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-graphite mt-2 leading-tight">
               Practices like yours, growing
             </h2>
           </div>
@@ -66,7 +65,7 @@ export default function Testimonials() {
             <button
               aria-label="Previous testimonial"
               onClick={() => scrollBy(-1)}
-              className="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-lowest transition-colors">
+              className="w-10 h-10 rounded-full border border-lightgray flex items-center justify-center hover:bg-white transition-colors">
               
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
@@ -75,7 +74,7 @@ export default function Testimonials() {
             <button
               aria-label="Next testimonial"
               onClick={() => scrollBy(1)}
-              className="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-lowest transition-colors">
+              className="w-10 h-10 rounded-full border border-lightgray flex items-center justify-center hover:bg-white transition-colors">
               
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
@@ -90,28 +89,28 @@ export default function Testimonials() {
           {testimonials.map((t) =>
           <div
             key={t._id}
-            className="testi-card shrink-0 w-[85%] sm:w-[70%] md:w-[48%] bg-surface-container-lowest rounded-2xl p-7 shadow-card border border-outline-variant">
+            className="testi-card shrink-0 w-[85%] sm:w-[70%] md:w-[48%] bg-white rounded-2xl p-7 shadow-card border border-lightgray">
             
               <div className="flex items-center gap-3 mb-4">
-                {t.avatarUrl ?
+                {t.imageUrl ?
               <Image
-                src={t.avatarUrl}
+                src={t.imageUrl}
                 alt={t.clientName}
                 width={44}
                 height={44}
                 className="w-11 h-11 rounded-full object-cover" /> :
 
 
-              <div className="w-11 h-11 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold">
+              <div className="w-11 h-11 rounded-full bg-lightgray flex items-center justify-center text-graphite font-bold">
                     {t.clientName.charAt(0)}
                   </div>
               }
                 <div>
-                  <p className="font-display font-bold text-sm text-on-surface">{t.clientName}</p>
-                  <p className="font-mono text-[10px] text-outline uppercase">{t.clinicName}</p>
+                  <p className="font-display font-bold text-sm text-graphite">{t.clientName}</p>
+                  <p className="font-mono text-[10px] text-cloud uppercase">{t.clinicName}</p>
                 </div>
               </div>
-              <p className="text-on-surface-variant text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
+              <p className="text-cloud text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
             </div>
           )}
         </div>

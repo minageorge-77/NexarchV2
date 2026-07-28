@@ -31,22 +31,22 @@ export default function Process() {
   const { ref, visible } = useReveal(0.2);
 
   return (
-    <section id="process" className="py-24 px-5 bg-surface">
+    <section id="process" className="py-24 px-5 bg-white">
       <div className="max-w-md md:max-w-3xl mx-auto">
         <Reveal className="text-center mb-16">
-          <span className="font-mono text-[11px] uppercase text-lime-dark">How it works</span>
-          <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-primary mt-3 leading-tight">
+          <span className="font-mono text-[11px] uppercase text-cloud">How it works</span>
+          <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mt-3 leading-tight">
             Four steps, ninety days
           </h2>
-          <p className="text-on-surface-variant mt-4">
+          <p className="text-cloud mt-4">
             No lock-in mystery. Here&apos;s the actual sequence every practice goes through with us.
           </p>
         </Reveal>
 
         <div ref={ref} className="relative pl-10 md:pl-14">
-          <div className="absolute left-[15px] md:left-[19px] top-2 bottom-2 w-[2px] bg-outline-variant" />
+          <div className="absolute left-[15px] md:left-[19px] top-2 bottom-2 w-[2px] bg-lightgray" />
           <div
-            className="absolute left-[15px] md:left-[19px] top-2 w-[2px] bg-lime transition-[height] duration-[1600ms] ease-out"
+            className="absolute left-[15px] md:left-[19px] top-2 w-[2px] bg-graphite transition-[height] duration-[1600ms] ease-out"
             style={{ height: visible ? "100%" : "0%" }} />
           
 
@@ -54,13 +54,13 @@ export default function Process() {
           <div key={step.num} className={`relative ${i < steps.length - 1 ? "mb-14" : ""}`}>
               <span
               className={`absolute -left-10 md:-left-14 top-0 w-8 h-8 rounded-full text-white font-mono text-xs flex items-center justify-center ${
-              step.accent ? "bg-lime" : "bg-primary"}`
+              step.accent ? "bg-graphite" : "bg-cloud"}`
               }>
               
                 {step.num}
               </span>
-              <h3 className="text-lg font-display font-bold text-on-surface mb-1">{step.title}</h3>
-              <p className="text-on-surface-variant text-[15px] leading-relaxed">{step.body}</p>
+              <h3 className="text-lg font-display font-bold text-graphite mb-1">{step.title}</h3>
+              <p className="text-cloud text-[15px] leading-relaxed">{step.body}</p>
             </div>
           )}
         </div>

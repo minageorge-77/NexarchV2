@@ -14,6 +14,10 @@ const TestimonialSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    imageUrl: {
+      type: String,
+      default: "",
+    },
     content: {
       type: String,
       required: true,

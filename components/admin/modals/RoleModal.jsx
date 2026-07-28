@@ -81,13 +81,13 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed top-0 right-0 h-full w-full md:w-[600px] bg-surface text-on-surface z-[110] shadow-2xl flex flex-col overflow-hidden">
+          className="fixed top-0 right-0 h-full w-full md:w-[600px] bg-white text-graphite z-[110] shadow-2xl flex flex-col overflow-hidden">
           
-            <div className="flex items-center justify-between p-6 border-b border-outline-variant bg-surface-warm">
+            <div className="flex items-center justify-between p-6 border-b border-lightgray bg-[#f7f7f7]">
               <h2 className="text-xl font-display font-bold">
                 {role ? "Edit Role" : "Add New Role"}
               </h2>
-              <button onClick={onClose} className="text-on-surface-variant hover:text-lime transition-colors">
+              <button onClick={onClose} className="text-cloud hover:text-black transition-colors">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -96,7 +96,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
 
             <div className="flex-1 overflow-y-auto p-6">
               {role?.isSystem &&
-            <div className="mb-6 p-4 bg-lime/10 border border-lime/20 rounded-xl text-lime-dark text-sm font-medium">
+            <div className="mb-6 p-4 bg-[#f7f7f7] border border-lightgray rounded-xl text-graphite text-sm font-medium">
                   This is a system role. You cannot modify its permissions.
                 </div>
             }
@@ -104,37 +104,37 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
               <form id="role-form" onSubmit={handleSubmit} className="space-y-6">
                 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">Role Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Role Name</label>
                   <input
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   disabled={role?.isSystem}
-                  className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors disabled:opacity-50" />
+                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors disabled:opacity-50" />
                 
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">Description</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Description</label>
                   <textarea
                   required
                   rows={2}
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   disabled={role?.isSystem}
-                  className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors resize-none disabled:opacity-50" />
+                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors resize-none disabled:opacity-50" />
                 
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-3">Permissions</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-3">Permissions</label>
                   {!allPermissions ?
-                <p className="text-sm text-on-surface-variant">Loading permissions...</p> :
+                <p className="text-sm text-cloud">Loading permissions...</p> :
 
                 <div className="space-y-6">
                       {Object.entries(permissionsByModule).map(([module, perms]) =>
-                  <div key={module} className="border border-outline-variant rounded-xl overflow-hidden bg-surface-container-lowest">
-                          <div className="bg-surface-warm px-4 py-2 border-b border-outline-variant font-bold text-sm uppercase text-on-surface">
+                  <div key={module} className="border border-lightgray rounded-xl overflow-hidden bg-[#f7f7f7]">
+                          <div className="bg-[#f7f7f7] px-4 py-2 border-b border-lightgray font-bold text-sm uppercase text-graphite">
                             {module}
                           </div>
                           <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -148,11 +148,11 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
                               checked={formData.permissions.includes(pId)}
                               onChange={() => togglePermission(pId)}
                               disabled={role?.isSystem}
-                              className="mt-1 w-4 h-4 text-lime rounded border-outline-variant focus:ring-lime disabled:opacity-50" />
+                              className="mt-1 w-4 h-4 text-graphite rounded border-lightgray focus:ring-graphite disabled:opacity-50" />
                             
                                   <label htmlFor={`perm-${pId}`} className={`text-sm ${role?.isSystem ? '' : 'cursor-pointer'}`}>
-                                    <span className="block font-medium text-on-surface capitalize">{p.action}</span>
-                                    {p.description && <span className="block text-xs text-on-surface-variant mt-0.5">{p.description}</span>}
+                                    <span className="block font-medium text-graphite capitalize">{p.action}</span>
+                                    {p.description && <span className="block text-xs text-cloud mt-0.5">{p.description}</span>}
                                   </label>
                                 </div>);
 
@@ -167,11 +167,11 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
               </form>
             </div>
 
-            <div className="p-6 border-t border-outline-variant bg-surface-warm flex justify-end gap-3 shrink-0">
+            <div className="p-6 border-t border-lightgray bg-[#f7f7f7] flex justify-end gap-3 shrink-0">
               <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container transition-colors">
+              className="px-6 py-2.5 rounded-xl font-bold text-cloud hover:bg-lightgray transition-colors">
               
                 Cancel
               </button>
@@ -179,7 +179,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
               type="submit"
               form="role-form"
               disabled={isSaving || role?.isSystem}
-              className="px-6 py-2.5 rounded-xl font-bold bg-lime hover:bg-lime-dark text-white shadow-md transition-colors disabled:opacity-50 flex items-center gap-2">
+              className="px-6 py-2.5 rounded-xl font-bold bg-graphite hover:bg-black text-white shadow-md transition-colors disabled:opacity-50 flex items-center gap-2">
               
                 {isSaving ? "Saving..." : "Save Role"}
               </button>

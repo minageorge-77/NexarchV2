@@ -85,13 +85,13 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed top-0 right-0 h-full w-full md:w-[500px] bg-surface text-on-surface z-[110] shadow-2xl flex flex-col overflow-hidden">
+          className="fixed top-0 right-0 h-full w-full md:w-[500px] bg-white text-graphite z-[110] shadow-2xl flex flex-col overflow-hidden">
           
-            <div className="flex items-center justify-between p-6 border-b border-outline-variant bg-surface-warm">
+            <div className="flex items-center justify-between p-6 border-b border-lightgray bg-[#f7f7f7]">
               <h2 className="text-xl font-display font-bold">
                 {admin ? "Edit Administrator" : "Add Administrator"}
               </h2>
-              <button onClick={onClose} className="text-on-surface-variant hover:text-lime transition-colors">
+              <button onClick={onClose} className="text-cloud hover:text-black transition-colors">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -103,38 +103,38 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">First Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">First Name</label>
                     <input
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors" />
+                    className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors" />
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">Last Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Last Name</label>
                     <input
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors" />
+                    className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors" />
                   
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">Email Address</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Email Address</label>
                   <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors" />
+                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors" />
                 
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">
                     {admin ? "Password (leave blank to keep current)" : "Password"}
                   </label>
                   <input
@@ -142,16 +142,16 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                   required={!admin}
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors" />
+                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors" />
                 
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-1.5">Status</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Status</label>
                   <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 focus:border-lime focus:outline-none transition-colors">
+                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-2.5 focus:border-graphite focus:outline-none transition-colors">
                   
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>
@@ -159,8 +159,8 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-outline mb-2">Assign Roles</label>
-                  <div className="space-y-2 max-h-48 overflow-y-auto border border-outline-variant rounded-xl p-3 bg-surface-container-lowest">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-2">Assign Roles</label>
+                  <div className="space-y-2 max-h-48 overflow-y-auto border border-lightgray rounded-xl p-3 bg-[#f7f7f7]">
                     {allRoles ? allRoles.map((role) =>
                   <div key={role._id || role.id} className="flex items-center gap-3">
                         <input
@@ -168,14 +168,14 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                       id={`role-${role._id || role.id}`}
                       checked={formData.roles.includes(role._id || role.id)}
                       onChange={() => toggleRole(role._id || role.id)}
-                      className="w-5 h-5 text-lime rounded border-outline-variant focus:ring-lime" />
+                      className="w-5 h-5 text-graphite rounded border-lightgray focus:ring-graphite" />
                     
-                        <label htmlFor={`role-${role._id || role.id}`} className="text-sm font-medium text-on-surface flex-1 cursor-pointer">
+                        <label htmlFor={`role-${role._id || role.id}`} className="text-sm font-medium text-graphite flex-1 cursor-pointer">
                           {role.name}
                         </label>
                       </div>
                   ) :
-                  <p className="text-sm text-on-surface-variant">Loading roles...</p>
+                  <p className="text-sm text-cloud">Loading roles...</p>
                   }
                   </div>
                 </div>
@@ -183,11 +183,11 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
               </form>
             </div>
 
-            <div className="p-6 border-t border-outline-variant bg-surface-warm flex justify-end gap-3 shrink-0">
+            <div className="p-6 border-t border-lightgray bg-[#f7f7f7] flex justify-end gap-3 shrink-0">
               <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container transition-colors">
+              className="px-6 py-2.5 rounded-xl font-bold text-cloud hover:bg-lightgray transition-colors">
               
                 Cancel
               </button>
@@ -195,7 +195,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
               type="submit"
               form="admin-form"
               disabled={isSaving}
-              className="px-6 py-2.5 rounded-xl font-bold bg-lime hover:bg-lime-dark text-white shadow-md transition-colors disabled:opacity-50 flex items-center gap-2">
+              className="px-6 py-2.5 rounded-xl font-bold bg-graphite hover:bg-black text-white shadow-md transition-colors disabled:opacity-50 flex items-center gap-2">
               
                 {isSaving ? "Saving..." : "Save Admin"}
               </button>

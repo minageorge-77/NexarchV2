@@ -85,12 +85,12 @@ export default function AdminsManagementPage() {
     header: "Administrator",
     accessor: (row) =>
     <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-xs font-bold text-primary">
+          <div className="w-8 h-8 rounded-full bg-[#f7f7f7] border border-lightgray flex items-center justify-center text-xs font-bold text-graphite">
             {row.firstName?.charAt(0) || "U"}
           </div>
           <div>
-            <p className="font-bold text-on-surface">{row.firstName} {row.lastName}</p>
-            <p className="text-xs text-on-surface-variant mt-0.5">{row.email}</p>
+            <p className="font-bold text-graphite">{row.firstName} {row.lastName}</p>
+            <p className="text-xs text-cloud mt-0.5">{row.email}</p>
           </div>
         </div>
 
@@ -100,11 +100,11 @@ export default function AdminsManagementPage() {
     accessor: (row) =>
     <div className="flex flex-wrap gap-2">
           {row.roles?.length ? row.roles.map((role, idx) =>
-      <span key={idx} className="inline-block px-2.5 py-1 rounded border border-outline-variant/50 bg-surface-warm text-xs text-on-surface font-medium">
+      <span key={idx} className="inline-block px-2.5 py-1 rounded border border-lightgray/50 bg-white text-xs text-graphite font-medium">
               {role.name || role}
             </span>
       ) :
-      <span className="text-xs text-on-surface-variant">No roles</span>
+      <span className="text-xs text-cloud">No roles</span>
       }
         </div>
 
@@ -113,7 +113,7 @@ export default function AdminsManagementPage() {
     header: "Status",
     accessor: (row) =>
     <div className="flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full ${row.status === "active" ? "bg-lime" : "bg-outline"}`}></div>
+          <div className={`w-2 h-2 rounded-full ${row.status === "active" ? "bg-graphite" : "bg-lightgray"}`}></div>
           <span className="text-sm capitalize">{row.status}</span>
         </div>
 
@@ -130,7 +130,7 @@ export default function AdminsManagementPage() {
 
       return (
         <div className="flex items-center gap-3">
-            <button onClick={() => handleEdit(row)} className="text-on-surface hover:text-lime transition-colors">Edit</button>
+            <button onClick={() => handleEdit(row)} className="text-graphite hover:text-black transition-colors">Edit</button>
             {!isSelf &&
           <button
             onClick={() => handleDelete(id)}
@@ -159,7 +159,7 @@ export default function AdminsManagementPage() {
         
         {isLoading ?
         <div className="flex justify-center p-12">
-            <svg className="animate-spin h-8 w-8 text-lime" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="animate-spin h-8 w-8 text-graphite" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>

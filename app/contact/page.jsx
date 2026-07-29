@@ -10,10 +10,11 @@ import { apiClient } from "@/lib/api/axios";
 export default function ContactPage() {
   const [status, setStatus] = useState("idle");
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    practiceName: "",
+    fullName: "",
     email: "",
+    phone: "",
+    clinicName: "",
+    interestedService: "",
     message: ""
   });
   const [errorMessage, setErrorMessage] = useState("");
@@ -30,6 +31,14 @@ export default function ContactPage() {
     try {
       await apiClient.post("/contact", formData);
       setStatus("success");
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        clinicName: "",
+        interestedService: "",
+        message: ""
+      });
     } catch (error) {
       console.error("Failed to submit contact form:", error);
       setStatus("error");
@@ -119,6 +128,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-2xl font-display font-bold text-graphite mb-2">Message Sent</h3>
                     <p className="text-cloud">We'll be in touch within 24 hours to schedule your consultation.</p>
+                    <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-medium text-graphite underline hover:text-black">Send another message</button>
                   </div> :
 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -127,25 +137,39 @@ export default function ContactPage() {
                         <p className="text-error text-sm font-medium">{errorMessage}</p>
                       </div>
                   }
-                    <div className="grid grid-cols-2 gap-5">
-                      <div>
-                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">First Name *</label>
-                        <input required name="firstName" value={formData.firstName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="John" />
-                      </div>
-                      <div>
-                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Last Name *</label>
-                        <input required name="lastName" value={formData.lastName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="Doe" />
-                      </div>
+                    <div>
+                      <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Full Name *</label>
+                      <input required name="fullName" value={formData.fullName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="John Doe" />
                     </div>
                     
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Practice Name *</label>
-                      <input required name="practiceName" value={formData.practiceName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="Advanced Smiles" />
+                    <div className="grid grid-cols-2 gap-5">
+                      <div>
+                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Email Address *</label>
+                        <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="john@example.com" />
+                      </div>
+                      <div>
+                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Phone Number</label>
+                        <input name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="+1 (555) 000-0000" />
+                      </div>
                     </div>
 
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Email Address *</label>
-                      <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="john@example.com" />
+                    <div className="grid grid-cols-2 gap-5">
+                      <div>
+                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Clinic Name *</label>
+                        <input required name="clinicName" value={formData.clinicName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="Advanced Smiles" />
+                      </div>
+                      <div>
+                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Interested Service</label>
+                        <select name="interestedService" value={formData.interestedService} onChange={handleChange} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors">
+                          <option value="">Select a service...</option>
+                          <option value="Dental Marketing">Dental Marketing</option>
+                          <option value="Dental Website Design">Dental Website Design</option>
+                          <option value="Social Media Marketing">Social Media Marketing</option>
+                          <option value="Traditional Marketing">Traditional Marketing</option>
+                          <option value="Search Marketing">Search Marketing</option>
+                          <option value="Videography">Videography</option>
+                        </select>
+                      </div>
                     </div>
 
                     <div>
@@ -171,5 +195,4 @@ export default function ContactPage() {
       </main>
       <Footer />
     </>);
-
 }

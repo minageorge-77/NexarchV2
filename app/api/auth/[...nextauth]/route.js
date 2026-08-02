@@ -46,7 +46,7 @@ export const authOptions = {
   pages: {
     signIn: "/admin/login",
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "nexarch_demo_secret_key_3829104829",
 };
 
 const handler = NextAuth(authOptions);

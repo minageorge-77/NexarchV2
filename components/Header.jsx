@@ -47,10 +47,10 @@ export default function Header({ isAdmin = false, hideNav = false }) {
         
         <a href={isAdmin ? "/admin" : "/"} className="flex items-center gap-3" aria-label={`${siteConfig.name} home`}>
           <span className="flex items-center justify-center">
-            <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={44} height={44} className="h-11 w-auto object-contain" priority />
+            <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={64} height={64} className="h-14 md:h-[56px] w-auto object-contain" priority />
           </span>
           <span className="font-display font-extrabold text-[22px] tracking-tight hidden sm:block">
-            Nexarch
+            NexArch
           </span>
         </a>
 

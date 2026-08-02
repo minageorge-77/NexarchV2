@@ -18,12 +18,12 @@ export default function Footer() {
       <div className="max-w-md md:max-w-5xl mx-auto px-5 md:px-10 pt-16 pb-8">
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center gap-3 mb-1">
               <span className="flex items-center justify-center">
-                <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={28} height={28} className="h-7 w-auto object-contain" />
+                <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={56} height={56} className="h-12 w-auto object-contain" />
               </span>
-              <span className="font-display font-extrabold text-lg text-white tracking-tight">
-                Nexarch
+              <span className="font-display font-extrabold text-2xl text-white tracking-tight">
+                NexArch
               </span>
             </div>
             <p className="text-[14px] mt-4 leading-relaxed max-w-xs">

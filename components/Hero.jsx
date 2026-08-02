@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const phrases = [
-"MORE IMPLANT PATIENTS BOOKED",
-"PIPELINE YOU CAN MEASURE",
-"GROWTH BUILT LIKE INFRASTRUCTURE"];
+  "PREDICTABLE IMPLANT PATIENT FLOW",
+  "PIPELINE YOU CAN MEASURE",
+  "GROWTH BUILT LIKE INFRASTRUCTURE"
+];
 
 
 export default function Hero() {

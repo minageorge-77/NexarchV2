@@ -87,7 +87,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
               <h2 className="text-xl font-display font-bold">
                 {role ? "Edit Role" : "Add New Role"}
               </h2>
-              <button onClick={onClose} className="text-cloud hover:text-black transition-colors">
+              <button onClick={onClose} className="text-clinical hover:text-black transition-colors">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -104,7 +104,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
               <form id="role-form" onSubmit={handleSubmit} className="space-y-6">
                 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Role Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Role Name</label>
                   <input
                   required
                   value={formData.name}
@@ -115,7 +115,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Description</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Description</label>
                   <textarea
                   required
                   rows={2}
@@ -127,9 +127,9 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-3">Permissions</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-3">Permissions</label>
                   {!allPermissions ?
-                <p className="text-sm text-cloud">Loading permissions...</p> :
+                <p className="text-sm text-clinical">Loading permissions...</p> :
 
                 <div className="space-y-6">
                       {Object.entries(permissionsByModule).map(([module, perms]) =>
@@ -152,7 +152,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
                             
                                   <label htmlFor={`perm-${pId}`} className={`text-sm ${role?.isSystem ? '' : 'cursor-pointer'}`}>
                                     <span className="block font-medium text-graphite capitalize">{p.action}</span>
-                                    {p.description && <span className="block text-xs text-cloud mt-0.5">{p.description}</span>}
+                                    {p.description && <span className="block text-xs text-clinical mt-0.5">{p.description}</span>}
                                   </label>
                                 </div>);
 
@@ -171,7 +171,7 @@ export default function RoleModal({ isOpen, onClose, role, onSave, isSaving }) {
               <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl font-bold text-cloud hover:bg-lightgray transition-colors">
+              className="px-6 py-2.5 rounded-xl font-bold text-clinical hover:bg-lightgray transition-colors">
               
                 Cancel
               </button>

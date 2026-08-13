@@ -14,17 +14,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-graphite border-t border-white/10 text-cloud">
+    <footer className="bg-graphite border-t border-white/10 text-clinical">
       <div className="max-w-md md:max-w-5xl mx-auto px-5 md:px-10 pt-16 pb-8">
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-1">
-              <span className="flex items-center justify-center">
-                <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={56} height={56} className="h-12 w-auto object-contain" />
-              </span>
-              <span className="font-display font-extrabold text-2xl text-white tracking-tight">
-                NexArch
-              </span>
+            <div className="flex items-center mb-2">
+              <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={140} height={140} className="h-24 md:h-28 w-auto object-contain" />
             </div>
             <p className="text-[14px] mt-4 leading-relaxed max-w-xs">
               A technology-enabled growth platform built for dental implant practices who want a number attached to

@@ -58,7 +58,7 @@ export default async function ServicesPage() {
           <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
           <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
             <Reveal variant="up">
-              <span className="font-mono text-[11px] text-cloud uppercase mb-4 block tracking-wider">
+              <span className="font-mono text-[11px] text-clinical uppercase mb-4 block tracking-wider">
                 Our Services
               </span>
               <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
@@ -75,7 +75,7 @@ export default async function ServicesPage() {
         <section className="py-24 px-6 max-w-6xl mx-auto">
           {services.length === 0 ?
           <div className="text-center py-20">
-              <p className="text-cloud text-lg">No services available at the moment.</p>
+              <p className="text-clinical text-lg">No services available at the moment.</p>
             </div> :
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -96,12 +96,12 @@ export default async function ServicesPage() {
                     <h3 className="text-2xl font-display font-bold text-graphite mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-cloud text-[15px] leading-relaxed mb-8 flex-grow">
+                    <p className="text-clinical text-[15px] leading-relaxed mb-8 flex-grow">
                       {service.description}
                     </p>
                     
                     <div className="pt-6 border-t border-lightgray">
-                      <span className="font-mono text-[11px] uppercase text-cloud mb-4 block tracking-wider">
+                      <span className="font-mono text-[11px] uppercase text-clinical mb-4 block tracking-wider">
                         Core Features
                       </span>
                       <ul className="space-y-3">

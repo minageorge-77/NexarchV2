@@ -90,7 +90,7 @@ export default function AdminsManagementPage() {
           </div>
           <div>
             <p className="font-bold text-graphite">{row.firstName} {row.lastName}</p>
-            <p className="text-xs text-cloud mt-0.5">{row.email}</p>
+            <p className="text-xs text-clinical mt-0.5">{row.email}</p>
           </div>
         </div>
 
@@ -104,7 +104,7 @@ export default function AdminsManagementPage() {
               {role.name || role}
             </span>
       ) :
-      <span className="text-xs text-cloud">No roles</span>
+      <span className="text-xs text-clinical">No roles</span>
       }
         </div>
 

@@ -47,11 +47,11 @@ export default function Platform() {
     <section id="platform" className="py-24 px-5 bg-white">
       <div className="max-w-md md:max-w-5xl mx-auto">
         <Reveal className="text-center mb-14">
-          <span className="font-mono text-[11px] uppercase text-cloud">The Platform</span>
+          <span className="font-mono text-[11px] uppercase text-clinical">The Platform</span>
           <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mt-3 leading-tight">
             One platform, every stage of implant acquisition
           </h2>
-          <p className="text-cloud mt-4 max-w-lg mx-auto">
+          <p className="text-clinical mt-4 max-w-lg mx-auto">
             Most agencies hand you a report. NexArch hands you a growth platform — a high-converting website, a
             patient CRM, and a live analytics dashboard, running as one connected system.
           </p>
@@ -67,10 +67,10 @@ export default function Platform() {
                       {f.icon}
                     </svg>
                   </div>
-                  <span className="font-mono text-[10px] text-cloud uppercase">{f.tag}</span>
+                  <span className="font-mono text-[10px] text-clinical uppercase">{f.tag}</span>
                 </div>
                 <h3 className="text-xl font-display font-bold text-graphite mb-2">{f.title}</h3>
-                <p className="text-cloud text-[15px] leading-relaxed">{f.body}</p>
+                <p className="text-clinical text-[15px] leading-relaxed">{f.body}</p>
               </div>
             </Reveal>
           )}

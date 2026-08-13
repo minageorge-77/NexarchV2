@@ -179,7 +179,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
               <h2 className="text-xl font-display font-bold">
                 {service ? "Edit Service" : "Add New Service"}
               </h2>
-              <button onClick={onClose} className="text-cloud hover:text-black transition-colors">
+              <button onClick={onClose} className="text-clinical hover:text-black transition-colors">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -191,7 +191,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Title</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Title</label>
                     <input
                     required
                     value={formData.title}
@@ -200,7 +200,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Slug</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Slug</label>
                     <input
                     required
                     value={formData.slug}
@@ -211,7 +211,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Short Description</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Short Description</label>
                   <textarea
                   required
                   rows={2}
@@ -222,7 +222,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Full Description (HTML)</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Full Description (HTML)</label>
                   <textarea
                   required
                   rows={4}
@@ -232,7 +232,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Service Image</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Service Image</label>
                   <div className="flex flex-col md:flex-row items-start gap-4">
                     {imagePreview && (
                       <div className="w-24 h-24 rounded-lg border border-lightgray overflow-hidden shrink-0">
@@ -244,17 +244,17 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                         type="file"
                         accept="image/*"
                         onChange={handleImageChange}
-                        className="w-full text-sm text-cloud file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-[#f7f7f7] file:text-graphite hover:file:bg-lightgray transition-colors"
+                        className="w-full text-sm text-clinical file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-[#f7f7f7] file:text-graphite hover:file:bg-lightgray transition-colors"
                       />
                       {uploadError && <p className="text-red-500 text-xs mt-2">{uploadError}</p>}
-                      <p className="text-xs text-cloud mt-2">Max size: 5MB. Recommended ratio: 16:9 or 4:3.</p>
+                      <p className="text-xs text-clinical mt-2">Max size: 5MB. Recommended ratio: 16:9 or 4:3.</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Order</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Order</label>
                     <input
                     type="number"
                     required
@@ -265,7 +265,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Status</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Status</label>
                     <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
@@ -279,7 +279,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Features</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Features</label>
                   <div className="space-y-2">
                     {formData.features.map((feature, idx) =>
                   <div key={idx} className="flex items-center gap-2">
@@ -307,7 +307,7 @@ export default function ServiceModal({ isOpen, onClose, service, onSave, isSavin
               <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl font-bold text-cloud hover:bg-lightgray transition-colors">
+              className="px-6 py-2.5 rounded-xl font-bold text-clinical hover:bg-lightgray transition-colors">
               
                 Cancel
               </button>

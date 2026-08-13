@@ -23,7 +23,7 @@ export default function AdminTopNav({ setIsOpen }) {
       <div className="flex items-center gap-4">
         <button
           onClick={() => setIsOpen(true)}
-          className="lg:hidden p-2 -ml-2 text-cloud hover:text-black transition-colors">
+          className="lg:hidden p-2 -ml-2 text-clinical hover:text-black transition-colors">
           
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -32,7 +32,7 @@ export default function AdminTopNav({ setIsOpen }) {
 
         <Link
           href="/"
-          className="flex items-center gap-2 text-sm font-bold text-graphite hover:text-cloud transition-colors"
+          className="flex items-center gap-2 text-sm font-bold text-graphite hover:text-clinical transition-colors"
           title="Return to Home">
           
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ export default function AdminTopNav({ setIsOpen }) {
 
         <Link
           href="/admin/messages"
-          className="flex items-center gap-2 text-sm font-bold text-graphite hover:text-cloud transition-colors ml-4"
+          className="flex items-center gap-2 text-sm font-bold text-graphite hover:text-clinical transition-colors ml-4"
           title="View Messages">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -63,9 +63,9 @@ export default function AdminTopNav({ setIsOpen }) {
             </div>
             <div className="hidden md:block text-left">
               <p className="text-sm font-bold text-graphite leading-none mb-1">{user?.name || "Admin"}</p>
-              <p className="text-[11px] font-mono uppercase text-cloud leading-none">{user?.email || "admin@nexarch.io"}</p>
+              <p className="text-[11px] font-mono uppercase text-clinical leading-none">{user?.email || "admin@nexarch.io"}</p>
             </div>
-            <svg className="w-4 h-4 text-cloud" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-clinical" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
@@ -74,7 +74,7 @@ export default function AdminTopNav({ setIsOpen }) {
           <div className="absolute right-0 mt-3 w-48 bg-white border border-lightgray rounded-xl shadow-card py-2 z-50">
               <div className="px-4 py-2 border-b border-lightgray md:hidden">
                 <p className="text-sm font-bold text-graphite">{user?.name || "Admin"}</p>
-                <p className="text-xs text-cloud">{user?.email || "admin@nexarch.io"}</p>
+                <p className="text-xs text-clinical">{user?.email || "admin@nexarch.io"}</p>
               </div>
               <button
               onClick={handleLogout}

@@ -48,14 +48,14 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
           <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
             <Reveal variant="up">
-              <span className="font-mono text-[11px] text-cloud uppercase mb-4 block tracking-wider">
-                Our Mission
+              <span className="font-mono text-[11px] text-gold uppercase mb-4 block tracking-wider font-bold">
+                Result-Driven Marketing For Dental Masters
               </span>
               <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
-                Built for Dental <br /> Implant Practices
+                Built For The <br /> Implant Surgeon
               </h1>
-              <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                We bridge the gap between world-class clinical care and modern digital acquisition, turning specialized practices into market leaders.
+              <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+                NexArch is a marketing agency built for one kind of dentist: the implant surgeon. We don&apos;t claim numbers — we partner with dentists, bringing marketing specialty and mastery to complement their dentistry mastery.
               </p>
             </Reveal>
           </div>
@@ -65,13 +65,14 @@ export default function AboutPage() {
         <section className="py-24 px-6 max-w-4xl mx-auto text-center">
           <Reveal variant="up">
             <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mb-6 leading-tight">
-              The Engine Behind Clinical Growth
+              Patients Decide In Minutes What You Spent Decades Building. <br />
+              <span className="text-gold">Give Them Better Evidence.</span>
             </h2>
-            <p className="text-cloud text-lg leading-relaxed mb-6">
-              Most dental practices possess incredible clinical skills but lack the infrastructure to predictably attract $20k+ implant cases. They rely on disjointed agencies, fragmented software, and intuition rather than hard data.
+            <p className="text-clinical text-lg leading-relaxed mb-6">
+              Most dental implant practices possess world-class clinical skills but lack the dedicated marketing mastery required to consistently reflect their expertise online.
             </p>
-            <p className="text-cloud text-lg leading-relaxed">
-              NexArch was founded to solve this. We combine elite patient marketing with a powerful backend platform—giving practice owners a single system that handles everything from the first ad click to the scheduled consultation. We don't just generate leads; we engineer growth.
+            <p className="text-clinical text-lg leading-relaxed">
+              NexArch bridges that gap as your specialized growth partner. We combine high-impact patient acquisition with custom digital infrastructure, giving implant surgeons the spotlight and evidence their mastery deserves.
             </p>
           </Reveal>
         </section>
@@ -100,7 +101,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-display font-bold text-graphite mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-cloud text-base leading-relaxed">
+                    <p className="text-clinical text-base leading-relaxed">
                       {value.description}
                     </p>
                   </div>

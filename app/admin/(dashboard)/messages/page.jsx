@@ -82,8 +82,8 @@ export default function MessagesManagementPage() {
       accessor: (row) => (
         <div>
           <p className="font-bold text-graphite">{row.fullName}</p>
-          <p className="text-xs text-cloud">{row.email}</p>
-          {row.phone && <p className="text-xs text-cloud">{row.phone}</p>}
+          <p className="text-xs text-clinical">{row.email}</p>
+          {row.phone && <p className="text-xs text-clinical">{row.phone}</p>}
         </div>
       )
     },
@@ -92,7 +92,7 @@ export default function MessagesManagementPage() {
       accessor: (row) => (
         <div>
           <p className="font-medium text-graphite">{row.clinicName}</p>
-          {row.interestedService && <p className="text-xs text-cloud">{row.interestedService}</p>}
+          {row.interestedService && <p className="text-xs text-clinical">{row.interestedService}</p>}
         </div>
       )
     },
@@ -102,7 +102,7 @@ export default function MessagesManagementPage() {
         <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
           row.status === "New" ? 
           "bg-blue-100 text-blue-700 border border-blue-200" : 
-          "bg-[#f7f7f7] text-cloud border border-lightgray"
+          "bg-[#f7f7f7] text-clinical border border-lightgray"
         }`}>
           {row.status.toUpperCase()}
         </span>
@@ -150,7 +150,7 @@ export default function MessagesManagementPage() {
 
         <div className="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-between">
           <div className="relative w-full sm:max-w-xs">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cloud" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-clinical" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <input 
@@ -189,7 +189,7 @@ export default function MessagesManagementPage() {
               keyExtractor={(row) => row._id} 
             />
             {filteredMessages.length === 0 && (
-              <div className="text-center p-8 text-cloud">
+              <div className="text-center p-8 text-clinical">
                 No messages found.
               </div>
             )}
@@ -217,11 +217,11 @@ export default function MessagesManagementPage() {
               <div className="p-6 border-b border-lightgray flex justify-between items-center bg-gray-50">
                 <div>
                   <h3 className="text-xl font-display font-bold text-graphite">Message Details</h3>
-                  <p className="text-xs text-cloud mt-1">{new Date(viewingMessage.createdAt).toLocaleString()}</p>
+                  <p className="text-xs text-clinical mt-1">{new Date(viewingMessage.createdAt).toLocaleString()}</p>
                 </div>
                 <button 
                   onClick={() => setViewingMessage(null)}
-                  className="text-cloud hover:text-graphite transition-colors bg-white p-2 rounded-full border border-lightgray shadow-sm"
+                  className="text-clinical hover:text-graphite transition-colors bg-white p-2 rounded-full border border-lightgray shadow-sm"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
@@ -230,23 +230,23 @@ export default function MessagesManagementPage() {
               <div className="p-6 overflow-y-auto">
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   <div>
-                    <h4 className="text-xs font-mono uppercase text-cloud mb-1 tracking-wider">Contact Info</h4>
+                    <h4 className="text-xs font-mono uppercase text-clinical mb-1 tracking-wider">Contact Info</h4>
                     <p className="font-medium text-graphite">{viewingMessage.fullName}</p>
                     <a href={`mailto:${viewingMessage.email}`} className="text-blue-600 text-sm hover:underline block mt-1">{viewingMessage.email}</a>
                     {viewingMessage.phone && <a href={`tel:${viewingMessage.phone}`} className="text-graphite text-sm block mt-1">{viewingMessage.phone}</a>}
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono uppercase text-cloud mb-1 tracking-wider">Practice Details</h4>
+                    <h4 className="text-xs font-mono uppercase text-clinical mb-1 tracking-wider">Practice Details</h4>
                     <p className="font-medium text-graphite">{viewingMessage.clinicName}</p>
-                    <p className="text-sm text-cloud mt-1">{viewingMessage.interestedService || "N/A"}</p>
+                    <p className="text-sm text-clinical mt-1">{viewingMessage.interestedService || "N/A"}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="text-xs font-mono uppercase text-cloud mb-2 tracking-wider">Message Content</h4>
+                  <h4 className="text-xs font-mono uppercase text-clinical mb-2 tracking-wider">Message Content</h4>
                   <div className="bg-gray-50 p-4 rounded-xl border border-lightgray">
                     <p className="text-graphite whitespace-pre-wrap text-sm leading-relaxed">
-                      {viewingMessage.message || <span className="text-cloud italic">No message provided.</span>}
+                      {viewingMessage.message || <span className="text-clinical italic">No message provided.</span>}
                     </p>
                   </div>
                 </div>

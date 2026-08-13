@@ -84,7 +84,7 @@ export default function TestimonialsManagementPage() {
     accessor: (row) =>
     <div>
           <p className="font-bold text-graphite">{row.clientName}</p>
-          <p className="text-xs text-cloud mt-1">{row.clientTitle}{row.company ? ` - ${row.company}` : ""}</p>
+          <p className="text-xs text-clinical mt-1">{row.clientTitle}{row.company ? ` - ${row.company}` : ""}</p>
         </div>
 
   },
@@ -114,7 +114,7 @@ export default function TestimonialsManagementPage() {
     <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
     row.status === "published" ?
     "bg-[#f7f7f7] text-graphite border border-lightgray" :
-    "bg-white text-cloud border border-lightgray"}`
+    "bg-white text-clinical border border-lightgray"}`
     }>
           {row.status?.toUpperCase() || "DRAFT"}
         </span>

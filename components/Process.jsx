@@ -34,11 +34,11 @@ export default function Process() {
     <section id="process" className="py-24 px-5 bg-white">
       <div className="max-w-md md:max-w-3xl mx-auto">
         <Reveal className="text-center mb-16">
-          <span className="font-mono text-[11px] uppercase text-cloud">How it works</span>
+          <span className="font-mono text-[11px] uppercase text-clinical">How it works</span>
           <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mt-3 leading-tight">
             Four steps, ninety days
           </h2>
-          <p className="text-cloud mt-4">
+          <p className="text-clinical mt-4">
             No lock-in mystery. Here&apos;s the actual sequence every practice goes through with us.
           </p>
         </Reveal>
@@ -54,13 +54,13 @@ export default function Process() {
           <div key={step.num} className={`relative ${i < steps.length - 1 ? "mb-14" : ""}`}>
               <span
               className={`absolute -left-10 md:-left-14 top-0 w-8 h-8 rounded-full text-white font-mono text-xs flex items-center justify-center ${
-              step.accent ? "bg-graphite" : "bg-cloud"}`
+              step.accent ? "bg-graphite" : "bg-clinical"}`
               }>
               
                 {step.num}
               </span>
               <h3 className="text-lg font-display font-bold text-graphite mb-1">{step.title}</h3>
-              <p className="text-cloud text-[15px] leading-relaxed">{step.body}</p>
+              <p className="text-clinical text-[15px] leading-relaxed">{step.body}</p>
             </div>
           )}
         </div>

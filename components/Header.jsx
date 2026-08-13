@@ -39,19 +39,14 @@ export default function Header({ isAdmin = false, hideNav = false }) {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full h-16 flex items-center justify-between px-5 md:px-10 transition-all duration-300 text-white ${
+        className={`fixed top-0 z-50 w-full h-20 flex items-center justify-between px-5 md:px-10 transition-all duration-300 text-white ${
           isHome
             ? (scrolled ? "bg-graphite shadow-md" : "bg-black/20 backdrop-blur-md")
             : "bg-graphite shadow-md"
         }`}>
         
-        <a href={isAdmin ? "/admin" : "/"} className="flex items-center gap-3" aria-label={`${siteConfig.name} home`}>
-          <span className="flex items-center justify-center">
-            <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={64} height={64} className="h-14 md:h-[56px] w-auto object-contain" priority />
-          </span>
-          <span className="font-display font-extrabold text-[22px] tracking-tight hidden sm:block">
-            NexArch
-          </span>
+        <a href={isAdmin ? "/admin" : "/"} className="flex items-center py-1" aria-label={`${siteConfig.name} home`}>
+          <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={120} height={120} className="h-16 md:h-[72px] w-auto object-contain" priority />
         </a>
 
         {!hideNav && (
@@ -82,7 +77,7 @@ export default function Header({ isAdmin = false, hideNav = false }) {
           {!isAdmin && (
             <a
               href="/contact"
-              className="hidden md:inline-flex items-center bg-white hover:bg-lightgray text-graphite font-bold text-[12px] uppercase tracking-wide py-2.5 px-5 rounded-full btn-primary">
+              className="hidden md:inline-flex items-center bg-gold hover:bg-gold/90 text-graphite font-bold text-[12px] uppercase tracking-wide py-2.5 px-5 rounded-full btn-primary shadow-sm">
               
               Book a Consultation
             </a>
@@ -135,10 +130,10 @@ export default function Header({ isAdmin = false, hideNav = false }) {
           </nav>
         )}
         <div className="mt-auto pt-8 border-t border-white/15">
-          <a href={`tel:${siteConfig.phone}`} className="font-mono text-sm text-cloud block mb-1">
+          <a href={`tel:${siteConfig.phone}`} className="font-mono text-sm text-clinical block mb-1">
             {siteConfig.phoneDisplay}
           </a>
-          <a href={`mailto:${siteConfig.email}`} className="font-mono text-sm text-cloud">
+          <a href={`mailto:${siteConfig.email}`} className="font-mono text-sm text-clinical">
             {siteConfig.email}
           </a>
         </div>

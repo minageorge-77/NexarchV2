@@ -91,7 +91,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
               <h2 className="text-xl font-display font-bold">
                 {admin ? "Edit Administrator" : "Add Administrator"}
               </h2>
-              <button onClick={onClose} className="text-cloud hover:text-black transition-colors">
+              <button onClick={onClose} className="text-clinical hover:text-black transition-colors">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -103,7 +103,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">First Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">First Name</label>
                     <input
                     required
                     value={formData.firstName}
@@ -112,7 +112,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Last Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Last Name</label>
                     <input
                     required
                     value={formData.lastName}
@@ -123,7 +123,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Email Address</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Email Address</label>
                   <input
                   type="email"
                   required
@@ -134,7 +134,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">
                     {admin ? "Password (leave blank to keep current)" : "Password"}
                   </label>
                   <input
@@ -147,7 +147,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Status</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Status</label>
                   <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
@@ -159,7 +159,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-2">Assign Roles</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-2">Assign Roles</label>
                   <div className="space-y-2 max-h-48 overflow-y-auto border border-lightgray rounded-xl p-3 bg-[#f7f7f7]">
                     {allRoles ? allRoles.map((role) =>
                   <div key={role._id || role.id} className="flex items-center gap-3">
@@ -175,7 +175,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
                         </label>
                       </div>
                   ) :
-                  <p className="text-sm text-cloud">Loading roles...</p>
+                  <p className="text-sm text-clinical">Loading roles...</p>
                   }
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function AdminModal({ isOpen, onClose, admin, onSave, isSaving })
               <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl font-bold text-cloud hover:bg-lightgray transition-colors">
+              className="px-6 py-2.5 rounded-xl font-bold text-clinical hover:bg-lightgray transition-colors">
               
                 Cancel
               </button>

@@ -22,7 +22,7 @@ export default function DataTable({ columns, data, keyExtractor }) {
               {columns.map((col, idx) =>
               <th
                 key={idx}
-                className={`py-4 px-6 font-mono text-[11px] uppercase tracking-wider text-cloud ${col.className || ""}`}>
+                className={`py-4 px-6 font-mono text-[11px] uppercase tracking-wider text-clinical ${col.className || ""}`}>
                 
                   {col.header}
                 </th>
@@ -32,7 +32,7 @@ export default function DataTable({ columns, data, keyExtractor }) {
           <tbody>
             {data.length === 0 ?
             <tr>
-                <td colSpan={columns.length} className="py-8 px-6 text-center text-cloud">
+                <td colSpan={columns.length} className="py-8 px-6 text-center text-clinical">
                   No records found.
                 </td>
               </tr> :

@@ -43,7 +43,7 @@ export default function FAQ() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="max-w-md md:max-w-2xl mx-auto">
         <Reveal className="text-center mb-12">
-          <span className="font-mono text-[11px] uppercase text-cloud">Questions</span>
+          <span className="font-mono text-[11px] uppercase text-clinical">Questions</span>
           <h2 className="text-[28px] md:text-[36px] font-display font-extrabold text-graphite mt-3 leading-tight">
             Before you book the call
           </h2>
@@ -73,7 +73,7 @@ export default function FAQ() {
                     </svg>
                   </button>
                   <div className="faq-panel px-5" style={{ maxHeight: isOpen ? "300px" : 0 }}>
-                    <p className="text-cloud text-[15px] pb-5 leading-relaxed">{faq.a}</p>
+                    <p className="text-clinical text-[15px] pb-5 leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               </Reveal>);

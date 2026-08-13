@@ -59,7 +59,7 @@ export default async function ResultsPage() {
           <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
           <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
             <Reveal variant="up">
-              <span className="font-mono text-[11px] text-cloud uppercase mb-4 block tracking-wider">
+              <span className="font-mono text-[11px] text-clinical uppercase mb-4 block tracking-wider">
                 Live Results
               </span>
               <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
@@ -81,14 +81,14 @@ export default async function ResultsPage() {
             <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite leading-tight">
               Practice Transformations
             </h2>
-            <p className="text-cloud mt-4 max-w-xl mx-auto text-lg">
+            <p className="text-clinical mt-4 max-w-xl mx-auto text-lg">
               Real numbers from practices leveraging our technology-enabled growth platform.
             </p>
           </Reveal>
 
           {caseStudies.length === 0 ?
           <div className="text-center py-20">
-              <p className="text-cloud text-lg">No results available at the moment.</p>
+              <p className="text-clinical text-lg">No results available at the moment.</p>
             </div> :
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -100,14 +100,14 @@ export default async function ResultsPage() {
                         <span className="text-[40px] font-display font-extrabold text-graphite block leading-none mb-2">
                           {study.metrics.value}
                         </span>
-                        <span className="font-mono text-xs text-cloud uppercase tracking-wider block">
+                        <span className="font-mono text-xs text-clinical uppercase tracking-wider block">
                           {study.metrics.label}
                         </span>
                       </div>
                 }
                     
                     <div className="flex-grow mb-6">
-                      <p className="text-cloud text-[15px] leading-relaxed">
+                      <p className="text-clinical text-[15px] leading-relaxed">
                         "{study.content}"
                       </p>
                     </div>
@@ -124,7 +124,7 @@ export default async function ResultsPage() {
                       )}
                       <div>
                         <h4 className="font-display font-bold text-graphite">{study.clientName}</h4>
-                        <span className="text-sm text-cloud">{study.clientTitle}{study.company ? `, ${study.company}` : ''}</span>
+                        <span className="text-sm text-clinical">{study.clientTitle}{study.company ? `, ${study.company}` : ''}</span>
                       </div>
                     </div>
                   </div>

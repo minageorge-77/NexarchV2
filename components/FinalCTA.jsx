@@ -20,7 +20,7 @@ export default function FinalCTA() {
         
       </svg>
       <Reveal className="relative max-w-md md:max-w-lg mx-auto text-center">
-        <span className="font-mono text-[11px] uppercase text-cloud">Let&apos;s talk numbers</span>
+        <span className="font-mono text-[11px] uppercase text-clinical">Let&apos;s talk numbers</span>
         <h2 className="text-white text-[30px] md:text-[40px] font-display font-extrabold mt-3 mb-4 leading-tight">
           What are your implant growth goals for the next 90 days?
         </h2>
@@ -28,8 +28,8 @@ export default function FinalCTA() {
           Tell us where the practice stands today. We&apos;ll tell you, honestly, whether NexArch is the right fit.
         </p>
         <a
-          href={`mailto:${siteConfig.email}`}
-          className="btn-primary inline-flex bg-white hover:bg-lightgray text-graphite font-bold py-4 px-9 rounded-full">
+          href="/contact"
+          className="btn-primary inline-flex bg-gold hover:bg-gold/90 text-graphite font-bold py-4 px-9 rounded-full shadow-sm">
           
           Book a Consultation
         </a>

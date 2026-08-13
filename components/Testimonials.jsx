@@ -56,7 +56,7 @@ export default function Testimonials() {
       <div className="max-w-md md:max-w-3xl mx-auto px-5">
         <Reveal className="flex items-end justify-between mb-8">
           <div>
-            <span className="font-mono text-[11px] uppercase text-cloud">In their words</span>
+            <span className="font-mono text-[11px] uppercase text-clinical">In their words</span>
             <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-graphite mt-2 leading-tight">
               Practices like yours, growing
             </h2>
@@ -107,10 +107,10 @@ export default function Testimonials() {
               }
                 <div>
                   <p className="font-display font-bold text-sm text-graphite">{t.clientName}</p>
-                  <p className="font-mono text-[10px] text-cloud uppercase">{t.clinicName}</p>
+                  <p className="font-mono text-[10px] text-clinical uppercase">{t.clinicName}</p>
                 </div>
               </div>
-              <p className="text-cloud text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
+              <p className="text-clinical text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
             </div>
           )}
         </div>

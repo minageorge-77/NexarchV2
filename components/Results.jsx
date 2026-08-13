@@ -81,19 +81,19 @@ export default function Results() {
                 <p className="text-[34px] md:text-[44px] font-display font-extrabold text-graphite leading-none">
                   <Counter target={highlightValue} />
                 </p>
-                <p className="font-mono text-[10px] text-cloud uppercase mt-2">{highlightLabel}</p>
+                <p className="font-mono text-[10px] text-clinical uppercase mt-2">{highlightLabel}</p>
               </div>
               <div className="text-center hidden sm:block">
                 <p className="text-[34px] md:text-[44px] font-display font-extrabold text-graphite leading-none">
                   <Counter target={158} />
                 </p>
-                <p className="font-mono text-[10px] text-cloud uppercase mt-2">Consultations</p>
+                <p className="font-mono text-[10px] text-clinical uppercase mt-2">Consultations</p>
               </div>
               <div className="text-center hidden sm:block">
                 <p className="text-[34px] md:text-[44px] font-display font-extrabold text-graphite leading-none">
                   <Counter target={48920} currency />
                 </p>
-                <p className="font-mono text-[10px] text-cloud uppercase mt-2">Monthly production</p>
+                <p className="font-mono text-[10px] text-clinical uppercase mt-2">Monthly production</p>
               </div>
             </div>
 
@@ -116,7 +116,7 @@ export default function Results() {
               
             </svg>
 
-            <blockquote className="border-l-4 border-lightgray pl-5 italic text-cloud text-[15px] leading-relaxed mb-8">
+            <blockquote className="border-l-4 border-lightgray pl-5 italic text-clinical text-[15px] leading-relaxed mb-8">
               &ldquo;{quote}&rdquo;
               <footer className="not-italic font-semibold text-graphite mt-2">
                 — {authorName}, {clinicName}

@@ -16,7 +16,7 @@ export default function CTABanner() {
           <div className="absolute inset-0 bg-graphite/75 z-0" />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/50 to-transparent z-0" />
           <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full">
-            <span className="font-mono text-[11px] text-cloud uppercase">Ready when you are</span>
+            <span className="font-mono text-[11px] text-clinical uppercase">Ready when you are</span>
             <h2 className="text-white text-[28px] md:text-[36px] font-display font-bold mt-2 mb-2 leading-tight">
               A growth platform,
               <br />
@@ -27,8 +27,8 @@ export default function CTABanner() {
               accountable to the numbers every month.
             </p>
             <a
-              href="#contact"
-              className="btn-primary inline-flex bg-white hover:bg-lightgray text-graphite font-bold py-3.5 px-7 rounded-full">
+              href="/contact"
+              className="btn-primary inline-flex bg-gold hover:bg-gold/90 text-graphite font-bold py-3.5 px-7 rounded-full shadow-sm">
               
               Start the conversation
             </a>

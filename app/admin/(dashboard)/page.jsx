@@ -61,7 +61,7 @@ export default function AnalyticsDashboardPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Total Visitors */}
           <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-2">Total Visitors</span>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Total Visitors</span>
             <div className="flex items-end justify-between mt-auto">
               <span className="text-3xl font-display font-extrabold text-graphite leading-none">
                 {overviewLoading ? "..." : overview?.users || "0"}
@@ -71,7 +71,7 @@ export default function AnalyticsDashboardPage() {
 
           {/* Contact Requests */}
           <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-2">Contact Requests</span>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Contact Requests</span>
             <div className="flex items-end justify-between mt-auto">
               <span className="text-3xl font-display font-extrabold text-graphite leading-none">
                 {messagesLoading ? "..." : Array.isArray(messages) ? messages.length : "0"}
@@ -81,7 +81,7 @@ export default function AnalyticsDashboardPage() {
 
           {/* Services */}
           <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-2">Active Services</span>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Active Services</span>
             <div className="flex items-end justify-between mt-auto">
               <span className="text-3xl font-display font-extrabold text-graphite leading-none">
                 {servicesLoading ? "..." : Array.isArray(services) ? services.length : "0"}
@@ -91,7 +91,7 @@ export default function AnalyticsDashboardPage() {
 
           {/* Testimonials */}
           <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-2">Testimonials</span>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Testimonials</span>
             <div className="flex items-end justify-between mt-auto">
               <span className="text-3xl font-display font-extrabold text-graphite leading-none">
                 {testimonialsLoading ? "..." : Array.isArray(testimonials) ? testimonials.length : "0"}
@@ -131,11 +131,11 @@ export default function AnalyticsDashboardPage() {
                 topPages.slice(0, 5).map((page, idx) => (
                   <div key={idx} className="flex justify-between items-center text-sm">
                     <span className="text-graphite font-medium truncate pr-4">{page.pagePath}</span>
-                    <span className="text-cloud font-mono text-[11px] whitespace-nowrap">{page.sessions} views</span>
+                    <span className="text-clinical font-mono text-[11px] whitespace-nowrap">{page.sessions} views</span>
                   </div>
                 ))
               ) : (
-                <p className="text-sm text-cloud">No page data available.</p>
+                <p className="text-sm text-clinical">No page data available.</p>
               )}
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function AnalyticsDashboardPage() {
                     <div key={idx}>
                       <div className="flex justify-between items-center mb-1 text-sm">
                         <span className="font-medium text-graphite truncate pr-2">{source.sourceMedium}</span>
-                        <span className="font-mono text-[11px] text-cloud">{source.sessions}</span>
+                        <span className="font-mono text-[11px] text-clinical">{source.sessions}</span>
                       </div>
                       <div className="w-full bg-[#f7f7f7] h-1.5 rounded-full overflow-hidden">
                         <div className="bg-graphite h-full rounded-full" style={{ width: `${percentage}%` }}></div>
@@ -165,7 +165,7 @@ export default function AnalyticsDashboardPage() {
                   );
                 })
               ) : (
-                <p className="text-sm text-cloud">No traffic data available.</p>
+                <p className="text-sm text-clinical">No traffic data available.</p>
               )}
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function AnalyticsDashboardPage() {
           <div className="p-6 border-b border-lightgray flex justify-between items-center flex-wrap gap-2">
             <div>
               <h3 className="font-display font-bold text-lg text-graphite">Recent Contact Requests</h3>
-              <p className="text-xs text-cloud mt-0.5">Latest consultation form submissions</p>
+              <p className="text-xs text-clinical mt-0.5">Latest consultation form submissions</p>
             </div>
             <Link href="/admin/messages" className="text-xs font-mono uppercase tracking-wider text-graphite hover:text-black font-bold underline transition-colors">
               View All Messages →
@@ -184,14 +184,14 @@ export default function AnalyticsDashboardPage() {
           </div>
 
           {messagesLoading ? (
-            <div className="p-8 text-center text-cloud text-sm">Loading messages...</div>
+            <div className="p-8 text-center text-clinical text-sm">Loading messages...</div>
           ) : recentMessages.length > 0 ? (
             <div>
               {/* Desktop/Tablet Table View */}
               <div className="hidden sm:block overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="bg-[#f7f7f7] text-[10px] uppercase tracking-wider font-mono text-cloud border-b border-lightgray">
+                    <tr className="bg-[#f7f7f7] text-[10px] uppercase tracking-wider font-mono text-clinical border-b border-lightgray">
                       <th className="py-3.5 px-6 font-semibold">Name</th>
                       <th className="py-3.5 px-6 font-semibold">Clinic</th>
                       <th className="py-3.5 px-6 font-semibold">Email</th>
@@ -205,18 +205,18 @@ export default function AnalyticsDashboardPage() {
                       <tr key={msg._id} className="hover:bg-gray-50/80 transition-colors">
                         <td className="py-4 px-6 font-medium text-graphite whitespace-nowrap">{msg.fullName}</td>
                         <td className="py-4 px-6 text-graphite whitespace-nowrap">{msg.clinicName}</td>
-                        <td className="py-4 px-6 text-cloud whitespace-nowrap">
+                        <td className="py-4 px-6 text-clinical whitespace-nowrap">
                           <a href={`mailto:${msg.email}`} className="hover:text-graphite transition-colors">{msg.email}</a>
                         </td>
-                        <td className="py-4 px-6 text-cloud whitespace-nowrap">{msg.phone || '-'}</td>
-                        <td className="py-4 px-6 text-cloud whitespace-nowrap">
+                        <td className="py-4 px-6 text-clinical whitespace-nowrap">{msg.phone || '-'}</td>
+                        <td className="py-4 px-6 text-clinical whitespace-nowrap">
                           {new Date(msg.createdAt).toLocaleDateString()}
                         </td>
                         <td className="py-4 px-6 whitespace-nowrap">
                           <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                             msg.status === "New" 
                               ? "bg-blue-100 text-blue-700 border border-blue-200" 
-                              : "bg-gray-100 text-cloud border border-lightgray"
+                              : "bg-gray-100 text-clinical border border-lightgray"
                           }`}>
                             {msg.status}
                           </span>
@@ -234,18 +234,18 @@ export default function AnalyticsDashboardPage() {
                     <div className="flex justify-between items-start gap-2">
                       <div>
                         <h4 className="font-bold text-graphite text-sm">{msg.fullName}</h4>
-                        <p className="text-xs text-cloud">{msg.clinicName}</p>
+                        <p className="text-xs text-clinical">{msg.clinicName}</p>
                       </div>
                       <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                        msg.status === "New" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-cloud"
+                        msg.status === "New" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-clinical"
                       }`}>
                         {msg.status}
                       </span>
                     </div>
-                    <div className="text-xs text-cloud space-y-1 pt-1">
+                    <div className="text-xs text-clinical space-y-1 pt-1">
                       <p>✉️ <a href={`mailto:${msg.email}`} className="underline">{msg.email}</a></p>
                       {msg.phone && <p>📞 {msg.phone}</p>}
-                      <p className="text-[10px] font-mono text-cloud/70 pt-1">
+                      <p className="text-[10px] font-mono text-clinical/70 pt-1">
                         📅 {new Date(msg.createdAt).toLocaleDateString()}
                       </p>
                     </div>
@@ -254,7 +254,7 @@ export default function AnalyticsDashboardPage() {
               </div>
             </div>
           ) : (
-            <div className="p-8 text-center text-cloud text-sm">
+            <div className="p-8 text-center text-clinical text-sm">
               No recent contact requests.
             </div>
           )}

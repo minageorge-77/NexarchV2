@@ -57,7 +57,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
           <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
             <Reveal variant="up" className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-mono text-[11px] text-cloud uppercase mb-4 block tracking-wider">
+              <span className="font-mono text-[11px] text-clinical uppercase mb-4 block tracking-wider">
                 Get in Touch
               </span>
               <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
@@ -81,7 +81,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-1">Email Us</h4>
+                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Email Us</h4>
                       <a href="mailto:hello@nexarch.io" className="text-graphite font-medium hover:text-black transition-colors">
                         hello@nexarch.io
                       </a>
@@ -95,9 +95,9 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-1">Call Us</h4>
+                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Call Us</h4>
                       <p className="text-graphite font-medium">1-800-NEX-ARCH</p>
-                      <p className="text-cloud text-sm mt-1">Mon-Fri, 9am - 6pm EST</p>
+                      <p className="text-clinical text-sm mt-1">Mon-Fri, 9am - 6pm EST</p>
                     </div>
                   </div>
 
@@ -109,9 +109,9 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-cloud mb-1">Headquarters</h4>
+                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Headquarters</h4>
                       <p className="text-graphite font-medium">100 Tech Row, Suite 400</p>
-                      <p className="text-cloud text-sm mt-1">Austin, TX 78701</p>
+                      <p className="text-clinical text-sm mt-1">Austin, TX 78701</p>
                     </div>
                   </div>
                 </div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <h3 className="text-2xl font-display font-bold text-graphite mb-2">Message Sent</h3>
-                    <p className="text-cloud">We'll be in touch within 24 hours to schedule your consultation.</p>
+                    <p className="text-clinical">We'll be in touch within 24 hours to schedule your consultation.</p>
                     <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-medium text-graphite underline hover:text-black">Send another message</button>
                   </div> :
 
@@ -138,28 +138,28 @@ export default function ContactPage() {
                       </div>
                   }
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Full Name *</label>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Full Name *</label>
                       <input required name="fullName" value={formData.fullName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="John Doe" />
                     </div>
                     
                     <div className="grid grid-cols-2 gap-5">
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Email Address *</label>
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Email Address *</label>
                         <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="john@example.com" />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Phone Number</label>
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Phone Number</label>
                         <input name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="+1 (555) 000-0000" />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-5">
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Clinic Name *</label>
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Clinic Name *</label>
                         <input required name="clinicName" value={formData.clinicName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="Advanced Smiles" />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Interested Service</label>
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Interested Service</label>
                         <select name="interestedService" value={formData.interestedService} onChange={handleChange} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors">
                           <option value="">Select a service...</option>
                           <option value="Dental Marketing">Dental Marketing</option>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-cloud mb-2">Message</label>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Message</label>
                       <textarea name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors resize-none" placeholder="Tell us about your practice..."></textarea>
                     </div>
 

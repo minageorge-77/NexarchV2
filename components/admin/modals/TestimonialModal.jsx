@@ -163,7 +163,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
               <h2 className="text-xl font-display font-bold">
                 {testimonial ? "Edit Testimonial" : "Add New Testimonial"}
               </h2>
-              <button onClick={onClose} className="text-cloud hover:text-black transition-colors">
+              <button onClick={onClose} className="text-clinical hover:text-black transition-colors">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -174,7 +174,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
               <form id="testimonial-form" onSubmit={handleSubmit} className="space-y-5">
                 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Client Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Client Name</label>
                   <input
                   required
                   value={formData.clientName}
@@ -185,7 +185,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Client Title</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Client Title</label>
                     <input
                     required
                     value={formData.clientTitle}
@@ -194,7 +194,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Company</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Company</label>
                     <input
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -203,7 +203,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Client Image</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Client Image</label>
                   <div className="flex flex-col md:flex-row items-start gap-4">
                     {imagePreview ? (
                       <div className="w-16 h-16 rounded-full border border-lightgray overflow-hidden shrink-0">
@@ -219,16 +219,16 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
                         type="file"
                         accept="image/*"
                         onChange={handleImageChange}
-                        className="w-full text-sm text-cloud file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-[#f7f7f7] file:text-graphite hover:file:bg-lightgray transition-colors"
+                        className="w-full text-sm text-clinical file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-[#f7f7f7] file:text-graphite hover:file:bg-lightgray transition-colors"
                       />
                       {uploadError && <p className="text-red-500 text-xs mt-2">{uploadError}</p>}
-                      <p className="text-xs text-cloud mt-2">Max size: 5MB.</p>
+                      <p className="text-xs text-clinical mt-2">Max size: 5MB.</p>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Testimonial Content</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Testimonial Content</label>
                   <textarea
                   required
                   rows={5}
@@ -240,7 +240,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Rating (1-5)</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Rating (1-5)</label>
                     <input
                     type="number"
                     required
@@ -252,7 +252,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Order</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Order</label>
                     <input
                     type="number"
                     required
@@ -263,7 +263,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
                   
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-cloud mb-1.5">Status</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Status</label>
                     <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
@@ -294,7 +294,7 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
               <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl font-bold text-cloud hover:bg-lightgray transition-colors">
+              className="px-6 py-2.5 rounded-xl font-bold text-clinical hover:bg-lightgray transition-colors">
               
                 Cancel
               </button>

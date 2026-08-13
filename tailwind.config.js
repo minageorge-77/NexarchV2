@@ -9,14 +9,15 @@ const config = {
     extend: {
       colors: {
         graphite: "#14171a",
-        cloud: "#8a9299",
+        clinical: "#8a9299",
         lightgray: "#ced1cd",
+        gold: "#d3af37",
         white: "#ffffff"
       },
       fontFamily: {
-        sans: ['"Archivo"', "sans-serif"],
+        sans: ['"Archivo Expanded"', '"Archivo"', "sans-serif"],
         display: ['"Archivo Expanded"', "sans-serif"],
-        mono: ['"Archivo"', "sans-serif"]
+        mono: ['"Archivo Expanded"', '"Archivo"', "sans-serif"]
       },
       boxShadow: {
         lift: "0 20px 40px -18px rgba(20, 23, 26, 0.15)",

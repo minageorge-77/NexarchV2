@@ -16,7 +16,7 @@ export default function AdminPageHeader({
           {title}
         </h1>
         {subtitle &&
-        <p className="text-sm text-cloud">
+        <p className="text-sm text-clinical">
             {subtitle}
           </p>
         }

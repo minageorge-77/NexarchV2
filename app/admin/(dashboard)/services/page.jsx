@@ -84,7 +84,7 @@ export default function ServicesManagementPage() {
     accessor: (row) =>
     <div>
           <p className="font-bold text-graphite">{row.title}</p>
-          <p className="font-mono text-[10px] text-cloud mt-1">/{row.slug}</p>
+          <p className="font-mono text-[10px] text-clinical mt-1">/{row.slug}</p>
         </div>
 
   },
@@ -94,7 +94,7 @@ export default function ServicesManagementPage() {
     <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
     row.status === "published" ?
     "bg-[#f7f7f7] text-graphite border border-lightgray" :
-    "bg-white text-cloud border border-lightgray"}`
+    "bg-white text-clinical border border-lightgray"}`
     }>
           {row.status?.toUpperCase() || "DRAFT"}
         </span>

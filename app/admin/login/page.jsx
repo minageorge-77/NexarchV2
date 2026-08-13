@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import Reveal from "@/components/Reveal";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 import Header from "@/components/Header";
 
 export default function AdminLoginPage() {
@@ -36,28 +37,36 @@ export default function AdminLoginPage() {
   return (
     <>
       <Header isAdmin={true} hideNav={true} />
-      <main className="min-h-screen bg-graphite flex items-center justify-center p-6 relative overflow-hidden">
+      <main className="min-h-screen bg-graphite flex items-center justify-center p-4 sm:p-6 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
       <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-white/10 blur-[120px] pointer-events-none"></div>
       
-      <div className="w-full max-w-md relative z-10">
-        <Reveal variant="up" className="text-center mb-10">
-          <h1 className="text-[32px] font-display font-extrabold text-white tracking-tight uppercase flex items-center justify-center gap-2">
+      <div className="w-full max-w-md relative z-10 my-auto">
+        <Reveal variant="up" className="text-center mb-8 flex flex-col items-center">
+          <Image
+            src="/nexarchLogo.png"
+            alt="NexArch Logo"
+            width={120}
+            height={120}
+            className="h-16 sm:h-20 w-auto object-contain mb-4"
+            priority
+          />
+          <h1 className="text-[28px] sm:text-[32px] font-display font-extrabold text-white tracking-tight uppercase flex items-center justify-center gap-2">
             <span className="text-white">Nex</span>Arch <span className="text-white/30 font-light">OS</span>
           </h1>
-          <p className="text-white/60 font-mono text-[11px] uppercase tracking-wider mt-3">
-            Administrative Portal
+          <p className="text-white/60 font-mono text-[11px] uppercase tracking-wider mt-2">
+            Sign in Page
           </p>
         </Reveal>
 
         <Reveal variant="up" delay={100}>
-          <div className="bg-white p-8 rounded-[2rem] shadow-2xl border border-white/10">
+          <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-2xl border border-white/10">
             <h2 className="text-xl font-display font-bold text-graphite mb-6">Sign In</h2>
             
             <form onSubmit={handleLogin} className="space-y-5">
               <div>
-                <label className="block font-mono text-[10px] uppercase tracking-wider text-cloud mb-2">
+                <label className="block font-mono text-[10px] uppercase tracking-wider text-clinical mb-2">
                   Email Address
                 </label>
                 <input
@@ -65,15 +74,13 @@ export default function AdminLoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors"
-                  placeholder="admin@nexarch.io" />
+                  className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" />
                 
               </div>
 
               <div>
-                <label className="block font-mono text-[10px] uppercase tracking-wider text-cloud mb-2 flex justify-between">
-                  <span>Password</span>
-                  <a href="#" className="text-graphite hover:text-black transition-colors">Forgot?</a>
+                <label className="block font-mono text-[10px] uppercase tracking-wider text-clinical mb-2">
+                  Password
                 </label>
                 <input
                   type="password"

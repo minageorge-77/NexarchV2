@@ -95,7 +95,7 @@ export default function RolesManagementPage() {
   {
     header: "Description",
     accessor: (row) =>
-    <span className="text-cloud text-sm">
+    <span className="text-clinical text-sm">
           {row.description}
         </span>
 
@@ -103,7 +103,7 @@ export default function RolesManagementPage() {
   {
     header: "Permissions",
     accessor: (row) =>
-    <span className="text-cloud text-sm">
+    <span className="text-clinical text-sm">
           {row.permissions?.length || 0} assigned
         </span>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
@@ -33,8 +34,9 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
         className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-graphite text-white flex flex-col h-screen lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         
         <div className="h-16 flex items-center px-6 border-b border-white/10 shrink-0">
-          <Link href="/admin" className="text-xl font-display font-extrabold tracking-wider uppercase flex items-center gap-2">
-            <span className="text-white">Nex</span>Arch
+          <Link href="/admin" className="flex items-center gap-3">
+            <Image src="/nexarchLogo.png" alt="NexArch Logo" width={36} height={36} className="h-8 w-auto object-contain" />
+            <span className="text-xl font-display font-extrabold tracking-wider uppercase text-white">NexArch</span>
           </Link>
         </div>
 

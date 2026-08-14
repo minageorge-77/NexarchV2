@@ -44,7 +44,7 @@ export default function Testimonials() {
   };
 
   if (loading) {
-    return <section className="py-24 bg-[#f7f7f7] min-h-[400px]"></section>;
+    return <section className="py-24 bg-clinical/10 min-h-[400px]"></section>;
   }
 
   if (testimonials.length === 0) {
@@ -52,7 +52,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-24 bg-[#f7f7f7] overflow-hidden" aria-label="Testimonials">
+    <section className="py-24 bg-clinical/10 overflow-hidden" aria-label="Testimonials">
       <div className="max-w-md md:max-w-3xl mx-auto px-5">
         <Reveal className="flex items-end justify-between mb-8">
           <div>

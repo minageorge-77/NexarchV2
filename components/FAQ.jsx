@@ -39,7 +39,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 px-5 bg-[#f7f7f7]">
+    <section id="faq" className="py-24 px-5 bg-clinical/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="max-w-md md:max-w-2xl mx-auto">
         <Reveal className="text-center mb-12">

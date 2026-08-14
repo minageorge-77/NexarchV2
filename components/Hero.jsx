@@ -61,9 +61,7 @@ export default function Hero() {
         autoPlay
         muted
         loop
-        playsInline
-        poster="https://lh3.googleusercontent.com/aida-public/AB6AXuDZSb1lgXDwN1fllq1wsxlo4DOwQzake34AmX-HfS1vCdGlPZbv6sOB3Jdcc_BwGtHvWSpQ3_TFDOgXX-h0M3Vm-hqJcGJ3wMWaaCP2AqlxFZEh07Zwua_974SvxqJWs8Bs947aECYUD8dS8GmwNCnbgwJWFlj-gyFbBfe0OBcqwt2hO97Tgk2kzxivCFY60_-0KlMYfexqtWuFgTtPGVSSRgw78vEKbVivJCXJ18olM3D0cJar8qLmVw">
-        
+        playsInline>
         <source src="/media/hero-video.mp4" type="video/mp4" />
       </video>
       <div

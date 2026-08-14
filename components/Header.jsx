@@ -118,22 +118,22 @@ export default function Header({ isAdmin = false, hideNav = false }) {
         {!hideNav && (
           <nav className="flex flex-col gap-6 font-display text-2xl font-bold" aria-label="Mobile">
             {(isAdmin ? adminNavLinks : navLinks).map((link) =>
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="hover:text-gold transition-colors">
                 {link.label}
               </a>
             )}
             {!isAdmin && (
-              <a href="/contact" onClick={() => setMenuOpen(false)}>
+              <a href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-gold transition-colors">
                 Contact
               </a>
             )}
           </nav>
         )}
         <div className="mt-auto pt-8 border-t border-white/15">
-          <a href={`tel:${siteConfig.phone}`} className="font-mono text-sm text-clinical block mb-1">
+          <a href={`tel:${siteConfig.phone}`} className="font-mono text-sm text-clinical hover:text-gold transition-colors block mb-1">
             {siteConfig.phoneDisplay}
           </a>
-          <a href={`mailto:${siteConfig.email}`} className="font-mono text-sm text-clinical">
+          <a href={`mailto:${siteConfig.email}`} className="font-mono text-sm text-clinical hover:text-gold transition-colors">
             {siteConfig.email}
           </a>
         </div>

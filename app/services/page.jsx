@@ -83,7 +83,7 @@ export default async function ServicesPage() {
             <Reveal key={service._id} variant="up" delay={idx % 2 === 0 ? 100 : 200}>
                   <div className="lift-card h-full bg-white p-8 md:p-10 rounded-[2rem] border border-lightgray shadow-card flex flex-col overflow-hidden">
                     {service.imageUrl && (
-                      <div className="relative w-full h-48 md:h-56 -mt-8 -mx-8 md:-mt-10 md:-mx-10 mb-8 overflow-hidden bg-[#f7f7f7] shrink-0" style={{ width: 'calc(100% + 4rem)' }}>
+                      <div className="relative w-full h-48 md:h-56 -mt-8 -mx-8 md:-mt-10 md:-mx-10 mb-8 overflow-hidden bg-clinical/10 shrink-0" style={{ width: 'calc(100% + 4rem)' }}>
                         <Image 
                           src={service.imageUrl} 
                           alt={service.title} 

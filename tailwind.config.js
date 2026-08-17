@@ -15,9 +15,9 @@ const config = {
         white: "#ffffff"
       },
       fontFamily: {
-        sans: ['"Archivo Expanded"', '"Archivo"', "sans-serif"],
-        display: ['"Archivo Expanded"', "sans-serif"],
-        mono: ['"Archivo Expanded"', '"Archivo"', "sans-serif"]
+        sans: ["var(--font-archivo-expanded)", "sans-serif"],
+        display: ["var(--font-archivo-expanded)", "sans-serif"],
+        mono: ["var(--font-archivo-expanded)", "sans-serif"]
       },
       boxShadow: {
         lift: "0 20px 40px -18px rgba(20, 23, 26, 0.15)",

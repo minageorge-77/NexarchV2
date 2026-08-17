@@ -2,6 +2,7 @@
 import Providers from "@/components/Providers";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
+import { archivoExpanded } from "@/lib/fonts";
 
 
 
@@ -97,11 +98,8 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivoExpanded.variable} font-sans`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@400;700;800;900&family=Archivo:wght@100..900&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

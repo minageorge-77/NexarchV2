@@ -63,7 +63,7 @@ export default function Header({ isAdmin = false, hideNav = false }) {
           <a
             href={`tel:${siteConfig.phone}`}
             aria-label="Call Us"
-            className="hidden sm:flex hover:text-lightgray transition-colors">
+            className="hidden sm:flex hover:text-gold transition-colors">
             
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -86,7 +86,7 @@ export default function Header({ isAdmin = false, hideNav = false }) {
             aria-label="Open Menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
-            className="hover:text-lightgray transition-colors">
+            className="hover:text-gold transition-colors">
             
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
@@ -109,7 +109,7 @@ export default function Header({ isAdmin = false, hideNav = false }) {
         <button
           aria-label="Close Menu"
           onClick={() => setMenuOpen(false)}
-          className="self-end mb-10 text-white/80 hover:text-white transition-colors">
+          className="self-end mb-10 text-white/80 hover:text-gold transition-colors">
           
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />

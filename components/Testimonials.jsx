@@ -44,7 +44,7 @@ export default function Testimonials() {
   };
 
   if (loading) {
-    return <section className="py-24 bg-clinical min-h-[400px]"></section>;
+    return <section className="py-24 bg-graphite min-h-[400px]"></section>;
   }
 
   if (testimonials.length === 0) {
@@ -52,69 +52,73 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-24 bg-clinical overflow-hidden" aria-label="Testimonials">
-      <div className="max-w-md md:max-w-3xl mx-auto px-5">
-        <Reveal className="flex items-end justify-between mb-8">
-          <div>
-            <span className="font-mono text-[11px] uppercase text-white/80">In their words</span>
-            <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-white mt-2 leading-tight">
-              Practices like yours, growing
-            </h2>
-          </div>
-          <div className="hidden sm:flex gap-2">
-            <button
-              aria-label="Previous testimonial"
-              onClick={() => scrollBy(-1)}
-              className="w-10 h-10 rounded-full border border-lightgray flex items-center justify-center hover:bg-white transition-colors">
+    <section className="relative py-24 bg-graphite bg-[url('/testimonials.png')] bg-cover bg-center bg-fixed overflow-hidden" aria-label="Testimonials">
+      <div className="absolute inset-0 bg-graphite/85 backdrop-blur-[1px]" aria-hidden="true" />
+
+      <div className="relative z-10">
+        <div className="max-w-md md:max-w-3xl mx-auto px-5">
+          <Reveal className="flex items-end justify-between mb-8">
+            <div>
+              <span className="font-mono text-[11px] uppercase text-white/80">In their words</span>
+              <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-white mt-2 leading-tight">
+                Practices like yours, growing
+              </h2>
+            </div>
+            <div className="hidden sm:flex gap-2">
+              <button
+                aria-label="Previous testimonial"
+                onClick={() => scrollBy(-1)}
+                className="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-graphite transition-colors">
+                
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
+                </svg>
+              </button>
+              <button
+                aria-label="Next testimonial"
+                onClick={() => scrollBy(1)}
+                className="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-graphite transition-colors">
+                
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
+                </svg>
+              </button>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={100}>
+          <div ref={trackRef} className="testimonial-track flex gap-5 overflow-x-auto px-5 pb-4 max-w-md md:max-w-3xl mx-auto snap-x">
+            {testimonials.map((t) =>
+            <div
+              key={t._id}
+              className="testi-card shrink-0 w-[85%] sm:w-[70%] md:w-[48%] bg-white rounded-2xl p-7 shadow-card border border-lightgray">
               
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
-              </svg>
-            </button>
-            <button
-              aria-label="Next testimonial"
-              onClick={() => scrollBy(1)}
-              className="w-10 h-10 rounded-full border border-lightgray flex items-center justify-center hover:bg-white transition-colors">
-              
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
-              </svg>
-            </button>
+                <div className="flex items-center gap-3 mb-4">
+                  {t.imageUrl ?
+                <Image
+                  src={t.imageUrl}
+                  alt={t.clientName}
+                  width={44}
+                  height={44}
+                  className="w-11 h-11 rounded-full object-cover" /> :
+
+
+                <div className="w-11 h-11 rounded-full bg-lightgray flex items-center justify-center text-graphite font-bold">
+                      {t.clientName.charAt(0)}
+                    </div>
+                }
+                  <div>
+                    <p className="font-display font-bold text-sm text-graphite">{t.clientName}</p>
+                    <p className="font-mono text-[10px] text-clinical uppercase">{t.clinicName}</p>
+                  </div>
+                </div>
+                <p className="text-clinical text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
+              </div>
+            )}
           </div>
         </Reveal>
       </div>
-
-      <Reveal delay={100}>
-        <div ref={trackRef} className="testimonial-track flex gap-5 overflow-x-auto px-5 pb-4 max-w-md md:max-w-3xl mx-auto snap-x">
-          {testimonials.map((t) =>
-          <div
-            key={t._id}
-            className="testi-card shrink-0 w-[85%] sm:w-[70%] md:w-[48%] bg-white rounded-2xl p-7 shadow-card border border-lightgray">
-            
-              <div className="flex items-center gap-3 mb-4">
-                {t.imageUrl ?
-              <Image
-                src={t.imageUrl}
-                alt={t.clientName}
-                width={44}
-                height={44}
-                className="w-11 h-11 rounded-full object-cover" /> :
-
-
-              <div className="w-11 h-11 rounded-full bg-lightgray flex items-center justify-center text-graphite font-bold">
-                    {t.clientName.charAt(0)}
-                  </div>
-              }
-                <div>
-                  <p className="font-display font-bold text-sm text-graphite">{t.clientName}</p>
-                  <p className="font-mono text-[10px] text-clinical uppercase">{t.clinicName}</p>
-                </div>
-              </div>
-              <p className="text-clinical text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
-            </div>
-          )}
-        </div>
-      </Reveal>
     </section>);
 
 }

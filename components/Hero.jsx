@@ -69,7 +69,7 @@ export default function Hero() {
         </span>
         <div className="min-h-[110px] md:min-h-[150px] flex items-end justify-center mb-3 w-full">
           <h1 className="text-white text-[30px] leading-[1.12] md:text-[56px] font-display font-extrabold tracking-tight uppercase max-w-3xl">
-            From Your First Implant Case to Full Arch.
+            From Your First Implant Case to Full Arch
           </h1>
         </div>
         <p className="text-white/85 text-base md:text-lg font-medium mb-9 max-w-md md:max-w-xl">

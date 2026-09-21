@@ -17,20 +17,14 @@ export default function CTABanner() {
           <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/50 to-transparent z-0" />
           <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full">
             <span className="font-mono text-[11px] text-clinical uppercase">Ready when you are</span>
-            <h2 className="text-white text-[28px] md:text-[36px] font-display font-bold mt-2 mb-2 leading-tight">
-              A growth platform,
-              <br />
-              not just a website
+            <h2 className="text-white text-[28px] md:text-[36px] font-display font-bold mt-2 mb-6 leading-tight max-w-2xl">
+              Ready to see what predictable case flow looks like for your practice?
             </h2>
-            <p className="text-white/85 text-[15px] max-w-sm mb-6">
-              NexArch builds the technology infrastructure for scalable implant patient acquisition — and stays
-              accountable to the numbers every month.
-            </p>
             <a
               href="/contact"
               className="btn-primary inline-flex bg-gold hover:bg-gold/90 text-graphite font-bold py-3.5 px-7 rounded-full shadow-sm">
               
-              Start the conversation
+              Book a Consultation
             </a>
           </div>
         </div>

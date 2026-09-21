@@ -44,7 +44,7 @@ export default function Testimonials() {
   };
 
   if (loading) {
-    return <section className="py-24 bg-clinical/10 min-h-[400px]"></section>;
+    return <section className="py-24 bg-clinical min-h-[400px]"></section>;
   }
 
   if (testimonials.length === 0) {
@@ -52,12 +52,12 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-24 bg-clinical/10 overflow-hidden" aria-label="Testimonials">
+    <section className="py-24 bg-clinical overflow-hidden" aria-label="Testimonials">
       <div className="max-w-md md:max-w-3xl mx-auto px-5">
         <Reveal className="flex items-end justify-between mb-8">
           <div>
-            <span className="font-mono text-[11px] uppercase text-clinical">In their words</span>
-            <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-graphite mt-2 leading-tight">
+            <span className="font-mono text-[11px] uppercase text-white/80">In their words</span>
+            <h2 className="text-[26px] md:text-[34px] font-display font-extrabold text-white mt-2 leading-tight">
               Practices like yours, growing
             </h2>
           </div>

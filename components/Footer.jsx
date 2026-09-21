@@ -1,18 +1,47 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 
+function getSocialIcon(url) {
+  if (url.includes("instagram")) {
+    return (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    );
+  }
+  if (url.includes("linkedin")) {
+    return (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+      </svg>
+    );
+  }
+  if (url.includes("youtube")) {
+    return (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+    );
+  }
+  return (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" strokeWidth={2} />
+    </svg>
+  );
+}
+
+function getSocialLabel(url) {
+  if (url.includes("instagram")) return "Instagram";
+  if (url.includes("linkedin")) return "LinkedIn";
+  if (url.includes("youtube")) return "YouTube";
+  return "Social link";
+}
+
 export default function Footer() {
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setMessage("You're on the list — thanks!");
-    e.currentTarget.reset();
-  };
-
   return (
     <footer className="bg-graphite border-t border-white/10 text-clinical">
       <div className="max-w-md md:max-w-5xl mx-auto px-5 md:px-10 pt-16 pb-8">
@@ -22,24 +51,20 @@ export default function Footer() {
               <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={140} height={140} className="h-24 md:h-28 w-auto object-contain" />
             </div>
             <p className="text-[14px] mt-4 leading-relaxed max-w-xs">
-              A technology-enabled growth platform built for dental implant practices who want a number attached to
-              every dollar spent.
+              NexArch works with implant practices — single case to full arch — nothing else, and nothing padded around it.
             </p>
             <div className="flex gap-3 mt-6">
-              {siteConfig.sameAs.map((url) =>
-              <a
-                key={url}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Social link"
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-white hover:text-white transition-colors">
-                
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" strokeWidth={2} />
-                  </svg>
+              {siteConfig.sameAs.map((url) => (
+                <a
+                  key={url}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={getSocialLabel(url)}
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+                  {getSocialIcon(url)}
                 </a>
-              )}
+              ))}
             </div>
           </div>
 
@@ -47,7 +72,8 @@ export default function Footer() {
             <h4 className="font-mono text-[11px] uppercase text-white mb-4">Explore</h4>
             <ul className="space-y-3 text-[14px]">
               <li><a className="hover:text-white transition-colors" href="/services">Services</a></li>
-              <li><a className="hover:text-white transition-colors" href="/results">Results</a></li>
+              <li><a className="hover:text-white transition-colors" href="/approach">Approach</a></li>
+              <li><a className="hover:text-white transition-colors" href="/contact">Contact</a></li>
             </ul>
           </div>
 
@@ -55,34 +81,29 @@ export default function Footer() {
             <h4 className="font-mono text-[11px] uppercase text-white mb-4">Company</h4>
             <ul className="space-y-3 text-[14px]">
               <li><a className="hover:text-white transition-colors" href="/about">About</a></li>
-              <li><a className="hover:text-white transition-colors" href="/results">Case studies</a></li>
               <li><a className="hover:text-white transition-colors" href="/contact">Contact</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-mono text-[11px] uppercase text-white mb-4">Stay in the loop</h4>
-            <p className="text-[14px] mb-4">One email a month — real numbers from real practices, no fluff.</p>
-            <form className="flex gap-2" onSubmit={handleSubmit}>
-              <label className="sr-only" htmlFor="newsletter-email">Email address</label>
-              <input
-                id="newsletter-email"
-                type="email"
-                required
-                placeholder="you@practice.com"
-                className="min-w-0 flex-1 bg-white/10 border border-white/20 rounded-full px-4 py-2.5 text-[14px] text-white placeholder-white/50 focus:outline-none focus:border-lightgray" />
-              
-              <button
-                type="submit"
-                aria-label="Subscribe"
-                className="bg-white hover:bg-lightgray text-graphite w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors">
-                
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
-                </svg>
-              </button>
-            </form>
-            <p className="text-[12px] text-white mt-2 h-4">{message}</p>
+            <h4 className="font-mono text-[11px] uppercase text-white mb-4">Direct Contact</h4>
+            <div className="space-y-4 text-[14px]">
+              <div>
+                <h5 className="font-mono text-[11px] uppercase text-white/60 mb-1">Phone</h5>
+                <a href={`tel:${siteConfig.phone}`} className="text-white hover:text-gold transition-colors font-medium">
+                  +1 208 247 4141
+                </a>
+              </div>
+              <div>
+                <h5 className="font-mono text-[11px] uppercase text-white/60 mb-1">Address</h5>
+                <p className="text-white/80 leading-relaxed">
+                  30 North Gould Street<br />
+                  Suite 100<br />
+                  Sheridan, WY 82801<br />
+                  United States
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -92,16 +113,6 @@ export default function Footer() {
             <a href={`tel:${siteConfig.phone}`} className="hover:text-white transition-colors">{siteConfig.phoneDisplay}</a>
             <span className="opacity-30">·</span>
             <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">{siteConfig.email}</a>
-          </div>
-          <div>
-            Designed by{" "}
-            <a
-              href="https://www.linkedin.com/in/mina-george-08b563320/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:underline transition-colors font-medium">
-              Mina George
-            </a>
           </div>
         </div>
       </div>

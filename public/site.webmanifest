@@ -3,7 +3,7 @@
   "short_name": "NexArch",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/nexarchLogo.png",
       "sizes": "192x192",
       "type": "image/png"
     }

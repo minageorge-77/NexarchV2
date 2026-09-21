@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
@@ -14,10 +14,26 @@ export default function ContactPage() {
     email: "",
     phone: "",
     clinicName: "",
-    interestedService: "",
+    monthlyEnquiries: "",
+    consultationDate: "",
     message: ""
   });
   const [errorMessage, setErrorMessage] = useState("");
+  const [minDate, setMinDate] = useState("");
+
+  useEffect(() => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0); 
+    
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+    const hours = String(tomorrow.getHours()).padStart(2, '0');
+    const minutes = String(tomorrow.getMinutes()).padStart(2, '0');
+    
+    setMinDate(`${year}-${month}-${day}T${hours}:${minutes}`);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,14 +47,6 @@ export default function ContactPage() {
     try {
       await apiClient.post("/contact", formData);
       setStatus("success");
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        clinicName: "",
-        interestedService: "",
-        message: ""
-      });
     } catch (error) {
       console.error("Failed to submit contact form:", error);
       setStatus("error");
@@ -56,15 +64,15 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-graphite/80 z-0"></div>
           <div className="absolute inset-0 bg-[url('/media/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
           <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-            <Reveal variant="up" className="text-center max-w-3xl mx-auto mb-16">
+            <Reveal variant="up" className="text-center max-w-4xl mx-auto mb-16">
               <span className="font-mono text-[11px] text-clinical uppercase mb-4 block tracking-wider">
-                Get in Touch
+                Let's talk about your numbers
               </span>
-              <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
-                Start Your <br /> Growth Engine
+              <h1 className="text-white text-[32px] md:text-[48px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
+                Tell Us Where the Practice Stands Today
               </h1>
               <p className="text-white/80 text-lg md:text-xl font-medium">
-                Request a consultation to see exactly how NexArch can scale your full-arch implant production.
+                Current enquiry volume, current close rate, what you're spending now if anything — whatever you have. We'll tell you plainly whether NexArch is a fit, including if the honest answer is not yet.
               </p>
             </Reveal>
 
@@ -72,22 +80,8 @@ export default function ContactPage() {
               
               {/* Contact Info (Left) */}
               <div>
-                <h2 className="text-2xl font-display font-bold text-graphite mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-display font-bold text-graphite mb-6">Direct Contact</h2>
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#f7f7f7] rounded-full flex items-center justify-center text-graphite flex-shrink-0">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Email Us</h4>
-                      <a href="mailto:hello@nexarch.io" className="text-graphite font-medium hover:text-black transition-colors">
-                        hello@nexarch.io
-                      </a>
-                    </div>
-                  </div>
-                  
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-[#f7f7f7] rounded-full flex items-center justify-center text-graphite flex-shrink-0">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,9 +89,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Call Us</h4>
-                      <p className="text-graphite font-medium">1-800-NEX-ARCH</p>
-                      <p className="text-clinical text-sm mt-1">Mon-Fri, 9am - 6pm EST</p>
+                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Phone</h4>
+                      <p className="text-graphite font-medium">+1 208 247 4141</p>
                     </div>
                   </div>
 
@@ -109,9 +102,13 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Headquarters</h4>
-                      <p className="text-graphite font-medium">100 Tech Row, Suite 400</p>
-                      <p className="text-clinical text-sm mt-1">Austin, TX 78701</p>
+                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-1">Address</h4>
+                      <p className="text-graphite font-medium leading-relaxed">
+                        30 North Gould Street<br/>
+                        Suite 100<br/>
+                        Sheridan, WY 82801<br/>
+                        United States
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -119,17 +116,33 @@ export default function ContactPage() {
 
               {/* Contact Form (Right) */}
               <div>
-                {status === "success" ?
-                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-[#f7f7f7] rounded-[1.5rem] border border-lightgray">
-                    <div className="w-16 h-16 bg-graphite text-white rounded-full flex items-center justify-center mb-6">
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                {status === "success" ? (
+                  <div className="h-full w-full bg-white rounded-[1.5rem] border border-lightgray min-h-[500px] flex flex-col items-center justify-center p-8 text-center shadow-sm">
+                    <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+                      <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-graphite mb-2">Message Sent</h3>
-                    <p className="text-clinical">We'll be in touch within 24 hours to schedule your consultation.</p>
-                    <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-medium text-graphite underline hover:text-black">Send another message</button>
-                  </div> :
+                    <h3 className="font-display text-2xl font-bold text-graphite mb-3">Request Sent</h3>
+                    <p className="text-clinical text-[15px] max-w-sm mb-8 leading-relaxed">
+                      Thank you for reaching out. We will review your numbers and get back to you within one business day to confirm your consultation time.
+                    </p>
+                    <button onClick={() => {
+                        setStatus("idle");
+                        setFormData({
+                          fullName: "",
+                          email: "",
+                          phone: "",
+                          clinicName: "",
+                          monthlyEnquiries: "",
+                          consultationDate: "",
+                          message: ""
+                        });
+                      }} className="btn-primary bg-graphite hover:bg-black text-white font-bold py-3 px-8 rounded-full transition-all">
+                      Submit Another Request
+                    </button>
+                  </div>
+                ) :
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                     {status === "error" &&
@@ -138,52 +151,50 @@ export default function ContactPage() {
                       </div>
                   }
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Full Name *</label>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Name *</label>
                       <input required name="fullName" value={formData.fullName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="John Doe" />
                     </div>
                     
+                    <div>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Practice Name *</label>
+                      <input required name="clinicName" value={formData.clinicName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="Advanced Smiles" />
+                    </div>
+
                     <div className="grid grid-cols-2 gap-5">
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Email Address *</label>
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Email *</label>
                         <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="john@example.com" />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Phone Number</label>
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Phone</label>
                         <input name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="+1 (555) 000-0000" />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-5">
-                      <div>
-                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Clinic Name *</label>
-                        <input required name="clinicName" value={formData.clinicName} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="Advanced Smiles" />
-                      </div>
-                      <div>
-                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Interested Service</label>
-                        <select name="interestedService" value={formData.interestedService} onChange={handleChange} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors">
-                          <option value="">Select a service...</option>
-                          <option value="Dental Marketing">Dental Marketing</option>
-                          <option value="Dental Website Design">Dental Website Design</option>
-                          <option value="Social Media Marketing">Social Media Marketing</option>
-                          <option value="Traditional Marketing">Traditional Marketing</option>
-                          <option value="Search Marketing">Search Marketing</option>
-                          <option value="Videography">Videography</option>
-                        </select>
-                      </div>
+                    <div>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Current monthly implant enquiries (approx.)</label>
+                      <input name="monthlyEnquiries" value={formData.monthlyEnquiries} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="e.g. 10" />
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Message</label>
-                      <textarea name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors resize-none" placeholder="Tell us about your practice..."></textarea>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Preferred Consultation Date & Time</label>
+                      <input name="consultationDate" value={formData.consultationDate || ""} onChange={handleChange} min={minDate} type="datetime-local" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" />
                     </div>
 
-                    <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="w-full btn-primary bg-graphite hover:bg-black text-white font-bold py-4 rounded-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed">
-                    
-                      {status === "submitting" ? "Sending..." : "Request Consultation"}
-                    </button>
+                    <div>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">What are you hoping to fix?</label>
+                      <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors resize-none" placeholder="Tell us about your practice..."></textarea>
+                    </div>
+
+                    <div className="pt-2">
+                      <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="w-full btn-primary bg-graphite hover:bg-black text-white font-bold py-4 rounded-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed mb-3">
+                        {status === "submitting" ? "Sending..." : "Request Consultation"}
+                      </button>
+                      <p className="text-center text-[12px] text-clinical font-medium">We respond within one business day. No auto-dialer, no sales sequence.</p>
+                    </div>
                   </form>
                 }
               </div>
@@ -194,5 +205,6 @@ export default function ContactPage() {
         <FAQ />
       </main>
       <Footer />
-    </>);
+    </>
+  );
 }

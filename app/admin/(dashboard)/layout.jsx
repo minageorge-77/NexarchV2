@@ -14,7 +14,7 @@ export default function AdminDashboardLayout({
   return (
     <AuthGuard>
       <Header isAdmin={true} />
-      <div className="flex h-screen bg-[#f7f7f7] overflow-hidden font-sans pt-16">
+      <div className="flex h-screen bg-[#f7f7f7] overflow-hidden font-sans pt-20 md:pt-24">
       {/* Sidebar */}
       <AdminSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 

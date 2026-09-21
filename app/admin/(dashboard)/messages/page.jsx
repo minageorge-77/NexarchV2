@@ -239,6 +239,13 @@ export default function MessagesManagementPage() {
                     <h4 className="text-xs font-mono uppercase text-clinical mb-1 tracking-wider">Practice Details</h4>
                     <p className="font-medium text-graphite">{viewingMessage.clinicName}</p>
                     <p className="text-sm text-clinical mt-1">{viewingMessage.interestedService || "N/A"}</p>
+                    
+                    <h4 className="text-xs font-mono uppercase text-clinical mt-4 mb-1 tracking-wider">Preferred Date</h4>
+                    <p className="text-sm text-clinical font-medium">
+                      {viewingMessage.consultationDate 
+                        ? new Date(viewingMessage.consultationDate).toLocaleString() 
+                        : "Not specified"}
+                    </p>
                   </div>
                 </div>
                 

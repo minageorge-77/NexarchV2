@@ -6,23 +6,23 @@ import Reveal from "./Reveal";
 const steps = [
 {
   num: "01",
-  title: "Audit & baseline",
-  body: "We pull your last 12 months of implant leads, spend, and case acceptance to find out what's actually converting today."
+  title: "Audit",
+  body: "We look at your last twelve months of implant enquiries, spend, and case acceptance to establish an honest baseline before recommending anything."
 },
 {
   num: "02",
-  title: "Build the platform",
-  body: "Your website, patient CRM, and GA4-powered dashboard go live, wired directly into your front-desk workflow."
+  title: "Build",
+  body: "Campaign architecture, tracking, landing pages, and (for Authority clients) the personal-brand content system go live — typically two to six weeks depending on tier."
 },
 {
   num: "03",
-  title: "Launch & optimize",
-  body: "Campaigns go live across search and social. We review cost-per-consultation weekly and reallocate spend fast."
+  title: "Launch",
+  body: "Campaigns go live across search and social. We watch cost-per-consultation weekly in the first month, not monthly, while the account finds its footing."
 },
 {
   num: "04",
-  title: "Scale & report",
-  body: "A monthly dashboard report ties spend to booked implant cases — so budget decisions are made on numbers, not vibes.",
+  title: "Report and adjust",
+  body: "A monthly report ties spend to booked and accepted cases. Adjustments are made on that basis, on a fixed reporting cadence, not ad hoc.",
   accent: true
 }];
 
@@ -36,11 +36,8 @@ export default function Process() {
         <Reveal className="text-center mb-16">
           <span className="font-mono text-[11px] uppercase text-clinical">How it works</span>
           <h2 className="text-[30px] md:text-[42px] font-display font-extrabold text-graphite mt-3 leading-tight">
-            Four steps, ninety days
+            Four steps to predictable growth
           </h2>
-          <p className="text-clinical mt-4">
-            No lock-in mystery. Here&apos;s the actual sequence every practice goes through with us.
-          </p>
         </Reveal>
 
         <div ref={ref} className="relative pl-10 md:pl-14">

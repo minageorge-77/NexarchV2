@@ -4,22 +4,23 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 
 const faqs = [
-{
-  q: "How fast will we see results?",
-  a: "Most practices see qualified implant leads within the first two to three weeks of launch, with booked consultations following as the CRM and dashboard reporting come online. We report on a 90-day view because that's how long it takes to see a clean trend in implant case acceptance."
-},
-{
-  q: "Do you require a long-term contract?",
-  a: "No. We run on a 90-day initial term so both sides can evaluate performance against baseline, then move to month-to-month. Retention is built on results, not a signature."
-},
-{
-  q: "Will you work with a competing implant practice in my area?",
-  a: "No. We hold one client per service area to avoid bidding against ourselves in local search and paid media."
-},
-{
-  q: "Who can access our data and dashboard?",
-  a: "Access is role-based. You decide who on your team sees analytics, who can manage services and testimonials, and who has full administrative control — nothing is shared beyond what you authorize."
-}];
+  {
+    q: "How fast will we see results?",
+    a: "Campaign build takes two to six weeks depending on tier. Most practices see qualified enquiries within the first few weeks of launch; we report on a 90-day view because that's how long it takes to see a clean trend in consultation and case-acceptance rates, not just lead volume."
+  },
+  {
+    q: "Do you require a long-term contract?",
+    a: "Case Flow and Presence run an initial six-month term; Authority runs twelve, reflecting the setup involved. After the initial term, it's month-to-month with thirty days' notice either way."
+  },
+  {
+    q: "Who can access our reporting?",
+    a: "You control who on your team sees what — that's set up during onboarding, not handed to you as a fixed default."
+  },
+  {
+    q: "What's not included?",
+    a: "Ad spend itself (paid directly by you to Google and Meta), and anything outside the fixed deliverable list for your tier. If you want more than what's included, it's a clearly priced add-on — never a renegotiated retainer."
+  }
+];
 
 
 export default function FAQ() {
@@ -39,12 +40,13 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 px-5 bg-clinical/10">
+    <section id="faq" className="relative py-24 px-5 bg-graphite bg-[url('/results.png')] bg-cover bg-center bg-fixed overflow-hidden">
+      <div className="absolute inset-0 bg-graphite/85 backdrop-blur-[1px]" aria-hidden="true" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <div className="max-w-md md:max-w-2xl mx-auto">
+      <div className="relative z-10 max-w-md md:max-w-2xl mx-auto">
         <Reveal className="text-center mb-12">
-          <span className="font-mono text-[11px] uppercase text-clinical">Questions</span>
-          <h2 className="text-[28px] md:text-[36px] font-display font-extrabold text-graphite mt-3 leading-tight">
+          <span className="font-mono text-[23px] uppercase text-white/80">FAQ</span>
+          <h2 className="text-[28px] md:text-[36px] font-display font-extrabold text-white mt-3 leading-tight">
             Before you book the call
           </h2>
         </Reveal>

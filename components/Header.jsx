@@ -8,8 +8,9 @@ import { siteConfig } from "@/lib/site";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/results", label: "Results" },
+  { href: "/approach", label: "Approach" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
   { href: "/admin", label: "Sign-in" }
 ];
 
@@ -39,46 +40,38 @@ export default function Header({ isAdmin = false, hideNav = false }) {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full h-20 flex items-center justify-between px-5 md:px-10 transition-all duration-300 text-white ${
+        className={`fixed top-0 z-50 w-full h-20 md:h-24 flex items-center justify-between px-5 md:px-10 transition-all duration-300 text-white ${
           isHome
             ? (scrolled ? "bg-graphite shadow-md" : "bg-black/20 backdrop-blur-md")
             : "bg-graphite shadow-md"
         }`}>
         
-        <a href={isAdmin ? "/admin" : "/"} className="flex items-center py-1" aria-label={`${siteConfig.name} home`}>
-          <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={120} height={120} className="h-16 md:h-[72px] w-auto object-contain" priority />
+        <a href={isAdmin ? "/admin" : "/"} className="flex items-center py-1 flex-shrink-0" aria-label={`${siteConfig.name} home`}>
+          <Image
+            src="/nexarchLogo-white.png"
+            alt={`${siteConfig.name} emblem`}
+            width={220}
+            height={55}
+            className="h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 w-auto object-contain transition-all duration-200"
+            priority
+          />
         </a>
 
         {!hideNav && (
-          <nav className="hidden md:flex items-center gap-8 font-mono text-[11px] uppercase" aria-label="Primary">
-            {(isAdmin ? adminNavLinks : navLinks.filter((l) => l.href !== "/admin")).map((link) =>
-            <a key={link.href} className="nav-link" href={link.href}>
+          <nav className="hidden md:flex flex-1 items-center justify-center gap-6 md:gap-7 lg:gap-9 xl:gap-11 font-mono text-sm md:text-[13.5px] lg:text-[14.5px] xl:text-[15px] font-medium tracking-wider uppercase px-2 lg:px-4" aria-label="Primary">
+            {(isAdmin ? adminNavLinks : navLinks.filter((l) => l.href !== "/admin")).map((link) => (
+              <a key={link.href} className="nav-link py-1" href={link.href}>
                 {link.label}
               </a>
-            )}
+            ))}
           </nav>
         )}
 
-        <div className="flex items-center gap-3 md:gap-4">
-          <a
-            href={`tel:${siteConfig.phone}`}
-            aria-label="Call Us"
-            className="hidden sm:flex hover:text-gold transition-colors">
-            
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2} />
-              
-            </svg>
-          </a>
+        <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
           {!isAdmin && (
             <a
               href="/contact"
-              className="hidden md:inline-flex items-center bg-gold hover:bg-gold/90 text-graphite font-bold text-[12px] uppercase tracking-wide py-2.5 px-5 rounded-full btn-primary shadow-sm">
-              
+              className="hidden lg:inline-flex items-center bg-gold hover:bg-gold/90 text-graphite font-bold text-[12px] uppercase tracking-wide py-2.5 px-5 rounded-full btn-primary shadow-sm">
               Book a Consultation
             </a>
           )}
@@ -116,17 +109,12 @@ export default function Header({ isAdmin = false, hideNav = false }) {
           </svg>
         </button>
         {!hideNav && (
-          <nav className="flex flex-col gap-6 font-display text-2xl font-bold" aria-label="Mobile">
-            {(isAdmin ? adminNavLinks : navLinks).map((link) =>
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="hover:text-gold transition-colors">
+          <nav className="flex flex-col gap-8 font-display text-2xl font-bold" aria-label="Mobile">
+            {(isAdmin ? adminNavLinks : navLinks).map((link) => (
+              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="hover:text-gold transition-colors">
                 {link.label}
               </a>
-            )}
-            {!isAdmin && (
-              <a href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-gold transition-colors">
-                Contact
-              </a>
-            )}
+            ))}
           </nav>
         )}
         <div className="mt-auto pt-8 border-t border-white/15">

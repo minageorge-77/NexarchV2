@@ -2,48 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const phrases = [
-  "BUILT FOR THE IMPLANT SURGEON",
-  "DENTISTRY MASTERY MEETS MARKETING MASTERY",
-  "PREDICTABLE IMPLANT PATIENT FLOW",
-  "PIPELINE YOU CAN MEASURE"
-];
-
-
 export default function Hero() {
-  const [text, setText] = useState("");
   const pulseRef = useRef(null);
   const dotRef = useRef(null);
   const [drawn, setDrawn] = useState(false);
   const [dotShown, setDotShown] = useState(false);
-
-  // Typing effect cycles through value propositions
-  useEffect(() => {
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeoutId;
-
-    const tick = () => {
-      const current = phrases[phraseIndex];
-      charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
-      setText(current.substring(0, charIndex));
-
-      let speed = isDeleting ? 40 : 75;
-      if (!isDeleting && charIndex === current.length) {
-        speed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        speed = 450;
-      }
-      timeoutId = setTimeout(tick, speed);
-    };
-
-    timeoutId = setTimeout(tick, 900);
-    return () => clearTimeout(timeoutId);
-  }, []);
 
   // Draw-in animation for the signature pulse-to-growth line
   useEffect(() => {
@@ -102,15 +65,15 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-[1100px] mx-auto flex flex-col items-center text-center px-6 pt-16">
         <span className="reveal reveal-up delay-100 font-mono text-[11px] text-gold uppercase mb-5 tracking-wider font-bold" data-visible="true">
-          Result-Driven Marketing For Dental Masters
+          Marketing for implant patients
         </span>
         <div className="min-h-[110px] md:min-h-[150px] flex items-end justify-center mb-3 w-full">
           <h1 className="text-white text-[30px] leading-[1.12] md:text-[56px] font-display font-extrabold tracking-tight uppercase max-w-3xl">
-            <span className="typing-cursor">{text}</span>
+            From Your First Implant Case to Full Arch.
           </h1>
         </div>
         <p className="text-white/85 text-base md:text-lg font-medium mb-9 max-w-md md:max-w-xl">
-          NexArch is a marketing agency built for one kind of dentist: the implant surgeon. Patients decide in minutes what you spent decades building — give them better evidence.
+          NexArch works with practices doing implant work — a single case a month or a dedicated full-arch specialty. We don&apos;t do general dental marketing, cosmetic, or ortho. Implants are the whole focus, at every stage of your practice.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md">
           <a
@@ -120,10 +83,10 @@ export default function Hero() {
             Book a Consultation
           </a>
           <a
-            href="#results"
+            href="/approach"
             className="btn-ghost bg-transparent border-2 border-white/70 text-white font-bold py-4 px-7 rounded-full hover:bg-white/10 text-center w-full sm:w-auto">
             
-            See Live Results
+            See How We Think About This
           </a>
         </div>
 
@@ -137,6 +100,6 @@ export default function Hero() {
           </svg>
         </a>
       </div>
-    </section>);
-
+    </section>
+  );
 }

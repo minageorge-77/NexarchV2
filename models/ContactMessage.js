@@ -28,6 +28,11 @@ const contactMessageSchema = new mongoose.Schema({
     trim: true,
     default: "",
   },
+  consultationDate: {
+    type: String,
+    trim: true,
+    default: "",
+  },
   message: {
     type: String,
     trim: true,

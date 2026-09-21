@@ -111,8 +111,6 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
           <div className="flex items-center gap-3 font-mono uppercase">
             <a href={`tel:${siteConfig.phone}`} className="hover:text-white transition-colors">{siteConfig.phoneDisplay}</a>
-            <span className="opacity-30">·</span>
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">{siteConfig.email}</a>
           </div>
         </div>
       </div>

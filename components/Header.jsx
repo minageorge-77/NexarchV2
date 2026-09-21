@@ -118,11 +118,8 @@ export default function Header({ isAdmin = false, hideNav = false }) {
           </nav>
         )}
         <div className="mt-auto pt-8 border-t border-white/15">
-          <a href={`tel:${siteConfig.phone}`} className="font-mono text-sm text-clinical hover:text-gold transition-colors block mb-1">
+          <a href={`tel:${siteConfig.phone}`} className="font-mono text-sm text-clinical hover:text-gold transition-colors block">
             {siteConfig.phoneDisplay}
-          </a>
-          <a href={`mailto:${siteConfig.email}`} className="font-mono text-sm text-clinical hover:text-gold transition-colors">
-            {siteConfig.email}
           </a>
         </div>
       </aside>

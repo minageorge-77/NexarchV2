@@ -68,7 +68,7 @@ export default function Hero() {
           Marketing for implant patients
         </span>
         <div className="min-h-[110px] md:min-h-[150px] flex items-end justify-center mb-3 w-full">
-          <h1 className="text-white text-[30px] leading-[1.12] md:text-[56px] font-display font-extrabold tracking-tight uppercase max-w-3xl">
+          <h1 className="text-white text-[30px] leading-[1.12] md:text-[56px] font-display font-extrabold tracking-tight capitalize max-w-3xl">
             From Your First Implant Case to Full Arch
           </h1>
         </div>

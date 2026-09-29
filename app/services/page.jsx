@@ -51,7 +51,7 @@ export default function ServicesPage() {
               <span className="font-mono text-[11px] text-clinical uppercase mb-4 block tracking-wider">
                 What we actually do
               </span>
-              <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
+              <h1 className="text-white text-[40px] md:text-[56px] font-display font-extrabold tracking-tight capitalize leading-none mb-6">
                 Three Ways to <br /> Work With Us
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto font-medium">

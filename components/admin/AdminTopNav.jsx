@@ -62,8 +62,7 @@ export default function AdminTopNav({ setIsOpen }) {
               {initials}
             </div>
             <div className="hidden md:block text-left">
-              <p className="text-sm font-bold text-graphite leading-none mb-1">{user?.name || "Admin"}</p>
-              <p className="text-[11px] font-mono uppercase text-clinical leading-none">{user?.email || "admin@nexarch.io"}</p>
+              <p className="text-sm font-bold text-graphite leading-none">{user?.name || "Admin"}</p>
             </div>
             <svg className="w-4 h-4 text-clinical" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -74,7 +73,6 @@ export default function AdminTopNav({ setIsOpen }) {
           <div className="absolute right-0 mt-3 w-48 bg-white border border-lightgray rounded-xl shadow-card py-2 z-50">
               <div className="px-4 py-2 border-b border-lightgray md:hidden">
                 <p className="text-sm font-bold text-graphite">{user?.name || "Admin"}</p>
-                <p className="text-xs text-clinical">{user?.email || "admin@nexarch.io"}</p>
               </div>
               <button
               onClick={handleLogout}

@@ -68,7 +68,7 @@ export default function ContactPage() {
               <span className="font-mono text-[11px] text-clinical uppercase mb-4 block tracking-wider">
                 Let's talk about your numbers
               </span>
-              <h1 className="text-white text-[32px] md:text-[48px] font-display font-extrabold tracking-tight uppercase leading-none mb-6">
+              <h1 className="text-white text-[32px] md:text-[48px] font-display font-extrabold tracking-tight capitalize leading-none mb-6">
                 Tell Us Where the Practice Stands Today
               </h1>
               <p className="text-white/80 text-lg md:text-xl font-medium">

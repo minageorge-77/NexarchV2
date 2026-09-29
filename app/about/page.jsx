@@ -23,7 +23,7 @@ export default function AboutPage() {
               <span className="font-mono text-[11px] text-gold uppercase mb-4 block tracking-wider font-bold">
                 Who's behind this
               </span>
-              <h1 className="text-white text-[32px] md:text-[48px] font-display font-extrabold tracking-tight uppercase leading-tight mb-6 max-w-4xl mx-auto">
+              <h1 className="text-white text-[32px] md:text-[48px] font-display font-extrabold tracking-tight capitalize leading-tight mb-6 max-w-4xl mx-auto">
                 Built by People Who've <br /> Done the Delivery Work
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed">

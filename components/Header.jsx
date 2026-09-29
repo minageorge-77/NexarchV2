@@ -48,10 +48,10 @@ export default function Header({ isAdmin = false, hideNav = false }) {
         
         <a href={isAdmin ? "/admin" : "/"} className="flex items-center py-1 flex-shrink-0" aria-label={`${siteConfig.name} home`}>
           <Image
-            src="/nexarchLogo-white.png"
+            src="/nexarchLogo-cropped.png"
             alt={`${siteConfig.name} emblem`}
             width={220}
-            height={55}
+            height={56}
             className="h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 w-auto object-contain transition-all duration-200"
             priority
           />

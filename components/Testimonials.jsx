@@ -92,20 +92,20 @@ export default function Testimonials() {
             {testimonials.map((t) => (
               <div
                 key={t._id}
-                className="testi-card shrink-0 w-[90%] sm:w-[80%] md:w-[58%] lg:w-[52%] bg-white rounded-2xl p-7 sm:p-9 shadow-card border border-lightgray flex flex-col justify-between">
+                className="testi-card shrink-0 w-[92%] sm:w-[85%] md:w-[64%] lg:w-[58%] bg-white rounded-2xl p-7 sm:p-9 shadow-card border border-lightgray flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-5 sm:gap-6 mb-6">
+                  <div className="flex items-center gap-5 sm:gap-7 mb-6">
                     {t.imageUrl ? (
                       <Image
                         src={t.imageUrl}
                         alt={t.clientName}
-                        width={200}
-                        height={260}
+                        width={240}
+                        height={320}
                         unoptimized={true}
-                        className="w-28 sm:w-36 md:w-40 h-36 sm:h-48 md:h-52 rounded-2xl object-cover shrink-0 border border-lightgray shadow-sm"
+                        className="w-32 sm:w-44 md:w-48 h-44 sm:h-56 md:h-64 rounded-2xl object-cover shrink-0 border border-lightgray shadow-sm"
                       />
                     ) : (
-                      <div className="w-28 sm:w-36 md:w-40 h-36 sm:h-48 md:h-52 rounded-2xl bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-4xl shrink-0 border border-lightgray">
+                      <div className="w-32 sm:w-44 md:w-48 h-44 sm:h-56 md:h-64 rounded-2xl bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-5xl shrink-0 border border-lightgray">
                         {t.clientName.charAt(0)}
                       </div>
                     )}

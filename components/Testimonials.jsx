@@ -56,7 +56,7 @@ export default function Testimonials() {
       <div className="absolute inset-0 bg-graphite/85 backdrop-blur-[1px]" aria-hidden="true" />
 
       <div className="relative z-10">
-        <div className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto px-5">
+        <div className="max-w-xl md:max-w-4xl lg:max-w-5xl mx-auto px-4 sm:px-5">
           <Reveal className="flex items-end justify-between mb-8">
             <div>
               <span className="font-mono text-[11px] uppercase text-white/80">In their words</span>
@@ -88,13 +88,13 @@ export default function Testimonials() {
         </div>
 
         <Reveal delay={100}>
-          <div ref={trackRef} className="testimonial-track flex gap-6 overflow-x-auto px-5 pb-4 max-w-md md:max-w-4xl lg:max-w-5xl mx-auto snap-x">
+          <div ref={trackRef} className="testimonial-track flex gap-4 sm:gap-6 overflow-x-auto px-4 sm:px-5 pb-4 max-w-xl md:max-w-4xl lg:max-w-5xl mx-auto snap-x">
             {testimonials.map((t) => (
               <div
                 key={t._id}
-                className="testi-card shrink-0 w-[92%] sm:w-[85%] md:w-[64%] lg:w-[58%] bg-white rounded-2xl p-7 sm:p-9 shadow-card border border-lightgray flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-5 sm:gap-7 mb-6">
+                className="testi-card shrink-0 w-[94%] sm:w-[80%] md:w-[64%] lg:w-[58%] bg-white rounded-2xl p-5 sm:p-8 md:p-9 shadow-card border border-lightgray flex flex-col justify-between overflow-hidden">
+                <div className="min-w-0 w-full">
+                  <div className="flex items-center gap-4 sm:gap-6 md:gap-7 mb-5 sm:mb-6 min-w-0">
                     {t.imageUrl ? (
                       <Image
                         src={t.imageUrl}
@@ -102,25 +102,25 @@ export default function Testimonials() {
                         width={240}
                         height={320}
                         unoptimized={true}
-                        className="w-32 sm:w-44 md:w-48 h-44 sm:h-56 md:h-64 rounded-2xl object-cover shrink-0 border border-lightgray shadow-sm"
+                        className="w-24 sm:w-36 md:w-44 lg:w-48 h-32 sm:h-48 md:h-56 lg:h-64 rounded-xl sm:rounded-2xl object-cover shrink-0 border border-lightgray shadow-sm"
                       />
                     ) : (
-                      <div className="w-32 sm:w-44 md:w-48 h-44 sm:h-56 md:h-64 rounded-2xl bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-5xl shrink-0 border border-lightgray">
+                      <div className="w-24 sm:w-36 md:w-44 lg:w-48 h-32 sm:h-48 md:h-56 lg:h-64 rounded-xl sm:rounded-2xl bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-3xl sm:text-5xl shrink-0 border border-lightgray">
                         {t.clientName.charAt(0)}
                       </div>
                     )}
-                    <div>
-                      <p className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-graphite leading-snug">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-display font-bold text-lg sm:text-2xl md:text-3xl text-graphite leading-snug break-words">
                         {t.clientName}
                       </p>
                       {([t.clientTitle, t.company].filter(Boolean).length > 0 || t.clinicName) && (
-                        <p className="font-mono text-xs sm:text-sm text-clinical uppercase tracking-wider mt-1.5">
+                        <p className="font-mono text-[10px] sm:text-xs md:text-sm text-clinical uppercase tracking-wider mt-1 sm:mt-1.5 break-words leading-relaxed">
                           {[t.clientTitle, t.company].filter(Boolean).join(" · ") || t.clinicName}
                         </p>
                       )}
                     </div>
                   </div>
-                  <p className="text-graphite/90 font-semibold text-lg sm:text-[19px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
+                  <p className="text-graphite/90 font-semibold text-base sm:text-lg md:text-[19px] leading-relaxed break-words">&ldquo;{t.content}&rdquo;</p>
                 </div>
               </div>
             ))}

@@ -206,11 +206,11 @@ export default function TestimonialModal({ isOpen, onClose, testimonial, onSave,
                   <label className="block text-xs font-bold uppercase tracking-wider text-clinical mb-1.5">Client Image</label>
                   <div className="flex flex-col md:flex-row items-start gap-4">
                     {imagePreview ? (
-                      <div className="w-16 h-16 rounded-full border border-lightgray overflow-hidden shrink-0">
+                      <div className="w-16 h-20 rounded-xl border border-lightgray overflow-hidden shrink-0">
                         <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                       </div>
                     ) : (
-                      <div className="w-16 h-16 rounded-full bg-[#f7f7f7] flex items-center justify-center text-graphite font-bold shrink-0">
+                      <div className="w-16 h-20 rounded-xl bg-[#f7f7f7] flex items-center justify-center text-graphite font-bold shrink-0">
                         {formData.clientName ? formData.clientName.charAt(0) : "?"}
                       </div>
                     )}

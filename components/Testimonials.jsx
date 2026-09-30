@@ -99,28 +99,28 @@ export default function Testimonials() {
                       <Image
                         src={t.imageUrl}
                         alt={t.clientName}
-                        width={96}
-                        height={96}
+                        width={112}
+                        height={112}
                         unoptimized={true}
-                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shrink-0 border border-lightgray"
+                        className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shrink-0 border border-lightgray"
                       />
                     ) : (
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-2xl shrink-0">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-3xl shrink-0">
                         {t.clientName.charAt(0)}
                       </div>
                     )}
                     <div>
-                      <p className="font-display font-bold text-lg sm:text-xl text-graphite leading-snug">
+                      <p className="font-display font-bold text-xl sm:text-2xl text-graphite leading-snug">
                         {t.clientName}
                       </p>
                       {([t.clientTitle, t.company].filter(Boolean).length > 0 || t.clinicName) && (
-                        <p className="font-mono text-[11px] sm:text-xs text-clinical uppercase tracking-wider mt-1">
+                        <p className="font-mono text-xs sm:text-sm text-clinical uppercase tracking-wider mt-1.5">
                           {[t.clientTitle, t.company].filter(Boolean).join(" · ") || t.clinicName}
                         </p>
                       )}
                     </div>
                   </div>
-                  <p className="text-graphite/90 font-semibold text-base sm:text-[17px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
+                  <p className="text-graphite/90 font-semibold text-lg sm:text-[19px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
                 </div>
               </div>
             ))}

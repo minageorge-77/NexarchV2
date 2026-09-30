@@ -94,23 +94,23 @@ export default function Testimonials() {
                 key={t._id}
                 className="testi-card shrink-0 w-[90%] sm:w-[80%] md:w-[58%] lg:w-[52%] bg-white rounded-2xl p-7 sm:p-9 shadow-card border border-lightgray flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-4 mb-5">
+                  <div className="flex items-center gap-5 sm:gap-6 mb-6">
                     {t.imageUrl ? (
                       <Image
                         src={t.imageUrl}
                         alt={t.clientName}
-                        width={120}
-                        height={160}
+                        width={200}
+                        height={260}
                         unoptimized={true}
-                        className="w-20 sm:w-24 md:w-28 h-28 sm:h-32 md:h-36 rounded-xl object-cover shrink-0 border border-lightgray"
+                        className="w-28 sm:w-36 md:w-40 h-36 sm:h-48 md:h-52 rounded-2xl object-cover shrink-0 border border-lightgray shadow-sm"
                       />
                     ) : (
-                      <div className="w-20 sm:w-24 md:w-28 h-28 sm:h-32 md:h-36 rounded-xl bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-3xl shrink-0">
+                      <div className="w-28 sm:w-36 md:w-40 h-36 sm:h-48 md:h-52 rounded-2xl bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-4xl shrink-0 border border-lightgray">
                         {t.clientName.charAt(0)}
                       </div>
                     )}
                     <div>
-                      <p className="font-display font-bold text-xl sm:text-2xl text-graphite leading-snug">
+                      <p className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-graphite leading-snug">
                         {t.clientName}
                       </p>
                       {([t.clientTitle, t.company].filter(Boolean).length > 0 || t.clinicName) && (

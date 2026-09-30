@@ -99,13 +99,13 @@ export default function Testimonials() {
                       <Image
                         src={t.imageUrl}
                         alt={t.clientName}
-                        width={64}
-                        height={64}
+                        width={96}
+                        height={96}
                         unoptimized={true}
-                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shrink-0 border border-lightgray"
+                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shrink-0 border border-lightgray"
                       />
                     ) : (
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-xl shrink-0">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-2xl shrink-0">
                         {t.clientName.charAt(0)}
                       </div>
                     )}

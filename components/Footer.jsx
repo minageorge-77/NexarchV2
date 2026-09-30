@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 mb-12">
           <div>
             <div className="flex items-center mb-2">
-              <Image src="/nexarchLogo.png" alt={`${siteConfig.name} emblem`} width={140} height={140} className="h-24 md:h-28 w-auto object-contain" />
+              <Image src="/nexarchLogo-cropped.png" alt={`${siteConfig.name} emblem`} width={220} height={56} className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <p className="text-[14px] mt-4 leading-relaxed max-w-xs">
               NexArch works with implant practices — single case to full arch — nothing else, and nothing padded around it.

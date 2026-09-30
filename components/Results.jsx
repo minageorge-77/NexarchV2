@@ -76,6 +76,7 @@ export default function Results() {
             <Image
               alt={`${clinicName} surgical suite`}
               fill
+              unoptimized={true}
               className="object-cover"
               src={photoUrl}
               sizes="(max-width: 768px) 100vw, 768px"

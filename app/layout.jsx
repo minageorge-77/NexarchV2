@@ -54,9 +54,9 @@ export const metadata = {
     images: [siteConfig.ogImage]
   },
   icons: {
-    icon: "/nexarchLogo.png",
-    shortcut: "/nexarchLogo.png",
-    apple: "/nexarchLogo.png"
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png"
   },
   manifest: "/site.webmanifest"
 };
@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
     name: siteConfig.legalName,
     alternateName: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/nexarchLogo.png`,
+    logo: `${siteConfig.url}/nexarchLogo-cropped.png`,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
@@ -100,6 +100,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${archivoExpanded.variable} font-sans`}>
       <head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="shortcut icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

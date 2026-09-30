@@ -45,11 +45,11 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md relative z-10 my-auto">
         <Reveal variant="up" className="text-center mb-8 flex flex-col items-center">
           <Image
-            src="/nexarchLogo.png"
+            src="/nexarchLogo-cropped.png"
             alt="NexArch Logo"
-            width={120}
-            height={120}
-            className="h-16 sm:h-20 w-auto object-contain mb-4"
+            width={220}
+            height={56}
+            className="h-12 sm:h-14 w-auto object-contain mb-4"
             priority
           />
           <h1 className="text-[28px] sm:text-[32px] font-display font-extrabold text-white tracking-tight uppercase flex items-center justify-center gap-2">

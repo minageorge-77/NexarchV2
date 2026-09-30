@@ -56,7 +56,7 @@ export default function Testimonials() {
       <div className="absolute inset-0 bg-graphite/85 backdrop-blur-[1px]" aria-hidden="true" />
 
       <div className="relative z-10">
-        <div className="max-w-md md:max-w-3xl mx-auto px-5">
+        <div className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto px-5">
           <Reveal className="flex items-end justify-between mb-8">
             <div>
               <span className="font-mono text-[11px] uppercase text-white/80">In their words</span>
@@ -88,34 +88,42 @@ export default function Testimonials() {
         </div>
 
         <Reveal delay={100}>
-          <div ref={trackRef} className="testimonial-track flex gap-5 overflow-x-auto px-5 pb-4 max-w-md md:max-w-3xl mx-auto snap-x">
-            {testimonials.map((t) =>
-            <div
-              key={t._id}
-              className="testi-card shrink-0 w-[85%] sm:w-[70%] md:w-[48%] bg-white rounded-2xl p-7 shadow-card border border-lightgray">
-              
-                <div className="flex items-center gap-3 mb-4">
-                  {t.imageUrl ?
-                <Image
-                  src={t.imageUrl}
-                  alt={t.clientName}
-                  width={44}
-                  height={44}
-                  className="w-11 h-11 rounded-full object-cover" /> :
-
-
-                <div className="w-11 h-11 rounded-full bg-lightgray flex items-center justify-center text-graphite font-bold">
-                      {t.clientName.charAt(0)}
+          <div ref={trackRef} className="testimonial-track flex gap-6 overflow-x-auto px-5 pb-4 max-w-md md:max-w-4xl lg:max-w-5xl mx-auto snap-x">
+            {testimonials.map((t) => (
+              <div
+                key={t._id}
+                className="testi-card shrink-0 w-[90%] sm:w-[80%] md:w-[58%] lg:w-[52%] bg-white rounded-2xl p-7 sm:p-9 shadow-card border border-lightgray flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-4 mb-5">
+                    {t.imageUrl ? (
+                      <Image
+                        src={t.imageUrl}
+                        alt={t.clientName}
+                        width={64}
+                        height={64}
+                        unoptimized={true}
+                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shrink-0 border border-lightgray"
+                      />
+                    ) : (
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-lightgray flex items-center justify-center text-graphite font-display font-bold text-xl shrink-0">
+                        {t.clientName.charAt(0)}
+                      </div>
+                    )}
+                    <div>
+                      <p className="font-display font-bold text-lg sm:text-xl text-graphite leading-snug">
+                        {t.clientName}
+                      </p>
+                      {([t.clientTitle, t.company].filter(Boolean).length > 0 || t.clinicName) && (
+                        <p className="font-mono text-[11px] sm:text-xs text-clinical uppercase tracking-wider mt-1">
+                          {[t.clientTitle, t.company].filter(Boolean).join(" · ") || t.clinicName}
+                        </p>
+                      )}
                     </div>
-                }
-                  <div>
-                    <p className="font-display font-bold text-sm text-graphite">{t.clientName}</p>
-                    <p className="font-mono text-[10px] text-clinical uppercase">{t.clinicName}</p>
                   </div>
+                  <p className="text-graphite/90 font-semibold text-base sm:text-[17px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
                 </div>
-                <p className="text-clinical text-[15px] leading-relaxed">&ldquo;{t.content}&rdquo;</p>
               </div>
-            )}
+            ))}
           </div>
         </Reveal>
       </div>

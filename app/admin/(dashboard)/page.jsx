@@ -7,30 +7,21 @@ import Image from "next/image";
 import { toast } from "react-hot-toast";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import Reveal from "@/components/Reveal";
-import { analyticsApi } from "@/lib/api/analytics";
 import { messagesApi } from "@/lib/api/messages";
 import { testimonialsApi } from "@/lib/api/testimonials";
 import { statsApi } from "@/lib/api/stats";
+import { analyticsApi } from "@/lib/api/analytics";
 import StatsModal from "@/components/admin/modals/StatsModal";
 
 export default function AnalyticsDashboardPage() {
   const queryClient = useQueryClient();
   const [statsModalOpen, setStatsModalOpen] = useState(false);
+  const [range, setRange] = useState("last30");
 
   // Fetch Analytics
-  const { data: overview, isLoading: overviewLoading } = useQuery({
-    queryKey: ["analytics", "overview"],
-    queryFn: () => analyticsApi.getOverview()
-  });
-
-  const { data: topPages, isLoading: topPagesLoading } = useQuery({
-    queryKey: ["analytics", "top-pages"],
-    queryFn: () => analyticsApi.getTopPages()
-  });
-
-  const { data: trafficSources, isLoading: trafficLoading } = useQuery({
-    queryKey: ["analytics", "traffic-sources"],
-    queryFn: () => analyticsApi.getTrafficSources()
+  const { data: analyticsData, isLoading: analyticsLoading } = useQuery({
+    queryKey: ["analytics", range],
+    queryFn: () => analyticsApi.getStats(range)
   });
 
   // Fetch DB Entities
@@ -64,11 +55,7 @@ export default function AnalyticsDashboardPage() {
   });
 
   // Derived Metrics & Safe Checks
-  const totalTrafficSessions = Array.isArray(trafficSources) 
-    ? trafficSources.reduce((acc, src) => acc + parseInt(src.sessions?.replace(/,/g, '') || '0', 10), 0) || 1
-    : 1;
-
-  const recentMessages = Array.isArray(messages) ? messages.slice(0, 5) : [];
+    const recentMessages = Array.isArray(messages) ? messages.slice(0, 5) : [];
 
   return (
     <>
@@ -79,17 +66,7 @@ export default function AnalyticsDashboardPage() {
         />
         
         {/* 1. Overview Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-          {/* Total Visitors */}
-          <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Total Visitors</span>
-            <div className="flex items-end justify-between mt-auto">
-              <span className="text-3xl font-display font-extrabold text-graphite leading-none">
-                {overviewLoading ? "..." : overview?.users || "0"}
-              </span>
-            </div>
-          </div>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
           {/* Contact Requests */}
           <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
             <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Contact Requests</span>
@@ -109,6 +86,104 @@ export default function AnalyticsDashboardPage() {
               </span>
             </div>
           </div>
+        </div>
+
+        
+        {/* Simple Analytics Section */}
+        <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-lightgray">
+            <div>
+              <h3 className="font-display font-bold text-lg text-graphite">Website Traffic</h3>
+              <p className="text-xs text-clinical mt-1">Basic page views recorded directly in your database.</p>
+            </div>
+            <select
+              value={range}
+              onChange={(e) => setRange(e.target.value)}
+              className="text-sm border border-lightgray rounded-lg px-3 py-2 bg-[#f7f7f7] text-graphite font-medium focus:outline-none focus:border-gold"
+            >
+              <option value="today">Today</option>
+              <option value="last7">Last 7 Days</option>
+              <option value="last30">Last 30 Days</option>
+            </select>
+          </div>
+
+          {analyticsLoading ? (
+             <div className="animate-pulse space-y-4">
+                {[...Array(3)].map((_, i) => <div key={i} className="h-10 bg-lightgray/50 rounded w-full"></div>)}
+             </div>
+          ) : (
+            <div className="space-y-8">
+              {/* Overview Metrics */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="bg-[#f7f7f7] rounded-xl p-4 text-center">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-clinical block mb-1">Total Views</span>
+                  <span className="text-2xl font-display font-bold text-graphite">{analyticsData?.overview?.totalViews || 0}</span>
+                </div>
+                <div className="bg-[#f7f7f7] rounded-xl p-4 text-center">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-clinical block mb-1">Unique Sessions</span>
+                  <span className="text-2xl font-display font-bold text-graphite">{analyticsData?.overview?.uniqueSessions || 0}</span>
+                </div>
+                <div className="bg-[#f7f7f7] rounded-xl p-4 text-center">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-clinical block mb-1">Today</span>
+                  <span className="text-2xl font-display font-bold text-graphite">{analyticsData?.overview?.todayViews || 0}</span>
+                </div>
+                <div className="bg-[#f7f7f7] rounded-xl p-4 text-center">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-clinical block mb-1">Last 7 Days</span>
+                  <span className="text-2xl font-display font-bold text-graphite">{analyticsData?.overview?.last7DaysViews || 0}</span>
+                </div>
+              </div>
+
+              {/* Top Pages */}
+              <div>
+                <h4 className="font-display font-bold text-md text-graphite mb-3">Top Pages</h4>
+                <div className="border border-lightgray rounded-xl overflow-hidden">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-[#f7f7f7] text-[10px] uppercase tracking-wider font-mono text-clinical border-b border-lightgray">
+                        <th className="py-2.5 px-4 font-semibold">Page Path</th>
+                        <th className="py-2.5 px-4 font-semibold text-right">Views</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-lightgray text-sm">
+                      {analyticsData?.topPages?.length > 0 ? (
+                        analyticsData.topPages.map((page, idx) => (
+                          <tr key={idx} className="hover:bg-gray-50/80 transition-colors">
+                            <td className="py-2.5 px-4 font-medium text-graphite truncate">{page.path}</td>
+                            <td className="py-2.5 px-4 text-clinical text-right">{page.views}</td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr><td colSpan="2" className="py-4 text-center text-xs text-clinical">No views found for this period.</td></tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Views Over Time (Simple Bar Visualization) */}
+              <div>
+                <h4 className="font-display font-bold text-md text-graphite mb-3">Views Over Time</h4>
+                <div className="flex items-end gap-1 h-32 border-b border-lightgray pb-1 px-1">
+                  {analyticsData?.viewsOverTime?.length > 0 ? (
+                    analyticsData.viewsOverTime.map((day, idx) => {
+                      const maxViews = Math.max(...analyticsData.viewsOverTime.map(d => d.views));
+                      const height = Math.max(5, (day.views / (maxViews || 1)) * 100);
+                      return (
+                        <div key={idx} className="flex-1 flex flex-col items-center group relative cursor-pointer h-full justify-end">
+                          <div className="w-full bg-gold/60 group-hover:bg-gold rounded-t-sm transition-colors" style={{ height: `${height}%` }}></div>
+                          <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 bg-graphite text-white text-[10px] font-mono py-0.5 px-1.5 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none z-10 transition-opacity">
+                            {day.date}: {day.views} views
+                          </div>
+                        </div>
+                      )
+                    })
+                  ) : (
+                     <div className="w-full h-full flex items-center justify-center text-xs text-clinical">Not enough data to display chart.</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Landing Page Live Stats Highlight Card */}
@@ -190,84 +265,32 @@ export default function AnalyticsDashboardPage() {
           </div>
         </div>
 
-        {/* Middle Section: Quick Actions & Analytics */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          
+                {/* Middle Section: Quick Actions */}
+        <div className="mb-8">
           {/* Quick Actions */}
-          <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col justify-between">
+          <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card">
             <h3 className="font-display font-bold text-lg text-graphite mb-6">Quick Actions</h3>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setStatsModalOpen(true)}
-                className="px-4 py-3 bg-gold/15 hover:bg-gold/25 text-graphite border border-gold/40 rounded-xl font-bold transition-colors text-center text-sm flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-3 bg-gold/15 hover:bg-gold/25 text-graphite border border-gold/40 rounded-xl font-bold transition-colors text-center text-sm flex items-center justify-center gap-2"
               >
-                <span>⚡</span> Edit Live Stats (Landing Page)
+                <span>✨</span> Edit Live Stats (Landing Page)
               </button>
-              <Link href="/admin/services" className="px-4 py-3 bg-[#f7f7f7] hover:bg-lightgray text-graphite rounded-xl font-medium transition-colors text-center border border-lightgray text-sm">
+              <Link href="/admin/services" className="flex-1 px-4 py-3 bg-[#f7f7f7] hover:bg-lightgray text-graphite rounded-xl font-medium transition-colors text-center border border-lightgray text-sm">
                 Add Service
               </Link>
-              <Link href="/admin/testimonials" className="px-4 py-3 bg-[#f7f7f7] hover:bg-lightgray text-graphite rounded-xl font-medium transition-colors text-center border border-lightgray text-sm">
+              <Link href="/admin/testimonials" className="flex-1 px-4 py-3 bg-[#f7f7f7] hover:bg-lightgray text-graphite rounded-xl font-medium transition-colors text-center border border-lightgray text-sm">
                 Add Testimonial
               </Link>
-              <Link href="/admin/messages" className="px-4 py-3 bg-graphite hover:bg-black text-white rounded-xl font-medium transition-colors text-center text-sm">
+              <Link href="/admin/messages" className="flex-1 px-4 py-3 bg-graphite hover:bg-black text-white rounded-xl font-medium transition-colors text-center text-sm">
                 View Messages
               </Link>
             </div>
           </div>
-
-          {/* 2. Analytics Summary - Top Pages */}
-          <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <h3 className="font-display font-bold text-lg text-graphite mb-6">Top 5 Pages</h3>
-            <div className="flex-1 space-y-4">
-              {topPagesLoading ? (
-                <div className="animate-pulse space-y-4">
-                  {[...Array(5)].map((_, i) => <div key={i} className="h-4 bg-lightgray/50 rounded w-full"></div>)}
-                </div>
-              ) : Array.isArray(topPages) && topPages.length ? (
-                topPages.slice(0, 5).map((page, idx) => (
-                  <div key={idx} className="flex justify-between items-center text-sm">
-                    <span className="text-graphite font-medium truncate pr-4">{page.pagePath}</span>
-                    <span className="text-clinical font-mono text-[11px] whitespace-nowrap">{page.sessions} views</span>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-clinical">No page data available.</p>
-              )}
-            </div>
-          </div>
-
-          {/* 2. Analytics Summary - Traffic Sources */}
-          <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <h3 className="font-display font-bold text-lg text-graphite mb-6">Traffic Sources</h3>
-            <div className="flex-1 space-y-5">
-              {trafficLoading ? (
-                <div className="animate-pulse space-y-5">
-                  {[...Array(4)].map((_, i) => <div key={i} className="h-4 bg-lightgray/50 rounded w-full"></div>)}
-                </div>
-              ) : Array.isArray(trafficSources) && trafficSources.length ? (
-                trafficSources.slice(0, 5).map((source, idx) => {
-                  const sessNum = parseInt(source.sessions?.replace(/,/g, '') || '0', 10);
-                  const percentage = Math.min(100, Math.max(5, (sessNum / totalTrafficSessions * 100))).toFixed(1);
-                  return (
-                    <div key={idx}>
-                      <div className="flex justify-between items-center mb-1 text-sm">
-                        <span className="font-medium text-graphite truncate pr-2">{source.sourceMedium}</span>
-                        <span className="font-mono text-[11px] text-clinical">{source.sessions}</span>
-                      </div>
-                      <div className="w-full bg-[#f7f7f7] h-1.5 rounded-full overflow-hidden">
-                        <div className="bg-graphite h-full rounded-full" style={{ width: `${percentage}%` }}></div>
-                      </div>
-                    </div>
-                  );
-                })
-              ) : (
-                <p className="text-sm text-clinical">No traffic data available.</p>
-              )}
-            </div>
-          </div>
         </div>
 
-        {/* 3. Recent Contact Requests */}
+{/* 3. Recent Contact Requests */}
         <div className="bg-white border border-lightgray rounded-2xl shadow-card overflow-hidden">
           <div className="p-6 border-b border-lightgray flex justify-between items-center flex-wrap gap-2">
             <div>

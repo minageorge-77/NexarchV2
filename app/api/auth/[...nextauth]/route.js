@@ -4,6 +4,10 @@ import connectDB from "@/lib/mongodb";
 import Admin from "@/models/Admin";
 import bcrypt from "bcryptjs";
 
+const loginRateLimit = new Map();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+const MAX_ATTEMPTS = 5;
+
 export const authOptions = {
   providers: [
     CredentialsProvider({
@@ -12,7 +16,22 @@ export const authOptions = {
         email: { label: "Email", type: "email", placeholder: "admin@nexarch.co" },
         password: { label: "Password", type: "password" }
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
+        const ip = req?.headers?.['x-forwarded-for'] || req?.socket?.remoteAddress || 'unknown';
+        const now = Date.now();
+        
+        let attempts = loginRateLimit.get(ip);
+        if (!attempts || now > attempts.resetTime) {
+          attempts = { count: 1, resetTime: now + RATE_LIMIT_WINDOW };
+        } else {
+          attempts.count += 1;
+        }
+        loginRateLimit.set(ip, attempts);
+        
+        if (attempts.count > MAX_ATTEMPTS) {
+          throw new Error("Too many login attempts. Please try again later.");
+        }
+
         await connectDB();
         const admin = await Admin.findOne({ email: credentials?.email?.toLowerCase() });
         if (!admin) {
@@ -23,6 +42,9 @@ export const authOptions = {
         if (!isMatch) {
           throw new Error("Invalid email or password");
         }
+
+        // Reset rate limit on success
+        loginRateLimit.delete(ip);
 
         return { id: admin._id.toString(), email: admin.email, name: admin.name };
       }

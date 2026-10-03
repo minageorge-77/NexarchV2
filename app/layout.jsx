@@ -1,8 +1,10 @@
 
+import { Suspense } from "react";
 import Providers from "@/components/Providers";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { archivoExpanded } from "@/lib/fonts";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 
 
@@ -114,6 +116,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className="font-sans antialiased">
         <Providers>
+          <Suspense fallback={null}>
+            <AnalyticsTracker />
+          </Suspense>
           {children}
         </Providers>
       </body>

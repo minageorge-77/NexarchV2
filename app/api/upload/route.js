@@ -33,7 +33,7 @@ export async function POST(req) {
     // Upload to Cloudinary using upload_stream
     const uploadResult = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
-        { folder: "nexarch" },
+        { folder: "nexarch", resource_type: "image" },
         (error, result) => {
           if (error) return reject(error);
           resolve(result);
@@ -66,12 +66,13 @@ export async function DELETE(req) {
     }
 
     // Extract public_id from secure_url
-    // Example url: https://res.cloudinary.com/demo/image/upload/v162817293/nexarch/sample_image.jpg
-    // public_id would be 'nexarch/sample_image'
+    // Extract public_id from secure_url safely, forcing it to be within the 'nexarch' folder
     const parts = url.split("/");
     const filenameWithExt = parts.pop();
-    const folder = parts.pop();
-    const publicId = `${folder}/${filenameWithExt.split(".")[0]}`;
+    
+    // To prevent deleting images outside the 'nexarch' folder, we construct the publicId manually
+    const filename = filenameWithExt.split(".")[0];
+    const publicId = `nexarch/${filename}`;
 
     await cloudinary.uploader.destroy(publicId);
 

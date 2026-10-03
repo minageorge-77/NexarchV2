@@ -102,7 +102,7 @@ export async function POST(req) {
 
       try {
         await resend.emails.send({
-          from: 'NexArch Notifications <onboarding@resend.dev>', // Use onboarding@resend.dev for testing without verified domain
+          from: process.env.RESEND_FROM_EMAIL || 'NexArch Notifications <onboarding@resend.dev>',
           to: process.env.ADMIN_NOTIFICATION_EMAIL,
           subject: 'New Consultation Request - NexArch',
           html: emailHtml,

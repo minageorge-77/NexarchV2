@@ -9,7 +9,7 @@ export const authOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "emailadmin@nexarch.co" },
+        email: { label: "Email", type: "email", placeholder: "admin@nexarch.co" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {

@@ -23,18 +23,18 @@ async function seed() {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log("Connected to MongoDB.");
 
-    const existingAdmin = await Admin.findOne({ email: "admin@nexarch.io" });
+    const existingAdmin = await Admin.findOne({ email: "emailadmin@nexarch.co" });
     if (existingAdmin) {
       console.log("Admin user already exists. Exiting.");
       process.exit(0);
     }
 
     const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash("Password123!", salt);
+    const passwordHash = await bcrypt.hash("Basha2012@@@$", salt);
 
     await Admin.create({
       name: "NexArch Admin",
-      email: "admin@nexarch.io",
+      email: "emailadmin@nexarch.co",
       passwordHash,
     });
 

@@ -9,7 +9,6 @@ import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import Reveal from "@/components/Reveal";
 import { analyticsApi } from "@/lib/api/analytics";
 import { messagesApi } from "@/lib/api/messages";
-import { servicesApi } from "@/lib/api/services";
 import { testimonialsApi } from "@/lib/api/testimonials";
 import { statsApi } from "@/lib/api/stats";
 import StatsModal from "@/components/admin/modals/StatsModal";
@@ -38,11 +37,6 @@ export default function AnalyticsDashboardPage() {
   const { data: messages, isLoading: messagesLoading } = useQuery({
     queryKey: ["messages"],
     queryFn: messagesApi.list
-  });
-
-  const { data: services, isLoading: servicesLoading } = useQuery({
-    queryKey: ["services"],
-    queryFn: servicesApi.list
   });
 
   const { data: testimonials, isLoading: testimonialsLoading } = useQuery({
@@ -85,7 +79,7 @@ export default function AnalyticsDashboardPage() {
         />
         
         {/* 1. Overview Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
           {/* Total Visitors */}
           <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
             <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Total Visitors</span>
@@ -102,16 +96,6 @@ export default function AnalyticsDashboardPage() {
             <div className="flex items-end justify-between mt-auto">
               <span className="text-3xl font-display font-extrabold text-graphite leading-none">
                 {messagesLoading ? "..." : Array.isArray(messages) ? messages.length : "0"}
-              </span>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div className="bg-white border border-lightgray rounded-2xl p-6 shadow-card flex flex-col">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-clinical mb-2">Active Services</span>
-            <div className="flex items-end justify-between mt-auto">
-              <span className="text-3xl font-display font-extrabold text-graphite leading-none">
-                {servicesLoading ? "..." : Array.isArray(services) ? services.length : "0"}
               </span>
             </div>
           </div>

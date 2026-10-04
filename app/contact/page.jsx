@@ -36,7 +36,18 @@ export default function ContactPage() {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    let { name, value } = e.target;
+    
+    // Prevent numbers in name fields
+    if (name === "fullName") {
+      value = value.replace(/[0-9]/g, "");
+    }
+    // Prevent letters in phone field
+    else if (name === "phone") {
+      value = value.replace(/[a-zA-Z]/g, "");
+    }
+    
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {

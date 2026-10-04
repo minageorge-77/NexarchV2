@@ -92,7 +92,7 @@ export default function MessagesManagementPage() {
       accessor: (row) => (
         <div>
           <p className="font-medium text-graphite">{row.clinicName}</p>
-          {row.interestedService && <p className="text-xs text-clinical">{row.interestedService}</p>}
+          {row.monthlyEnquiries && <p className="text-xs text-clinical">Enquiries: {row.monthlyEnquiries}</p>}
         </div>
       )
     },
@@ -238,7 +238,7 @@ export default function MessagesManagementPage() {
                   <div>
                     <h4 className="text-xs font-mono uppercase text-clinical mb-1 tracking-wider">Practice Details</h4>
                     <p className="font-medium text-graphite">{viewingMessage.clinicName}</p>
-                    <p className="text-sm text-clinical mt-1">{viewingMessage.interestedService || "N/A"}</p>
+                    <p className="text-sm text-clinical mt-1">{viewingMessage.monthlyEnquiries || "N/A"}</p>
                     
                     <h4 className="text-xs font-mono uppercase text-clinical mt-4 mb-1 tracking-wider">Preferred Date</h4>
                     <p className="text-sm text-clinical font-medium">

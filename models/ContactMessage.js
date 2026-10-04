@@ -23,7 +23,7 @@ const contactMessageSchema = new mongoose.Schema({
     required: [true, 'Clinic name is required'],
     trim: true,
   },
-  interestedService: {
+  monthlyEnquiries: {
     type: String,
     trim: true,
     default: "",

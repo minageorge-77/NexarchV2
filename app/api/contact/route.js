@@ -13,7 +13,7 @@ const contactSchema = z.object({
   email: z.string().email("Invalid email address"),
   phone: z.string().max(20, "Phone number is too long").optional(),
   clinicName: z.string().min(2, "Clinic name is required").max(100, "Clinic name is too long"),
-  interestedService: z.string().max(100, "Service name is too long").optional(),
+  monthlyEnquiries: z.string().max(100, "Value is too long").optional(),
   consultationDate: z.string().optional(),
   message: z.string().max(2000, "Message is too long").optional(),
 });
@@ -77,7 +77,7 @@ export async function POST(req) {
       email: validData.email,
       phone: validData.phone || "",
       clinicName: validData.clinicName,
-      interestedService: validData.interestedService || "",
+      monthlyEnquiries: validData.monthlyEnquiries || "",
       consultationDate: validData.consultationDate || "",
       message: validData.message || "",
     });
@@ -94,7 +94,7 @@ export async function POST(req) {
         <p><strong>Email:</strong> ${validData.email}</p>
         <p><strong>Phone:</strong> ${validData.phone || 'N/A'}</p>
         <p><strong>Clinic Name:</strong> ${validData.clinicName}</p>
-        <p><strong>Interested Service:</strong> ${validData.interestedService || 'N/A'}</p>
+        <p><strong>Monthly Enquiries:</strong> ${validData.monthlyEnquiries || 'N/A'}</p>
         <p><strong>Preferred Consultation Date & Time:</strong> ${formattedDate}</p>
         <p><strong>Message:</strong></p>
         <p>${validData.message ? validData.message.replace(/\n/g, '<br/>') : 'N/A'}</p>

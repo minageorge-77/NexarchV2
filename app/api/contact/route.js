@@ -9,9 +9,9 @@ const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build'
 
 // Define Zod schema for validation
 const contactSchema = z.object({
-  fullName: z.string().min(2, "Full name is required").max(100, "Full name is too long"),
+  fullName: z.string().min(2, "Full name is required").max(100, "Full name is too long").regex(/^[^0-9]*$/, "Name cannot contain numbers"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().max(20, "Phone number is too long").optional(),
+  phone: z.string().max(20, "Phone number is too long").regex(/^[^a-zA-Z]*$/, "Phone number cannot contain letters").optional(),
   clinicName: z.string().min(2, "Clinic name is required").max(100, "Clinic name is too long"),
   monthlyEnquiries: z.string().max(100, "Value is too long").optional(),
   consultationDate: z.string().optional(),

@@ -43,9 +43,15 @@ export default function ContactPage() {
     e.preventDefault();
 
     // Client-side validation
-    if (!formData.fullName.trim() || formData.fullName.length < 2) {
+    const nameStr = formData.fullName.trim();
+    if (!nameStr || nameStr.length < 2) {
       setStatus("error");
       setErrorMessage("Please enter a valid full name (at least 2 characters).");
+      return;
+    }
+    if (/\d/.test(nameStr)) {
+      setStatus("error");
+      setErrorMessage("Name cannot contain numbers.");
       return;
     }
     
@@ -62,10 +68,18 @@ export default function ContactPage() {
       return;
     }
     
-    if (formData.phone && formData.phone.trim().length < 7) {
-      setStatus("error");
-      setErrorMessage("Please enter a valid phone number.");
-      return;
+    if (formData.phone && formData.phone.trim().length > 0) {
+      const phoneStr = formData.phone.trim();
+      if (phoneStr.length < 7) {
+        setStatus("error");
+        setErrorMessage("Please enter a valid phone number (at least 7 characters).");
+        return;
+      }
+      if (/[a-zA-Z]/.test(phoneStr)) {
+        setStatus("error");
+        setErrorMessage("Phone number cannot contain letters.");
+        return;
+      }
     }
 
     setStatus("submitting");

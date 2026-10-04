@@ -4,8 +4,16 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
-  title: `About Us — ${siteConfig.name}`,
-  description: "Who's behind this."
+  title: `About — NexArch | Dental Implant Marketing Specialists`,
+  description: "NexArch is built specifically around dental implant practices. Learn about our team, our approach to implant-focused marketing, and how we work with practices from first cases to full-arch.",
+  alternates: {
+    canonical: "/about"
+  },
+  openGraph: {
+    title: "About NexArch | Dental Implant Marketing Specialists",
+    description: "NexArch is built specifically around dental implant practices — not a generalist agency's side offering. Meet the team and learn how we work.",
+    url: "https://nexarch.co/about"
+  }
 };
 
 export default function AboutPage() {

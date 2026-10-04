@@ -4,8 +4,16 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
-  title: `Approach — ${siteConfig.name}`,
-  description: "How we think about this."
+  title: `Our Approach — NexArch | Dental Implant Marketing Strategy`,
+  description: "NexArch started with the economics of a full-arch dental implant case and built an agency around what that number actually requires — separate campaigns, fast lead response, and case-flow tracking.",
+  alternates: {
+    canonical: "/approach"
+  },
+  openGraph: {
+    title: "NexArch Approach | Dental Implant Marketing Strategy",
+    description: "We started with the economics of a full-arch case and built an agency around it. Why implant campaigns, landing pages, and follow-up sequences need to be built specifically for implants.",
+    url: "https://nexarch.co/approach"
+  }
 };
 
 export default function ApproachPage() {

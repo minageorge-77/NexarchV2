@@ -5,8 +5,16 @@ import Process from "@/components/Process";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
-  title: `Services — ${siteConfig.name}`,
-  description: "Explore our three ways to work with us."
+  title: `Services — NexArch | Dental Implant Marketing Programs`,
+  description: "Three fixed dental implant marketing programs: Presence for local search and reputation, Case Flow for implant lead generation and follow-up, and Authority for full-arch surgeons building reputation at scale.",
+  alternates: {
+    canonical: "/services"
+  },
+  openGraph: {
+    title: "Dental Implant Marketing Programs | NexArch Services",
+    description: "Presence, Case Flow, and Authority — three fixed dental implant marketing programs with stated deliverables. No à la carte menus, no vague retainers.",
+    url: "https://nexarch.co/services"
+  }
 };
 
 const tiers = [

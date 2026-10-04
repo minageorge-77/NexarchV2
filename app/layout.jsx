@@ -9,10 +9,10 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 
 export const metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL("https://nexarch.co"),
   title: {
-    default: `${siteConfig.name} - ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`
+    default: `NexArch — Dental Implant Marketing Platform`,
+    template: `%s | NexArch`
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -36,22 +36,23 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
+    url: "https://nexarch.co",
     siteName: siteConfig.name,
-    title: `${siteConfig.name} - ${siteConfig.tagline}`,
+    title: `NexArch — Dental Implant Marketing Platform`,
     description: siteConfig.description,
     images: [
     {
       url: siteConfig.ogImage,
       width: 1200,
       height: 630,
-      alt: `${siteConfig.name} - ${siteConfig.tagline}`
+      alt: `NexArch — Dental Implant Marketing Platform`
     }]
 
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} - ${siteConfig.tagline}`,
+    site: "@nexarchmarketing",
+    title: `NexArch — Dental Implant Marketing Platform`,
     description: siteConfig.description,
     images: [siteConfig.ogImage]
   },
@@ -75,27 +76,39 @@ export default function RootLayout({ children }) {
     "@type": "Organization",
     name: siteConfig.legalName,
     alternateName: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/nexarchLogo-cropped.png`,
+    url: "https://nexarch.co",
+    logo: "https://nexarch.co/nexarchLogo-cropped.png",
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "30 North Gould Street, Suite 100",
+      addressLocality: "Sheridan",
+      addressRegion: "WY",
+      postalCode: "82801",
+      addressCountry: "US"
+    },
     sameAs: siteConfig.sameAs,
-    "@id": `${siteConfig.url}/#organization`
+    "@id": "https://nexarch.co/#organization"
   };
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Dental Implant Marketing & Growth Platform",
+    name: "Dental Implant Marketing",
+    serviceType: "Dental Implant Marketing & Patient Acquisition",
     provider: {
-      "@id": `${siteConfig.url}/#organization`
+      "@id": "https://nexarch.co/#organization"
     },
-    areaServed: "US",
-    description: siteConfig.description,
+    areaServed: {
+      "@type": "Country",
+      name: "United States"
+    },
+    description: "Search marketing, paid advertising, landing pages, lead follow-up, and case-flow tracking for dental implant practices.",
     audience: {
       "@type": "Audience",
-      audienceType: "Dental implant practices"
+      audienceType: "Dental implant practices and full-arch surgeons"
     }
   };
 

@@ -64,7 +64,7 @@ export async function POST(req) {
     const validationResult = contactSchema.safeParse(body);
     if (!validationResult.success) {
       // Return the first validation error
-      const errorMessage = validationResult.error.errors[0].message;
+      const errorMessage = validationResult.error.issues[0].message;
       return NextResponse.json({ success: false, message: errorMessage }, { status: 400 });
     }
 

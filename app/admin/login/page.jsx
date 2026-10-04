@@ -52,7 +52,7 @@ export default function AdminLoginPage() {
             className="h-12 sm:h-14 w-auto object-contain mb-4"
             priority
           />
-          <h1 className="text-[28px] sm:text-[32px] font-display font-extrabold text-white tracking-tight uppercase flex items-center justify-center gap-2">
+          <h1 className="text-[28px] sm:text-[32px] font-display font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
             <span className="text-white">Nex</span>Arch
           </h1>
           <p className="text-white/60 font-mono text-[11px] uppercase tracking-wider mt-2">

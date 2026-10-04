@@ -159,29 +159,6 @@ export default function AnalyticsDashboardPage() {
                   </table>
                 </div>
               </div>
-
-              {/* Views Over Time (Simple Bar Visualization) */}
-              <div>
-                <h4 className="font-display font-bold text-md text-graphite mb-3">Views Over Time</h4>
-                <div className="flex items-end gap-1 h-32 border-b border-lightgray pb-1 px-1">
-                  {analyticsData?.viewsOverTime?.length > 0 ? (
-                    analyticsData.viewsOverTime.map((day, idx) => {
-                      const maxViews = Math.max(...analyticsData.viewsOverTime.map(d => d.views));
-                      const height = Math.max(5, (day.views / (maxViews || 1)) * 100);
-                      return (
-                        <div key={idx} className="flex-1 flex flex-col items-center group relative cursor-pointer h-full justify-end">
-                          <div className="w-full bg-gold/60 group-hover:bg-gold rounded-t-sm transition-colors" style={{ height: `${height}%` }}></div>
-                          <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 bg-graphite text-white text-[10px] font-mono py-0.5 px-1.5 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none z-10 transition-opacity">
-                            {day.date}: {day.views} views
-                          </div>
-                        </div>
-                      )
-                    })
-                  ) : (
-                     <div className="w-full h-full flex items-center justify-center text-xs text-clinical">Not enough data to display chart.</div>
-                  )}
-                </div>
-              </div>
             </div>
           )}
         </div>

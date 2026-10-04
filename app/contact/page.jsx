@@ -41,6 +41,33 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Client-side validation
+    if (!formData.fullName.trim() || formData.fullName.length < 2) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid full name (at least 2 characters).");
+      return;
+    }
+    
+    if (!formData.clinicName.trim() || formData.clinicName.length < 2) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid practice name.");
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+    
+    if (formData.phone && formData.phone.trim().length < 7) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid phone number.");
+      return;
+    }
+
     setStatus("submitting");
     setErrorMessage("");
 

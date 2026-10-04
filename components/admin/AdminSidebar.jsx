@@ -36,7 +36,6 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
         <div className="h-16 flex items-center px-6 border-b border-white/10 shrink-0">
           <Link href="/admin" className="flex items-center gap-3">
             <Image src="/nexarchLogo-cropped.png" alt="NexArch Logo" width={140} height={36} className="h-8 w-auto object-contain" />
-            <span className="text-xl font-display font-extrabold tracking-wider uppercase text-white">NexArch</span>
           </Link>
         </div>
 

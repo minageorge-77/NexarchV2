@@ -38,7 +38,8 @@ async function runTests() {
         email: "test@nexarch.co", 
         clinicName: "Test Clinic", 
         phone: "1234567", 
-        monthlyEnquiries: "15", 
+        monthlyEnquiries: "15",
+        consultationDate: "2026-10-05T10:00",
         message: "Integration test message" 
       })
     });

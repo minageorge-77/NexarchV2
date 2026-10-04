@@ -11,11 +11,11 @@ const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build'
 const contactSchema = z.object({
   fullName: z.string().min(2, "Full name is required").max(100, "Full name is too long").regex(/^[^0-9]*$/, "Name cannot contain numbers"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().max(20, "Phone number is too long").regex(/^[^a-zA-Z]*$/, "Phone number cannot contain letters").optional(),
+  phone: z.string().min(7, "Phone number is required").max(20, "Phone number is too long").regex(/^[^a-zA-Z]*$/, "Phone number cannot contain letters"),
   clinicName: z.string().min(2, "Clinic name is required").max(100, "Clinic name is too long"),
-  monthlyEnquiries: z.string().max(100, "Value is too long").optional(),
-  consultationDate: z.string().optional(),
-  message: z.string().max(2000, "Message is too long").optional(),
+  monthlyEnquiries: z.string().min(1, "Monthly enquiries is required").max(100, "Value is too long"),
+  consultationDate: z.string().min(1, "Consultation date is required"),
+  message: z.string().min(1, "Message is required").max(2000, "Message is too long"),
 });
 
 // Simple In-Memory Rate Limiting

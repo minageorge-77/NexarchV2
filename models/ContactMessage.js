@@ -15,8 +15,8 @@ const contactMessageSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
+    required: [true, 'Phone number is required'],
     trim: true,
-    default: "",
   },
   clinicName: {
     type: String,
@@ -25,18 +25,18 @@ const contactMessageSchema = new mongoose.Schema({
   },
   monthlyEnquiries: {
     type: String,
+    required: [true, 'Monthly enquiries is required'],
     trim: true,
-    default: "",
   },
   consultationDate: {
     type: String,
+    required: [true, 'Consultation date is required'],
     trim: true,
-    default: "",
   },
   message: {
     type: String,
+    required: [true, 'Message is required'],
     trim: true,
-    default: "",
   },
   status: {
     type: String,

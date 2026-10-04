@@ -73,24 +73,40 @@ export default function ContactPage() {
     }
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email.trim())) {
+    if (!formData.email || !emailRegex.test(formData.email.trim())) {
       setStatus("error");
       setErrorMessage("Please enter a valid email address.");
       return;
     }
     
-    if (formData.phone && formData.phone.trim().length > 0) {
-      const phoneStr = formData.phone.trim();
-      if (phoneStr.length < 7) {
-        setStatus("error");
-        setErrorMessage("Please enter a valid phone number (at least 7 characters).");
-        return;
-      }
-      if (/[a-zA-Z]/.test(phoneStr)) {
-        setStatus("error");
-        setErrorMessage("Phone number cannot contain letters.");
-        return;
-      }
+    const phoneStr = formData.phone ? formData.phone.trim() : "";
+    if (!phoneStr || phoneStr.length < 7) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid phone number (at least 7 characters).");
+      return;
+    }
+    if (/[a-zA-Z]/.test(phoneStr)) {
+      setStatus("error");
+      setErrorMessage("Phone number cannot contain letters.");
+      return;
+    }
+
+    if (!formData.monthlyEnquiries || !formData.monthlyEnquiries.trim()) {
+      setStatus("error");
+      setErrorMessage("Please enter your current monthly enquiries.");
+      return;
+    }
+
+    if (!formData.consultationDate) {
+      setStatus("error");
+      setErrorMessage("Please select a consultation date.");
+      return;
+    }
+
+    if (!formData.message || !formData.message.trim()) {
+      setStatus("error");
+      setErrorMessage("Please tell us what you are hoping to fix.");
+      return;
     }
 
     setStatus("submitting");
@@ -218,24 +234,24 @@ export default function ContactPage() {
                         <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="john@example.com" />
                       </div>
                       <div>
-                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Phone</label>
-                        <input name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="+1 (555) 000-0000" />
+                        <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Phone *</label>
+                        <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="+1 (555) 000-0000" />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Current monthly implant enquiries (approx.)</label>
-                      <input name="monthlyEnquiries" value={formData.monthlyEnquiries} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="e.g. 10" />
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Current monthly implant enquiries *</label>
+                      <input required name="monthlyEnquiries" value={formData.monthlyEnquiries} onChange={handleChange} type="text" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" placeholder="e.g. 10" />
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Preferred Consultation Date & Time</label>
-                      <input name="consultationDate" value={formData.consultationDate || ""} onChange={handleChange} min={minDate} type="datetime-local" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" />
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">Preferred Consultation Date & Time *</label>
+                      <input required name="consultationDate" value={formData.consultationDate || ""} onChange={handleChange} min={minDate} type="datetime-local" className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors" />
                     </div>
 
                     <div>
-                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">What are you hoping to fix?</label>
-                      <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors resize-none" placeholder="Tell us about your practice..."></textarea>
+                      <label className="block font-mono text-[10px] uppercase text-clinical mb-2">What are you hoping to fix? *</label>
+                      <textarea required name="message" value={formData.message} onChange={handleChange} rows={3} className="w-full bg-[#f7f7f7] border border-lightgray rounded-xl px-4 py-3 text-graphite focus:outline-none focus:border-graphite transition-colors resize-none" placeholder="Tell us about your practice..."></textarea>
                     </div>
 
                     <div className="pt-2">

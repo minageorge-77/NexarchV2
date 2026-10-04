@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminTopNav from "@/components/admin/AdminTopNav";
 import AuthGuard from "@/components/admin/AuthGuard";
@@ -8,7 +8,14 @@ import AuthGuard from "@/components/admin/AuthGuard";
 export default function AdminDashboardLayout({
   children
 }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  useEffect(() => {
+    // On tablet & mobile screens (< 1024px), close sidebar by default
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+  }, []);
 
   return (
     <AuthGuard>

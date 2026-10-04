@@ -19,12 +19,13 @@ export default function AdminTopNav({ setIsOpen }) {
   const initials = user?.name?.charAt(0) || "A";
 
   return (
-    <header className="h-16 bg-white border-b border-lightgray flex items-center justify-between px-6 shrink-0 sticky top-0 z-30">
-      <div className="flex items-center gap-4">
+    <header className="h-16 bg-white border-b border-lightgray flex items-center justify-between px-4 sm:px-6 shrink-0 sticky top-0 z-30">
+      <div className="flex items-center gap-2 sm:gap-4">
         <button
-          onClick={() => setIsOpen(true)}
-          className="lg:hidden p-2 -ml-2 text-clinical hover:text-black transition-colors">
-          
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="p-2 -ml-1 sm:-ml-2 text-clinical hover:text-graphite transition-colors rounded-lg hover:bg-black/5"
+          title="Toggle Navigation Menu"
+          aria-label="Toggle Navigation Menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -32,18 +33,17 @@ export default function AdminTopNav({ setIsOpen }) {
 
         <Link
           href="/"
-          className="flex items-center gap-2 text-sm font-bold text-graphite hover:text-clinical transition-colors"
+          className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-graphite hover:text-clinical transition-colors"
           title="Return to Home">
-          
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
           </svg>
-          <span>Home</span>
+          <span className="hidden xs:inline sm:inline">Home</span>
         </Link>
 
         <Link
           href="/admin/messages"
-          className="flex items-center gap-2 text-sm font-bold text-graphite hover:text-clinical transition-colors ml-4"
+          className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-graphite hover:text-clinical transition-colors ml-1 sm:ml-2"
           title="View Messages">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

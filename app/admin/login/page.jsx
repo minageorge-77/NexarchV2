@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
             priority
           />
           <h1 className="text-[28px] sm:text-[32px] font-display font-extrabold text-white tracking-tight uppercase flex items-center justify-center gap-2">
-            <span className="text-white">Nex</span>Arch <span className="text-white/30 font-light">OS</span>
+            <span className="text-white">Nex</span>Arch
           </h1>
           <p className="text-white/60 font-mono text-[11px] uppercase tracking-wider mt-2">
             Sign in Page

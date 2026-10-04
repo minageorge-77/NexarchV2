@@ -17,6 +17,9 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
 }
 
+let lastTrackedUrl = "";
+let lastTrackedTime = 0;
+
 export default function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -24,6 +27,17 @@ export default function AnalyticsTracker() {
   useEffect(() => {
     // Only track actual routes, ignore API or static files if they somehow trigger this
     if (!pathname || pathname.startsWith("/api") || pathname.startsWith("/admin")) return;
+
+    const currentUrl = pathname + (searchParams ? searchParams.toString() : "");
+    const now = Date.now();
+
+    // Prevent double tracking of the exact same URL within 2 seconds (fixes React 18 Strict Mode double fires)
+    if (lastTrackedUrl === currentUrl && now - lastTrackedTime < 2000) {
+      return;
+    }
+
+    lastTrackedUrl = currentUrl;
+    lastTrackedTime = now;
 
     let sessionId = getCookie("nexarch_session_id");
 

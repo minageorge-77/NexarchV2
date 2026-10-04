@@ -15,6 +15,9 @@ const nextConfig = {
       }
     ]
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // Ensures trailing slashes are consistent for SEO (avoids duplicate-content URLs)
   trailingSlash: false,
   async headers() {

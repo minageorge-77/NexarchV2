@@ -33,6 +33,12 @@ export const authOptions = {
         }
 
         await connectDB();
+        
+        // Prevent DoS by throwing out absurdly long passwords before bcrypt hashes them
+        if (!credentials?.password || credentials.password.length > 200) {
+          throw new Error("Invalid email or password");
+        }
+
         const admin = await Admin.findOne({ email: credentials?.email?.toLowerCase() });
         if (!admin) {
           throw new Error("Invalid email or password");

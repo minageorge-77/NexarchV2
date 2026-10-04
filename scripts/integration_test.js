@@ -10,7 +10,7 @@ async function runTests() {
     const trackRes = await fetch(BASE_URL + "/analytics/track", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ path: "/test-page", sessionId: "test-session-123" })
+      body: JSON.stringify({ path: "/", sessionId: "test-session-123" })
     });
     const trackData = await trackRes.json();
     if(trackData.success) console.log("? Analytics tracking passed");
